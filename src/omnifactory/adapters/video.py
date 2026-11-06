@@ -58,16 +58,16 @@ def decode_video(path, block, *, fps, max_frames, max_seconds, max_pixels, max_b
         "-nostdin",
         "-noautorotate",
         "-ss",
-        str(start),
+        f"{start:.6f}",
         "-i",
         str(path),
-        "-t",
-        str(end - start),
     ]
     # A fixed sampling grid defines each audiovisual unit. Preserve source PTS in metadata.
     raw = run_media(
         common
         + [
+            "-t",
+            f"{end - start:.6f}",
             "-map",
             "0:v:0",
             "-vf",
@@ -90,6 +90,10 @@ def decode_video(path, block, *, fps, max_frames, max_seconds, max_pixels, max_b
     images = [Image.fromarray(x).copy() for x in pixels]
     clips = []
     if audio:
+        expected = round((end - start) * 16000)
+        # Apply the audio limit on the resampled sample grid. Muxer time limits
+        # can round differently from this grid when the source uses AAC packets.
+        audio_filter = f"aresample=16000,apad=whole_len={expected},atrim=end_sample={expected}"
         samples = run_media(
             common
             + [
@@ -101,14 +105,13 @@ def decode_video(path, block, *, fps, max_frames, max_seconds, max_pixels, max_b
                 "-ar",
                 "16000",
                 "-af",
-                "apad",
+                audio_filter,
                 "-f",
                 "f32le",
                 "pipe:1",
             ]
         )
         waveform = np.frombuffer(samples, dtype="<f4").copy()
-        expected = round((end - start) * 16000)
         if len(waveform) != expected or not np.isfinite(waveform).all():
             raise OmniFactoryError(
                 "E_VIDEO_AUDIO", "audio duration or samples do not match selected video"

@@ -91,13 +91,15 @@ def test_video_soundtrack_policy_and_frame_budget(runtime):
         adapter.encode(sample, "p0", contract_id="video")
 
 
-def test_video_partial_slice(runtime):
+@pytest.mark.parametrize("start_us", [250000, 80])
+def test_video_partial_slice(runtime, start_us):
     _, config, samples = runtime
     adapter = MiniCPMAdapter.from_config(config.model_copy(update={"task": "understanding_sft"}))
     raw = text_target(samples[3]).model_dump(mode="json")
-    raw["messages"][0]["content"][0]["media"].update(start_us=250000, end_us=750000)
+    end_us = start_us + 500000
+    raw["messages"][0]["content"][0]["media"].update(start_us=start_us, end_us=end_us)
     e = adapter.encode(CanonicalSample.model_validate(raw), "p0", contract_id="slice")
-    assert e.metadata["video"][0]["frames"] == [{"start_us": 250000, "end_us": 750000}]
+    assert e.metadata["video"][0]["frames"] == [{"start_us": start_us, "end_us": end_us}]
     assert e.payload["audio_feature_lens"][0].tolist() == [50]
 
 
