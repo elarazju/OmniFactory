@@ -1,0 +1,188 @@
+{
+  "adapter": "voxcpm2",
+  "task": "speech_sft",
+  "training": {
+    "checkpoint": "<workdir>/results/voxcpm2-speech-v2/run/checkpoint-00000002",
+    "steps": 2,
+    "last_loss": 0.9254694214233985,
+    "trainable_parameters": 9527296,
+    "device": "cuda",
+    "base_model": "<workdir>/assets/VoxCPM2-verified",
+    "vllm_deployment_verified": false,
+    "feature_cache": {}
+  },
+  "exact_resume": true,
+  "native_reload_max_abs": {
+    "velocity": 0.0,
+    "stop": 0.0
+  },
+  "merge_weight_max_abs": 3.725290298461914e-09,
+  "vae_unchanged": true,
+  "evaluation": {
+    "predictions": 4,
+    "loss": 1.0033938952212065,
+    "normalization_counts": {
+      "latent_frames": 424.0,
+      "stop_symbols": 106.0
+    },
+    "normalization_units": {
+      "latent_frames": "frames",
+      "stop_symbols": "symbols"
+    },
+    "loss_terms": {
+      "flow": {
+        "numerator": 368.3086395263672,
+        "normalizer": "latent_frames",
+        "kind": "flow_matching",
+        "weight": 1.0
+      },
+      "stop": {
+        "numerator": 14.282593011856079,
+        "normalizer": "stop_symbols",
+        "kind": "cross_entropy",
+        "weight": 1.0
+      }
+    },
+    "objective_measures": {
+      "flow": 424.0,
+      "stop": 106.0
+    },
+    "target_tokens": null,
+    "perplexity": null,
+    "codec_loss": null,
+    "codec_tokens": 0,
+    "exact_match": null,
+    "generation": null,
+    "scope": "held-out declared supervision objectives; not perceptual quality"
+  },
+  "product_inference": {
+    "predictions": 4,
+    "audio_predictions": 4,
+    "empty_audio_predictions": 0,
+    "output": "<workdir>/results/voxcpm2-speech-v2/predictions.jsonl",
+    "backend": "transformers-cuda"
+  },
+  "native_export": {
+    "format": "vllm-omni",
+    "adapter": "voxcpm2",
+    "inference_config": {
+      "model": "<workdir>/assets/VoxCPM2-verified",
+      "revision": null,
+      "dataset": "<workdir>/results/librispeech-tts-pilot/train.jsonl",
+      "dataset_root": null,
+      "output_dir": "<workdir>/results/voxcpm2-speech-v2/run",
+      "adapter": "voxcpm2",
+      "task": "speech_sft",
+      "duplex_schedule": null,
+      "max_attention_pairs": 1000000,
+      "flow_sigma_min": 1e-06,
+      "flow_cfg_dropout": 0.2,
+      "speech_tokenizer": null,
+      "speech_assets": null,
+      "speech_tokenizer_sha256": null,
+      "speech_codes": null,
+      "speech_speaker": "Chelsie",
+      "text_loss_weight": 1.0,
+      "speech_loss_weight": 1.0,
+      "max_codec_tokens": 128,
+      "video_fps": 1.0,
+      "max_video_frames": 32,
+      "max_video_seconds": 30.0,
+      "device": "cpu",
+      "dtype": "float32",
+      "quantization": "none",
+      "attention": "sdpa",
+      "feature_cache": null,
+      "feature_cache_components": [
+        "vision_encoder",
+        "audio_encoder"
+      ],
+      "packing": "none",
+      "gradient_checkpointing": false,
+      "max_steps": 2,
+      "save_steps": 1,
+      "gradient_accumulation_steps": 4,
+      "max_length": 512,
+      "max_audio_seconds": 8.0,
+      "max_image_pixels": 1048576,
+      "seed": 42,
+      "max_grad_norm": 1.0,
+      "components": {
+        "language_model": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "residual_model": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "audio_decoder": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "speech_projection": {
+          "mode": "full",
+          "lr": 1e-05,
+          "rank": null,
+          "alpha": null,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "stop_predictor": {
+          "mode": "full",
+          "lr": 1e-05,
+          "rank": null,
+          "alpha": null,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        }
+      },
+      "budget": {
+        "max_examples": 1,
+        "max_llm_tokens": 512,
+        "max_vision_patches": 1,
+        "max_audio_frames": 1024,
+        "max_codec_frames": 1,
+        "max_decoded_media_bytes": 16777216,
+        "max_gpu_bytes": null,
+        "max_latent_elements": 131072,
+        "max_stream_events": null
+      },
+      "window_size": 64,
+      "resume_from": null,
+      "memory_profile": null
+    },
+    "source_checkpoint": "<workdir>/results/voxcpm2-speech-v2/run/checkpoint-00000002",
+    "source_fingerprint": "2272f83d49b161617a8f7963213f7013d6b1afebd8600128b651fddee221c6ee",
+    "output": "<workdir>/results/voxcpm2-speech-v2/export",
+    "lora_merged": true,
+    "vllm_deployment_verified": false,
+    "native_architecture": "voxcpm2",
+    "audio_vae_unchanged": true
+  },
+  "pretrained_training_verified": true,
+  "vllm_serving_verified": false,
+  "quality_verified": false
+}

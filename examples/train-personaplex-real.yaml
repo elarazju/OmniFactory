@@ -1,0 +1,49 @@
+# Supplied real duplex sessions, up to 180 seconds including held-out inference.
+# Prepare with datasets import-duplex or scripts/prepare_ami_duplex.py.
+# Budgets include the voice/persona prefix; these are bounds, not a minimum VRAM claim.
+model: nvidia/personaplex-7b-v1
+revision: fdaf4090a61cb315c138a1faee287ffd6c716309
+adapter: personaplex
+task: speech_sft
+dataset: ../data/duplex-real/train.jsonl
+dataset_root: ../data/duplex-real
+validation_dataset: ../data/duplex-real/validation.jsonl
+validation_root: ../data/duplex-real
+duplex_text_alignment: ../data/duplex-real/text-alignment.json
+personaplex_voice: NATF2.pt
+personaplex_user_loss_weight: 0.0
+output_dir: ../outputs/personaplex-real
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_length: 3072
+max_attention_pairs: 9437184
+max_audio_seconds: 180
+max_codec_tokens: 2250
+max_steps: 16
+save_steps: 8
+eval_steps: 8
+gradient_accumulation_steps: 1
+components:
+  temporal_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: [out_proj]
+  audio_projector:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: ['0', '1', '2', '3', '4', '5', '6', '7']
+budget:
+  max_examples: 1
+  max_llm_tokens: 3072
+  max_codec_frames: 4500
+  max_audio_frames: 4500
+  max_vision_patches: 1
+  max_decoded_media_bytes: 67108864
+  max_stream_events: 9216

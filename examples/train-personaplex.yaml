@@ -1,0 +1,47 @@
+# Native duplex SFT with explicitly timed user/agent recordings.
+model: nvidia/personaplex-7b-v1
+revision: fdaf4090a61cb315c138a1faee287ffd6c716309
+adapter: personaplex
+task: speech_sft
+dataset: ../data/duplex/train.jsonl
+dataset_root: ../data/duplex
+validation_dataset: ../data/duplex/validation.jsonl
+validation_root: ../data/duplex
+duplex_text_alignment: ../data/duplex/text-alignment.json
+personaplex_voice: NATF2.pt
+personaplex_user_loss_weight: 0.0
+output_dir: ../outputs/personaplex
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_length: 1024
+max_attention_pairs: 1048576
+max_audio_seconds: 30
+max_codec_tokens: 375
+max_steps: 100
+save_steps: 25
+eval_steps: 25
+gradient_accumulation_steps: 4
+components:
+  temporal_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: [out_proj]
+  audio_projector:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: ['0', '1', '2', '3', '4', '5', '6', '7']
+budget:
+  max_examples: 1
+  max_llm_tokens: 1024
+  max_codec_frames: 750
+  max_audio_frames: 750
+  max_vision_patches: 1
+  max_decoded_media_bytes: 16777216
+  max_stream_events: 3072

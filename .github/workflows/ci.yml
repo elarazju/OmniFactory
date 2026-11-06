@@ -1,0 +1,81 @@
+name: cpu-contracts
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run pytest
+      - run: uv run omnifactory models render-docs --check
+      - name: Check public evidence for machine paths
+        run: |
+          if grep -RIlE '/(Users/|home/|apdcephfs|tmp/)' src/omnifactory/evidence; then
+            echo 'Replace machine paths in bundled evidence before release.'
+            exit 1
+          fi
+      - run: uv build --no-sources
+      - name: Check distribution metadata
+        run: uvx twine check --strict dist/*.whl dist/*.tar.gz
+      - run: uv build examples/external_adapter --out-dir dist/plugin
+      - name: Verify the built wheel includes evidence and works without torch
+        shell: bash
+        run: |
+          uv venv /tmp/omnifactory-wheel
+          uv pip install --python /tmp/omnifactory-wheel/bin/python dist/*.whl
+          uv pip install --python /tmp/omnifactory-wheel/bin/python --no-deps dist/plugin/*.whl
+          cd /tmp
+          /tmp/omnifactory-wheel/bin/python -c 'import sys; from omnifactory.adapters.runtime import adapter_spec; assert adapter_spec("example_qwen_fixture").batch_capability("understanding_sft").heterogeneous; assert "torch" not in sys.modules'
+          /tmp/omnifactory-wheel/bin/omnifactory doctor
+          /tmp/omnifactory-wheel/bin/omnifactory models list
+          /tmp/omnifactory-wheel/bin/python -c 'from importlib.resources import files; import yaml; from omnifactory.initialization import RECIPES; assert all(yaml.safe_load(files("omnifactory").joinpath(f"recipes/{name}.yaml").read_text())["model"] for name in RECIPES)' 
+      - name: Hash release candidates
+        if: matrix.python == '3.11' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: cd dist && sha256sum *.whl *.tar.gz > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        if: matrix.python == '3.11' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          name: omnifactory-release-candidate
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/SHA256SUMS
+          if-no-files-found: error
+  tiny-training:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.13'
+      - if: runner.os == 'macOS'
+        run: brew install ffmpeg
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: uv sync --locked --extra train --extra image --extra personaplex
+      - run: uv run --extra train --extra image --extra personaplex pytest -q
+      - run: uv pip install --python .venv/bin/python --no-deps ./examples/external_adapter
+      - name: External adapter shared regression and full lifecycle
+        shell: bash
+        run: |
+          runner="$PWD/.venv/bin/omnifactory-example-check"
+          cd /tmp
+          "$runner" --output /tmp/omnifactory-external-acceptance
+      - run: uv run --extra train omnifactory smoke --output outputs/ci-smoke --steps 4
+      - run: uv run --extra train omnifactory smoke --adapter qwen3_omni --output outputs/ci-qwen3 --steps 4
+      - run: uv run --extra train omnifactory smoke --adapter minicpm_o_4_5 --output outputs/ci-minicpm --steps 4
+      - run: uv run --extra train omnifactory smoke --adapter qwen2_5_omni --speech --output outputs/ci-qwen-speech --steps 4
+      - run: uv run --extra train omnifactory smoke --adapter mimo_audio --speech --output outputs/ci-mimo --steps 80

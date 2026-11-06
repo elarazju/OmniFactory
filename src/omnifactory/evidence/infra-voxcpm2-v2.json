@@ -1,0 +1,458 @@
+{
+  "format": "omnifactory-acceptance-v1",
+  "adapter": "voxcpm2",
+  "task": "speech_sft",
+  "model": "<workdir>/assets/VoxCPM2-verified",
+  "revision": null,
+  "created_at": "2026-10-26T08:45:10.133961+00:00",
+  "source_fingerprint": "2272f83d49b161617a8f7963213f7013d6b1afebd8600128b651fddee221c6ee",
+  "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+  "gates": {
+    "prepare": {
+      "status": "passed",
+      "details": {
+        "records": 24,
+        "data_fingerprint": "7148d1a634d45d096f160a6e11ff09672a740336e3e32dfbf706acadeadac9bf"
+      },
+      "evidence": {}
+    },
+    "train": {
+      "status": "passed",
+      "details": {
+        "checkpoint": "<workdir>/results/infra-voxcpm2-v2/acceptance/run/checkpoint-00000064",
+        "steps": 64,
+        "last_loss": 0.8877750791487147,
+        "best_checkpoint": "<workdir>/results/infra-voxcpm2-v2/acceptance/run/checkpoint-00000064",
+        "best_metric": 1.0099326213480722,
+        "prepared_dataset": "<workdir>/results/infra-voxcpm2-v2/acceptance/prepared",
+        "trainable_parameters": 9527296,
+        "device": "cuda",
+        "base_model": "<workdir>/assets/VoxCPM2-verified",
+        "vllm_deployment_verified": false,
+        "feature_cache": {}
+      },
+      "evidence": {}
+    },
+    "resume": {
+      "status": "passed",
+      "details": {
+        "max_abs": 0,
+        "checkpoint": "<workdir>/results/infra-voxcpm2-v2/acceptance/run/checkpoint-00000016"
+      },
+      "evidence": {}
+    },
+    "export": {
+      "status": "passed",
+      "details": {
+        "format": "merged",
+        "adapter": "voxcpm2",
+        "inference_config": {
+          "model": "<workdir>/assets/VoxCPM2-verified",
+          "revision": null,
+          "dataset": "<workdir>/results/librispeech-tts-infra/train.jsonl",
+          "dataset_root": null,
+          "output_dir": "<workdir>/results/infra-voxcpm2-v2/acceptance/run",
+          "adapter": "voxcpm2",
+          "task": "speech_sft",
+          "image_height": 256,
+          "image_width": 256,
+          "duplex_schedule": null,
+          "max_attention_pairs": 1000000,
+          "flow_sigma_min": 1e-06,
+          "flow_cfg_dropout": 0.2,
+          "speech_tokenizer": null,
+          "speech_assets": null,
+          "speech_tokenizer_sha256": null,
+          "speech_codes": null,
+          "speech_speaker": "Chelsie",
+          "text_loss_weight": 1.0,
+          "speech_loss_weight": 1.0,
+          "max_codec_tokens": 750,
+          "video_fps": 1.0,
+          "max_video_frames": 32,
+          "max_video_seconds": 30.0,
+          "device": "cpu",
+          "dtype": "float32",
+          "quantization": "none",
+          "attention": "sdpa",
+          "feature_cache": null,
+          "feature_cache_components": [
+            "vision_encoder",
+            "audio_encoder"
+          ],
+          "packing": "none",
+          "gradient_checkpointing": false,
+          "max_steps": 64,
+          "save_steps": 32,
+          "gradient_accumulation_steps": 4,
+          "max_length": 4096,
+          "max_audio_seconds": 30.0,
+          "max_image_pixels": 1048576,
+          "seed": 42,
+          "max_grad_norm": 1.0,
+          "components": {
+            "language_model": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 4,
+              "alpha": 8.0,
+              "target_modules": [
+                "q_proj",
+                "v_proj"
+              ]
+            },
+            "residual_model": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 4,
+              "alpha": 8.0,
+              "target_modules": [
+                "q_proj",
+                "v_proj"
+              ]
+            },
+            "audio_decoder": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 4,
+              "alpha": 8.0,
+              "target_modules": [
+                "q_proj",
+                "v_proj"
+              ]
+            },
+            "speech_projection": {
+              "mode": "full",
+              "lr": 1e-05,
+              "rank": null,
+              "alpha": null,
+              "target_modules": [
+                "q_proj",
+                "v_proj"
+              ]
+            },
+            "stop_predictor": {
+              "mode": "full",
+              "lr": 1e-05,
+              "rank": null,
+              "alpha": null,
+              "target_modules": [
+                "q_proj",
+                "v_proj"
+              ]
+            }
+          },
+          "budget": {
+            "max_examples": 1,
+            "max_llm_tokens": 4096,
+            "max_vision_patches": 1,
+            "max_audio_frames": 10000,
+            "max_codec_frames": 10000,
+            "max_decoded_media_bytes": 64000000,
+            "max_gpu_bytes": null,
+            "max_latent_elements": 1000000,
+            "max_stream_events": null
+          },
+          "window_size": 64,
+          "resume_from": null,
+          "memory_profile": null,
+          "prepared_dataset": "<workdir>/results/infra-voxcpm2-v2/acceptance/prepared",
+          "validation_dataset": "<workdir>/results/librispeech-tts-infra/validation.jsonl",
+          "validation_root": null,
+          "eval_steps": 16,
+          "save_total_limit": null,
+          "weight_decay": 0.01,
+          "lr_scheduler": "cosine",
+          "warmup_steps": 4,
+          "scheduler_steps": 64
+        },
+        "source_checkpoint": "<workdir>/results/infra-voxcpm2-v2/acceptance/run/checkpoint-00000064",
+        "source_fingerprint": "2272f83d49b161617a8f7963213f7013d6b1afebd8600128b651fddee221c6ee",
+        "output": "<workdir>/results/infra-voxcpm2-v2/acceptance/export",
+        "lora_merged": true,
+        "vllm_deployment_verified": false,
+        "native_architecture": "voxcpm2",
+        "audio_vae_unchanged": true
+      },
+      "evidence": {
+        "export/artifact-manifest.json": "c01486c29090d3943369647f26328ff8f1cfb3ca8f71aba44678a2ec1b853752"
+      }
+    },
+    "inference": {
+      "status": "passed",
+      "details": {
+        "predictions": 8,
+        "audio_predictions": 8,
+        "image_predictions": 0,
+        "empty_audio_predictions": 0,
+        "output": "<workdir>/results/infra-voxcpm2-v2/tuned-generation.jsonl",
+        "backend": "native-cuda",
+        "audio_limit_unit": "latent_patches"
+      },
+      "evidence": {
+        "tuned-generation.jsonl": "2225fb0b8bc0581d45f19e5aa1c9109c0cf0d52657b8f2b7ff0963b1cf1d3f36"
+      }
+    },
+    "native_reference": {
+      "status": "not_run",
+      "details": {},
+      "evidence": {}
+    },
+    "http": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+        "adapter": "voxcpm2",
+        "requests": 8,
+        "results": [
+          {
+            "sample_id": "6241-61943-0019",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:36 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "16",
+              "x-vllm-omni-output-tokens": "22",
+              "x-vllm-omni-total-tokens": "38",
+              "x-vllm-omni-input-text-tokens": "16",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "337964",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "7cb5066e3c2b162288db0676bdb81d3d8bc3174e485f0ac2c31359d0e17df837",
+            "sample_rate": 48000,
+            "audio_frames": 168960
+          },
+          {
+            "sample_id": "777-126732-0044",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:38 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "28",
+              "x-vllm-omni-output-tokens": "22",
+              "x-vllm-omni-total-tokens": "50",
+              "x-vllm-omni-input-text-tokens": "28",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "337964",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "04d51d6d1ae979833c653f274c545a43b93c1bd16aea3f4ddc11ffee01912c65",
+            "sample_rate": 48000,
+            "audio_frames": 168960
+          },
+          {
+            "sample_id": "2803-154328-0014",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:40 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "21",
+              "x-vllm-omni-output-tokens": "27",
+              "x-vllm-omni-total-tokens": "48",
+              "x-vllm-omni-input-text-tokens": "21",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "414764",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "e0228d67780653b1764f6ee480ab4b67d08a0326542d7199e4e9ae996e155fbf",
+            "sample_rate": 48000,
+            "audio_frames": 207360
+          },
+          {
+            "sample_id": "2277-149874-0015",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:40 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "30",
+              "x-vllm-omni-output-tokens": "50",
+              "x-vllm-omni-total-tokens": "80",
+              "x-vllm-omni-input-text-tokens": "30",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "768044",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "08802a75adb89c94e482c4a7864600047d8159c8b038970c2faf6c74800d13df",
+            "sample_rate": 48000,
+            "audio_frames": 384000
+          },
+          {
+            "sample_id": "2277-149896-0028",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:41 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "24",
+              "x-vllm-omni-output-tokens": "28",
+              "x-vllm-omni-total-tokens": "52",
+              "x-vllm-omni-input-text-tokens": "24",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "430124",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "ab9e7900a063951b22bfc914f30db87a3447969f69b48ecc3c1135eb592d53e4",
+            "sample_rate": 48000,
+            "audio_frames": 215040
+          },
+          {
+            "sample_id": "2277-149897-0028",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:41 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "25",
+              "x-vllm-omni-output-tokens": "33",
+              "x-vllm-omni-total-tokens": "58",
+              "x-vllm-omni-input-text-tokens": "25",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "506924",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "f2f8ba118f9dd5f46341239df387effb41086704bb054aaae4b337fbb51f4324",
+            "sample_rate": 48000,
+            "audio_frames": 253440
+          },
+          {
+            "sample_id": "2277-149897-0007",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:42 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "43",
+              "x-vllm-omni-output-tokens": "54",
+              "x-vllm-omni-total-tokens": "97",
+              "x-vllm-omni-input-text-tokens": "43",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "829484",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "f49b0602c2a34b42edda72f4e0086507c64b324e3cdaef208f85a40c27781667",
+            "sample_rate": 48000,
+            "audio_frames": 414720
+          },
+          {
+            "sample_id": "6241-61943-0017",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 08:52:42 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "39",
+              "x-vllm-omni-output-tokens": "34",
+              "x-vllm-omni-total-tokens": "73",
+              "x-vllm-omni-input-text-tokens": "39",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "48000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "522284",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "a07dadf9dc7b56b26601a1f95e5b79a0d88b5fb8613382321d0b7fb27e11e39a",
+            "sample_rate": 48000,
+            "audio_frames": 261120
+          }
+        ],
+        "modality": "audio",
+        "quality_verified": false,
+        "launch_command": [
+          "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+          "serve",
+          "<workdir>/results/infra-voxcpm2-v2/acceptance/export",
+          "--omni",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "41367",
+          "--served-model-name",
+          "omnifactory-acceptance",
+          "--trust-remote-code",
+          "--deploy-config",
+          "<workdir>/OmniFactory/examples/deploy-voxcpm2.yaml",
+          "--disable-log-stats"
+        ],
+        "server_log_sha256": "495a945ea41499b7b4367dd50a23125a21ce234b14a1b6238d8421e8f73503cf"
+      },
+      "evidence": {
+        "<workdir>/results/infra-voxcpm2-http-v2/acceptance.json": "9658883ed57f9fc5b01a09e006b4fb5ae9c45b7524cff48ad7b28c2c6311e4cd"
+      }
+    },
+    "quality": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+        "scorer": "Qwen3-Omni greedy ASR / e82a9eb25919fcdd5dc69ed515003d163bf999d696d3d17a3c2a702ee5cdba75",
+        "baseline": {
+          "wer": 0.10256410256410256,
+          "errors": 12,
+          "reference_words": 117,
+          "examples": 8
+        },
+        "tuned": {
+          "wer": 0.05128205128205128,
+          "errors": 6,
+          "reference_words": 117,
+          "examples": 8
+        },
+        "wer_delta": -0.05128205128205128,
+        "improvement_measured": true,
+        "normalization": "English NFKC lowercase; punctuation removed; no number expansion",
+        "scope": "ASR-based generated-speech intelligibility proxy; not human MOS, speaker similarity or general quality",
+        "inputs": {
+          "<workdir>/results/infra-voxcpm2-v2/base-transcripts.jsonl": "128a0355415d9aca8d465dabf70523a336626e88ff0fe2f7ceef96b902ea570e",
+          "<workdir>/results/infra-voxcpm2-v2/tuned-transcripts.jsonl": "a11dd1dd52e2887a686da3be8db795a9b328b4344c0727a8a9a21ced45085272"
+        }
+      },
+      "evidence": {
+        "<workdir>/results/infra-voxcpm2-v2/quality.json": "97218c79c74bbd55cb6140008da8eb78825cb14bd106b6162b296d787df2ab21"
+      }
+    }
+  }
+}

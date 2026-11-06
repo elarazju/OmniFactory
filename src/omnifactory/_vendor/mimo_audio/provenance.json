@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/XiaomiMiMo/MiMo-Audio",
+  "revision": "691ce54144a6844cc641fd96046a6ba20776c8b0",
+  "upstream_sha256": {
+    "src/mimo_audio/modeling_mimo_audio.py": "cf2a66fa65f74df496a7a6f580643fc8cb567b893c6821614bc1d62281bb8e45",
+    "src/mimo_audio/process_speechdata.py": "97a04498b20b1635897c50d737fca6fd4a854b4de60eeda3c41d9e2967f3961c",
+    "src/mimo_audio_tokenizer/modeling_rope_utils.py": "29d62d9fa8acee7a969ea35defe5581fb4977563c56701e1659ecc0e6345ccf4",
+    "src/mimo_audio_tokenizer/quantization.py": "f0e856da2ad7dc52b8aad99d52f217eab44f1ab3620d386a8e706f30725a95c5",
+    "src/mimo_audio_tokenizer/modeling_audio_tokenizer.py": "42e802e075b018e6ea60616976ea8397a278ceb2728edbcef06fc436862fb236",
+    "src/mimo_audio_tokenizer/__init__.py": "5d831c53cc21364f583407c96ea98f7f3ca87206eb3610ebb8eab3fea4f6e789",
+    "src/mimo_audio_tokenizer/configuration_audio_tokenizer.py": "d9e586d8b01dab552b365b8ab3a224c4561b3937cc26a5e686ec6294babc349b"
+  }
+}

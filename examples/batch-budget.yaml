@@ -1,0 +1,10 @@
+# Illustrative count budgets, not a calibrated GPU profile.
+budget:
+  max_examples: 4
+  max_llm_tokens: 4096
+  max_vision_patches: 2048
+  max_audio_frames: 6000
+  max_codec_frames: 4096
+  max_decoded_media_bytes: 67108864
+window_size: 32
+seed: 42

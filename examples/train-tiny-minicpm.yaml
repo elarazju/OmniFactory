@@ -1,0 +1,31 @@
+# Create inputs first (from repository root):
+# uv run --extra train omnifactory datasets demo --output outputs/demo
+# uv run --extra train omnifactory models init-tiny --adapter minicpm_o_4_5 --output outputs/tiny-minicpm-model
+# Paths below resolve relative to this YAML, not the working directory.
+adapter: minicpm_o_4_5
+model: ../outputs/tiny-minicpm-model
+dataset: ../outputs/demo/train.jsonl
+dataset_root: ../outputs/demo
+output_dir: ../outputs/tiny-minicpm-run
+device: cpu
+dtype: float32
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 12
+save_steps: 6
+gradient_accumulation_steps: 2
+max_length: 512
+seed: 42
+components:
+  language_model:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.01
+budget:
+  max_examples: 2
+  max_llm_tokens: 1024
+  max_vision_patches: 128
+  max_audio_frames: 400
+  max_codec_frames: 1
+  max_decoded_media_bytes: 1000000

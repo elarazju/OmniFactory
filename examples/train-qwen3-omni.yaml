@@ -1,0 +1,32 @@
+# Unquantized Thinker attention LoRA; native MoE experts/router frozen.
+# Packing/cache and speech SFT require independent Qwen3 implementations.
+model: Qwen/Qwen3-Omni-30B-A3B-Instruct
+revision: 26291f793822fb6be9555850f06dfe95f2d7e695
+adapter: qwen3_omni
+task: understanding_sft
+dataset: ../outputs/demo/train.jsonl
+dataset_root: ../outputs/demo
+output_dir: ../outputs/qwen3-understanding
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 4
+max_length: 2048
+max_audio_seconds: 30
+components:
+  language_model:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.0001
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 4096
+  max_audio_frames: 3000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 67108864

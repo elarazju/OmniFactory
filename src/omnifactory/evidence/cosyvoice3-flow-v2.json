@@ -1,0 +1,325 @@
+{
+  "format": "omnifactory-acceptance-v1",
+  "adapter": "cosyvoice3",
+  "task": "flow_sft",
+  "model": "<workdir>/assets/Fun-CosyVoice3-0.5B-2512",
+  "revision": null,
+  "created_at": "2026-10-26T11:26:48.668694+00:00",
+  "source_fingerprint": "1a5cf8ff5f768cd4baeb23ddf7ccaf5b2cbdebe9f7ff633ce6f95bd8be5ba0c8",
+  "artifact_id": "72a3eaa30327b8a2c6d438f90ed57febee6f1d664db732e240620ab7b821926a",
+  "gates": {
+    "prepare": {
+      "status": "passed",
+      "details": {
+        "records": 8,
+        "data_fingerprint": "d6cff93775ea8025d9e9d14ba386c1dddb8100570cd48b12564d96f4c9d43ee7"
+      },
+      "evidence": {}
+    },
+    "train": {
+      "status": "passed",
+      "details": {
+        "checkpoint": "<workdir>/results/cosyvoice3-flow-v2/acceptance/run/checkpoint-00000016",
+        "steps": 16,
+        "last_loss": 0.4827433628318584,
+        "best_checkpoint": "<workdir>/results/cosyvoice3-flow-v2/acceptance/run/checkpoint-00000016",
+        "best_metric": 0.46594360086767894,
+        "prepared_dataset": "<workdir>/results/cosyvoice3-flow-v2/acceptance/prepared",
+        "trainable_parameters": 720896,
+        "device": "cuda",
+        "base_model": "<workdir>/assets/Fun-CosyVoice3-0.5B-2512",
+        "vllm_deployment_verified": false,
+        "feature_cache": {}
+      },
+      "evidence": {}
+    },
+    "resume": {
+      "status": "passed",
+      "details": {
+        "max_abs": 0,
+        "checkpoint": "<workdir>/results/cosyvoice3-flow-v2/acceptance/run/checkpoint-00000008"
+      },
+      "evidence": {}
+    },
+    "export": {
+      "status": "passed",
+      "details": {
+        "format": "merged",
+        "adapter": "cosyvoice3",
+        "inference_config": {
+          "model": "<workdir>/assets/Fun-CosyVoice3-0.5B-2512",
+          "revision": null,
+          "dataset": "<workdir>/results/cosyvoice3-flow-v2/data/train.jsonl",
+          "dataset_root": null,
+          "output_dir": "<workdir>/results/cosyvoice3-flow-v2/acceptance/run",
+          "adapter": "cosyvoice3",
+          "task": "speech_sft",
+          "image_height": 256,
+          "image_width": 256,
+          "duplex_schedule": null,
+          "max_attention_pairs": 1000000,
+          "flow_sigma_min": 1e-06,
+          "flow_cfg_dropout": 0.2,
+          "speech_tokenizer": null,
+          "speech_assets": null,
+          "speech_tokenizer_sha256": null,
+          "speech_reference": "<workdir>/results/cosyvoice3-flow-v2/data/media/2277-149896-0008.flac",
+          "speech_reference_sha256": "fff4a9ac06e5a85348e1d12a498da564c7de250917e8733577b86f64cec7198c",
+          "speech_reference_text": "FOR SOME REASON HE FELT AS IF SOMETHING MIGHT COME THAT WAY AND WAS RELIEVED WHEN ALL THE ENVELOPES HAD BEEN SCANNED AND NOTHING SUSPICIOUS NOTICED",
+          "speech_codes": null,
+          "speech_speaker": "Chelsie",
+          "cosyvoice_sequence_mode": "mixed",
+          "text_loss_weight": 1.0,
+          "speech_loss_weight": 1.0,
+          "max_codec_tokens": 256,
+          "video_fps": 1.0,
+          "max_video_frames": 32,
+          "max_video_seconds": 30.0,
+          "device": "cpu",
+          "dtype": "float32",
+          "quantization": "none",
+          "attention": "sdpa",
+          "feature_cache": null,
+          "feature_cache_components": [
+            "vision_encoder",
+            "audio_encoder"
+          ],
+          "packing": "none",
+          "gradient_checkpointing": false,
+          "deterministic": true,
+          "max_steps": 16,
+          "save_steps": 8,
+          "gradient_accumulation_steps": 2,
+          "max_length": 1024,
+          "max_audio_seconds": 8.0,
+          "max_image_pixels": 1048576,
+          "seed": 42,
+          "max_grad_norm": 1.0,
+          "components": {
+            "audio_decoder": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 8,
+              "alpha": 16.0,
+              "target_modules": [
+                "to_q",
+                "to_v"
+              ]
+            }
+          },
+          "budget": {
+            "max_examples": 1,
+            "max_llm_tokens": 1024,
+            "max_vision_patches": 1,
+            "max_audio_frames": 512,
+            "max_codec_frames": 256,
+            "max_decoded_media_bytes": 16777216,
+            "max_gpu_bytes": null,
+            "max_latent_elements": 40960,
+            "max_stream_events": null
+          },
+          "window_size": 64,
+          "resume_from": null,
+          "memory_profile": null,
+          "prepared_dataset": "<workdir>/results/cosyvoice3-flow-v2/acceptance/prepared",
+          "validation_dataset": "<workdir>/results/cosyvoice3-flow-v2/data/validation.jsonl",
+          "validation_root": null,
+          "eval_steps": 8,
+          "save_total_limit": null,
+          "weight_decay": 0.0,
+          "lr_scheduler": "constant",
+          "warmup_steps": 0,
+          "scheduler_steps": null
+        },
+        "trained_stage": "flow.pt",
+        "source_checkpoint": "<workdir>/results/cosyvoice3-flow-v2/acceptance/run/checkpoint-00000016",
+        "source_fingerprint": "1a5cf8ff5f768cd4baeb23ddf7ccaf5b2cbdebe9f7ff633ce6f95bd8be5ba0c8",
+        "output": "<workdir>/results/cosyvoice3-flow-v2/acceptance/export",
+        "lora_merged": true,
+        "vllm_deployment_verified": false,
+        "reference_file": "reference.flac",
+        "native_architecture": "CosyVoice3Model"
+      },
+      "evidence": {
+        "export/artifact-manifest.json": "cc23d1a3ce4cd4b31ebc1e58ece8713f274a25664adf2ea4334fc9431d9cac93"
+      }
+    },
+    "inference": {
+      "status": "passed",
+      "details": {
+        "predictions": 4,
+        "audio_predictions": 4,
+        "image_predictions": 0,
+        "empty_audio_predictions": 0,
+        "output": "<workdir>/results/cosyvoice3-flow-v2/acceptance/predictions.jsonl",
+        "backend": "native-cuda",
+        "audio_limit_unit": "codec_frames",
+        "waveforms": {
+          "status": "passed",
+          "records": 4,
+          "natural_eos": true,
+          "quality_benchmark": false,
+          "artifact_id": "72a3eaa30327b8a2c6d438f90ed57febee6f1d664db732e240620ab7b821926a"
+        }
+      },
+      "evidence": {
+        "predictions.jsonl": "903b9a6dd829e527e9026ce396e9d03b5d9b4e5b5566071c7f9975a43fb3c5e7",
+        "<workdir>/results/cosyvoice3-flow-v2/waveform-check.json": "e952b6d0403c851fa82b35a0377ef34b21942e8c528465677b1b69377ac3bc2f"
+      }
+    },
+    "native_reference": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "72a3eaa30327b8a2c6d438f90ed57febee6f1d664db732e240620ab7b821926a",
+        "tensor_count": 330,
+        "merged_tensor_max_abs": 0,
+        "frozen_files": [
+          "hift.pt",
+          "campplus.onnx",
+          "speech_tokenizer_v3.onnx",
+          "llm.pt"
+        ],
+        "trained_stage": "flow",
+        "scope": "native strict state reload and frozen bytes; not speech quality"
+      },
+      "evidence": {
+        "<workdir>/results/cosyvoice3-flow-v2/native-reference.json": "667f73d2de14ef29d5826eec4bb321ea4e306ac5b03c3961c9dce47fc6e9c1c3"
+      }
+    },
+    "http": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "72a3eaa30327b8a2c6d438f90ed57febee6f1d664db732e240620ab7b821926a",
+        "adapter": "cosyvoice3",
+        "requests": 4,
+        "results": [
+          {
+            "sample_id": "2277-149897-0000",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 11:32:59 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "0",
+              "x-vllm-omni-output-tokens": "142",
+              "x-vllm-omni-total-tokens": "142",
+              "x-vllm-omni-input-text-tokens": "0",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "24000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "270764",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "2d8f7de75cc9d60ea741a70f05cad553b147bfd263f6391723572bdccbe65930",
+            "sample_rate": 24000,
+            "audio_frames": 135360
+          },
+          {
+            "sample_id": "2277-149897-0001",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 11:33:02 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "0",
+              "x-vllm-omni-output-tokens": "65",
+              "x-vllm-omni-total-tokens": "65",
+              "x-vllm-omni-input-text-tokens": "0",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "24000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "122924",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "04d95ef46fa8d76208c5548cf79e7cb3ff291e6111332ca2c393798b39343dba",
+            "sample_rate": 24000,
+            "audio_frames": 61440
+          },
+          {
+            "sample_id": "2277-149897-0002",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 11:33:03 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "0",
+              "x-vllm-omni-output-tokens": "168",
+              "x-vllm-omni-total-tokens": "168",
+              "x-vllm-omni-input-text-tokens": "0",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "24000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "320684",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "1dde56dd3ca1f4ef9de33ca532239a5ec8ec9aeae40e18afe52f4abb151a22ef",
+            "sample_rate": 24000,
+            "audio_frames": 160320
+          },
+          {
+            "sample_id": "2277-149897-0003",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 11:33:06 GMT",
+              "server": "uvicorn",
+              "x-vllm-omni-input-tokens": "0",
+              "x-vllm-omni-output-tokens": "125",
+              "x-vllm-omni-total-tokens": "125",
+              "x-vllm-omni-input-text-tokens": "0",
+              "x-vllm-omni-input-audio-tokens": "0",
+              "x-audio-sample-rate": "24000",
+              "x-audio-channels": "1",
+              "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+              "content-length": "238124",
+              "content-type": "audio/wav",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "21f4602f15dd223445f77a232429e393280b95201b7ee425707804b1408746e6",
+            "sample_rate": 24000,
+            "audio_frames": 119040
+          }
+        ],
+        "modality": "audio",
+        "quality_verified": false,
+        "launch_command": [
+          "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+          "serve",
+          "<workdir>/results/cosyvoice3-flow-v2/acceptance/export",
+          "--omni",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "56858",
+          "--served-model-name",
+          "omnifactory-acceptance",
+          "--trust-remote-code",
+          "--deploy-config",
+          "<workdir>/OmniFactory/examples/deploy-cosyvoice3.yaml",
+          "--disable-log-stats"
+        ],
+        "server_log_sha256": "22b7a6db7b402e55de57e24d5a1026a2cf4e394e282885a6ad6d412d159517c3"
+      },
+      "evidence": {
+        "<workdir>/results/cosyvoice3-flow-http-v1/acceptance.json": "423f2af584e0c0736b135e10d024c9755f9af120998dda084f8c8119ab3497f6"
+      }
+    },
+    "quality": {
+      "status": "not_run",
+      "details": {},
+      "evidence": {}
+    }
+  }
+}

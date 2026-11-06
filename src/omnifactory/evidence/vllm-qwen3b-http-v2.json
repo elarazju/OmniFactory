@@ -1,0 +1,105 @@
+{
+  "model": "omnifactory-qwen3b",
+  "requests_passed": 8,
+  "input_modalities": [
+    "text",
+    "image",
+    "audio",
+    "video_with_audio"
+  ],
+  "output_modalities": [
+    "text",
+    "text+audio"
+  ],
+  "results": [
+    {
+      "id": "validation-omni-0-text",
+      "http_status": 200,
+      "text": [
+        "100100100100."
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-1-text",
+      "http_status": 200,
+      "text": [
+        "It's blue. What do you think about it?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-2-text",
+      "http_status": 200,
+      "text": [
+        "The tone is low. What do you think about it?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-3-text",
+      "http_status": 200,
+      "text": [
+        "It's a solid blue color. There's a beep sound. What do you think about it?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-0-audio",
+      "http_status": 200,
+      "text": [
+        "100100100100."
+      ],
+      "audio_frames": 151200,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-1-audio",
+      "http_status": 200,
+      "text": [
+        "It's blue. What do you think about it?"
+      ],
+      "audio_frames": 67200,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-2-audio",
+      "http_status": 200,
+      "text": [
+        "The tone is low. What do you think about it?"
+      ],
+      "audio_frames": 72000,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-3-audio",
+      "http_status": 200,
+      "text": [
+        "It's a solid blue color. There's a beep sound. What do you think about it?"
+      ],
+      "audio_frames": 139680,
+      "finish_reasons": [
+        "stop"
+      ]
+    }
+  ],
+  "quality_verified": false
+}

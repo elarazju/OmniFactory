@@ -1,0 +1,40 @@
+# Full-weight execution acceptance, one GPU; throughput tuning is separate.
+# Set base_config to your pinned vLLM-Omni checkout; see docs/deployment.md.
+base_config: /path/to/vllm-omni/vllm_omni/deploy/minicpmo_4_5_turn.yaml
+session_mode: turn
+connectors:
+  connector_of_shared_memory:
+    extra:
+      enable_hift_graph: false
+      enable_cfm_graph: false
+      cfm_fused_body: false
+      enable_code2wav_encoder_graph: false
+      token2wav_spk_cpu_reference: false
+stages:
+  - stage_id: 0
+    max_num_seqs: 1
+    kv_cache_memory_bytes: 2147483648
+    gpu_memory_utilization: 0.35
+    enforce_eager: true
+    max_model_len: 4096
+    max_num_batched_tokens: 4096
+    enable_prefix_caching: false
+    limit_mm_per_prompt: {image: 8, audio: 8, video: 1}
+    media_io_kwargs:
+      video: {fps: 1, num_frames: 4}
+  - stage_id: 1
+    max_num_seqs: 1
+    gpu_memory_utilization: 0.1
+    enforce_eager: true
+    max_model_len: 4096
+    max_num_batched_tokens: 4096
+  - stage_id: 2
+    max_num_seqs: 1
+    gpu_memory_utilization: 0.2
+    enforce_eager: true
+platforms:
+  cuda:
+    cuda_mps: false
+    stages:
+      - stage_id: 1
+        kv_cache_memory_bytes: 536870912

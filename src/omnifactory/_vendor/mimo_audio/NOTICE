@@ -1,0 +1,4 @@
+MiMo-Audio: Copyright 2025 Xiaomi Corporation. Apache-2.0.
+Input segment helpers also carry Copyright (c) 2023 NVIDIA CORPORATION.
+Vendored from 691ce54144a6844cc641fd96046a6ba20776c8b0.
+OmniFactory modifications: optional FlashAttention with bounded SDPA fallback for codec; upstream model used through a native-compatible training subclass.

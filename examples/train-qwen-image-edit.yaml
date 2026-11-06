@@ -1,0 +1,37 @@
+# Experimental: original single-image Edit pipeline; pretrained acceptance pending.
+model: Qwen/Qwen-Image-Edit
+revision: ac7f9318f633fc4b5778c59367c8128225f1e3de
+adapter: qwen_image_edit
+task: image_sft
+dataset: ../outputs/image-edit-data/train.jsonl
+output_dir: ../outputs/qwen-image-edit-run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 20
+gradient_accumulation_steps: 4
+image_height: 512
+image_width: 512
+# Native source conditioning uses approximately 1024^2 pixels independently of
+# target resolution. Allow rounding for non-square inputs; do not silently crop.
+max_image_pixels: 2097152
+max_length: 8192
+max_attention_pairs: 67108864
+components:
+  image_generator:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: [to_q, to_v, add_q_proj, add_v_proj]
+budget:
+  max_examples: 1
+  max_llm_tokens: 8192
+  max_vision_patches: 16384
+  max_audio_frames: 1
+  max_codec_frames: 1
+  max_latent_elements: 524288
+  max_decoded_media_bytes: 134217728

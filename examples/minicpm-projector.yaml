@@ -1,0 +1,13 @@
+# Plan only. Actual model loading, full updates and LoRA injection are not implemented.
+model: minicpm_o_4_5
+loss_components: [language_model]
+components:
+  language_model:
+    mode: frozen
+  vision_encoder:
+    mode: frozen
+  audio_encoder:
+    mode: frozen
+  audio_projector:
+    mode: full
+    lr: 0.00002

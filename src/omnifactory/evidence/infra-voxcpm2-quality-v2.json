@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+  "scorer": "Qwen3-Omni greedy ASR / e82a9eb25919fcdd5dc69ed515003d163bf999d696d3d17a3c2a702ee5cdba75",
+  "baseline": {
+    "wer": 0.10256410256410256,
+    "errors": 12,
+    "reference_words": 117,
+    "examples": 8
+  },
+  "tuned": {
+    "wer": 0.05128205128205128,
+    "errors": 6,
+    "reference_words": 117,
+    "examples": 8
+  },
+  "wer_delta": -0.05128205128205128,
+  "improvement_measured": true,
+  "normalization": "English NFKC lowercase; punctuation removed; no number expansion",
+  "scope": "ASR-based generated-speech intelligibility proxy; not human MOS, speaker similarity or general quality",
+  "inputs": {
+    "<workdir>/results/infra-voxcpm2-v2/base-transcripts.jsonl": "128a0355415d9aca8d465dabf70523a336626e88ff0fe2f7ceef96b902ea570e",
+    "<workdir>/results/infra-voxcpm2-v2/tuned-transcripts.jsonl": "a11dd1dd52e2887a686da3be8db795a9b328b4344c0727a8a9a21ced45085272"
+  }
+}

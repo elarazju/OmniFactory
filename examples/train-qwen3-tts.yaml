@@ -1,0 +1,34 @@
+# Single-speaker 12 Hz Base SFT; bounded BF16 LoRA/native/HTTP path validated.
+# All target recordings must belong to this reference speaker.
+model: Qwen/Qwen3-TTS-12Hz-1.7B-Base
+revision: fd4b254389122332181a7c3db7f27e918eec64e3
+adapter: qwen3_tts
+task: speech_sft
+dataset: ../outputs/tts-data/train.jsonl
+output_dir: ../outputs/qwen3-tts-run
+speech_reference: ../outputs/tts-data/reference.wav
+# Replace with the SHA-256 of your separate, fixed reference recording.
+# Required: set this to the first column of `sha256sum /path/to/reference.wav`.
+speech_reference_sha256: REPLACE_WITH_REFERENCE_SHA256
+speech_speaker: customvoice
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 20
+gradient_accumulation_steps: 4
+max_length: 1024
+max_audio_seconds: 8
+max_codec_tokens: 128
+components:
+  speech_generator: {mode: lora, rank: 8, alpha: 16, lr: 0.0001}
+  code_predictor: {mode: lora, rank: 8, alpha: 16, lr: 0.0001}
+budget:
+  max_examples: 1
+  max_llm_tokens: 1024
+  max_vision_patches: 1
+  max_audio_frames: 1024
+  max_codec_frames: 128
+  max_decoded_media_bytes: 16777216

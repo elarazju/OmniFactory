@@ -1,0 +1,854 @@
+{
+  "format": "omnifactory-capabilities-v1",
+  "records": [
+    {
+      "id": "qwen3b-understanding-complete",
+      "model_key": "qwen2_5_omni_3b",
+      "file": "qwen3b-understanding-complete.json",
+      "sha256": "be0d5ca7b6795f6143608a7a66254772e6837d847a465376326de1b05e46ae4f",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen3b-nf4-v4",
+      "model_key": "qwen2_5_omni_3b",
+      "file": "qwen3b-nf4-v4.json",
+      "sha256": "e8a5d7bb7456c5da345e872c0eb37d23384256ce2560dc495ca9563c6f3258ce",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen3b-speech-v2",
+      "model_key": "qwen2_5_omni_3b",
+      "file": "qwen3b-speech-v2.json",
+      "sha256": "c44369017927bb1818d002c6596f15db82322db33ab485a49b8f86cc34565cff",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "vllm-qwen3b-http-v2",
+      "model_key": "qwen2_5_omni_3b",
+      "file": "vllm-qwen3b-http-v2.json",
+      "sha256": "7aaa8a5bffa13e652d06f9de41b17a84c3f9a6c30966eba95e5226f5db37f771",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "qwen7b-understanding",
+      "model_key": "qwen2_5_omni_7b",
+      "file": "qwen7b-understanding.json",
+      "sha256": "e2feed16516a513454566649efc3ed79c28e54f88f0a606e448859d4b7da7971",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen7b-nf4",
+      "model_key": "qwen2_5_omni_7b",
+      "file": "qwen7b-nf4.json",
+      "sha256": "32e7aac915158784777dca3cfc342883b2e96b5b6f25421997425759c475e237",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen7b-speech",
+      "model_key": "qwen2_5_omni_7b",
+      "file": "qwen7b-speech.json",
+      "sha256": "82df6dab7d3f42e856e8cc151d21953e39c039400e578fcaf02837fea046eed8",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "vllm-qwen7b-http",
+      "model_key": "qwen2_5_omni_7b",
+      "file": "vllm-qwen7b-http.json",
+      "sha256": "33e46359811d53e994a70ea6412bb6f213e51732beb7bafcb6d1c76643488ea4",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "qwen3-understanding-v1",
+      "model_key": "qwen3_omni",
+      "file": "qwen3-understanding-v1.json",
+      "sha256": "ba1568a5041c6669938967f668b5ae261585aa2535961d538045def890000e1e",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen3-http-v1",
+      "model_key": "qwen3_omni",
+      "file": "qwen3-http-v1.json",
+      "sha256": "401061d40ae02cffa3daaee7760a7c1cdb6682770c9f329d36ef69e3fb8c3d6b",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "qwen3-speech-v1",
+      "model_key": "qwen3_omni",
+      "file": "qwen3-speech-v1.json",
+      "sha256": "9cb97b3832e4ce8d8fbeabde157651575ab3af3076674095545b07daca1bde60",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen3-speech-http-v1",
+      "model_key": "qwen3_omni",
+      "file": "qwen3-speech-http-v1.json",
+      "sha256": "be2027d762c001c77d90928bb74250cb2a176db926813a1df63849ec641e4bd0",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "p3-minicpm",
+      "model_key": "minicpm_o_4_5",
+      "file": "p3-minicpm.json",
+      "sha256": "c1b023cefbf8de184c33916f33496e5ccd728bf4e2ad98bea7f8e599f6d8235d",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "p3-minicpm-http-v4",
+      "model_key": "minicpm_o_4_5",
+      "file": "p3-minicpm-http-v4.json",
+      "sha256": "2effff39ff9a75c29ae621f6dd7978d2910671025529b11e2b7d57203c94cc5a",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "flow-duplex-a7",
+      "model_key": "minicpm_o_4_5",
+      "file": "flow-duplex-a7.json",
+      "sha256": "18ab2586e1027e9e4350b4ad3abff482c2d1c34c20ff1da67312fa5c1b4821d7",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "p3-mimo-v2",
+      "model_key": "mimo_audio_7b",
+      "file": "p3-mimo-v2.json",
+      "sha256": "f7c9555127ff3802ef9a9e3fc05e35a9512347fb673f691bc783f73938797c29",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "p3-mimo-http-v2",
+      "model_key": "mimo_audio_7b",
+      "file": "p3-mimo-http-v2.json",
+      "sha256": "b118d4a295321980616738deba696daed63f9c401cbcaa80bc122b73990130c7",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "voxcpm2-speech-v2",
+      "model_key": "voxcpm2",
+      "file": "voxcpm2-speech-v2.json",
+      "sha256": "b27c4f2d90de5d3ab827bdebecafcf8b2c275d2fccbe004fd039794f95dfa0a1",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "voxcpm2-speech-http-v1",
+      "model_key": "voxcpm2",
+      "file": "voxcpm2-speech-http-v1.json",
+      "sha256": "bc161168f5afd30f7dac5891600026be63f08e440d51019e4aff036bd48ea281",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "bagel-dit-v3",
+      "model_key": "bagel",
+      "file": "bagel-dit-v3.json",
+      "sha256": "d8938a093c13dfaeefeade8d4609476329a7329b23c044adfbcfdb26ba11ab65",
+      "kind": "native",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing.",
+      "paths_redacted": true
+    },
+    {
+      "id": "bagel-dit-http-v1",
+      "model_key": "bagel",
+      "file": "bagel-dit-http-v1.json",
+      "sha256": "ea422a0086751ad41779ee0a9f63dde5823dc7084b39c9d02f4f53ceaa8fefdb",
+      "kind": "http",
+      "historical": true,
+      "scope": "Pinned checkpoint and recipe only; see original report. Historical artifacts predate export sealing."
+    },
+    {
+      "id": "infra-voxcpm2-v2",
+      "model_key": "voxcpm2",
+      "file": "infra-voxcpm2-v2.json",
+      "sha256": "2c0c0e33d911eb4841512a46f4677a70be4d081b8d2036d0df2bded6e69d65ab",
+      "kind": "acceptance",
+      "historical": false,
+      "scope": "VoxCPM2 pinned weights, 64-step 24/24 speaker-disjoint pilot; eight generated-speech pairs and eight artifact-bound HTTP requests. Quality is a small ASR proxy, not general speech quality. Native-reference gate not rerun.",
+      "paths_redacted": true
+    },
+    {
+      "id": "infra-voxcpm2-quality-v2",
+      "model_key": "voxcpm2",
+      "file": "infra-voxcpm2-quality-v2.json",
+      "sha256": "16b8fd0ec53c7ee53784dd8c7953108cbcfa0978947b9040d39dd1835d683641",
+      "kind": "quality",
+      "historical": false,
+      "scope": "VoxCPM2 pinned weights, 64-step 24/24 speaker-disjoint pilot; eight generated-speech pairs and eight artifact-bound HTTP requests. Quality is a small ASR proxy, not general speech quality. Native-reference gate not rerun.",
+      "paths_redacted": true
+    },
+    {
+      "id": "infra-voxcpm2-provenance-v2",
+      "model_key": "voxcpm2",
+      "file": "infra-voxcpm2-provenance-v2.json",
+      "sha256": "795a07e1867ef571c361ef07615748a3ee1e5aaa0ea471f2062724fa65288b54",
+      "kind": "provenance",
+      "historical": false,
+      "scope": "Exact tested source hashes, post-run inventory-only fix, active environment, export inventory, native validation/termination and training metrics hash."
+    },
+    {
+      "id": "qwen3-tts-v3",
+      "model_key": "qwen3_tts",
+      "file": "qwen3-tts-v3.json",
+      "sha256": "b9f44147fb53370a34806dcd727e50ab66a5cee7b8b4577400b66b729010223c",
+      "kind": "native",
+      "historical": false,
+      "scope": "1.7B Base single-speaker BF16 rank-8 LoRA, 16 steps, exact resume, native tensor/codec parity, four complete-EOS waveforms. Not speech quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen3-tts-http-v1",
+      "model_key": "qwen3_tts",
+      "file": "qwen3-tts-http-v1.json",
+      "sha256": "73b046de0839e6b53f88ffeb9c41816bef7708b1e4539fd6d86e6c29c2a89732",
+      "kind": "http",
+      "historical": false,
+      "scope": "Four real CustomVoice speech requests against the same sealed export; finite nonzero 24 kHz WAV. Not speech quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "cosyvoice3-speech-v2",
+      "model_key": "cosyvoice3",
+      "file": "cosyvoice3-speech-v2.json",
+      "sha256": "f05c7b7cd1d74d337c590bab0746faae13a87e2c28dff947cf0f2fcb25d4df7a",
+      "kind": "native",
+      "historical": false,
+      "scope": "Native speech BF16 rank-8 LoRA, 16 steps, exact resume, native weight/frozen-asset parity and four complete-EOS waveforms; not quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "cosyvoice3-speech-http-v1",
+      "model_key": "cosyvoice3",
+      "file": "cosyvoice3-speech-http-v1.json",
+      "sha256": "d862321d470e7535cd910ea69be415ec0aa6930366af1993b587dc3080afb0a8",
+      "kind": "http",
+      "historical": false,
+      "scope": "Four real speech HTTP requests against the sealed speech export; finite nonzero 24 kHz WAV, below the generation bound; not quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "cosyvoice3-flow-v2",
+      "model_key": "cosyvoice3",
+      "file": "cosyvoice3-flow-v2.json",
+      "sha256": "2397fcc168857ab0d277671d0ee446f7696a59148c61e48898de74d235b5a056",
+      "kind": "native",
+      "historical": false,
+      "scope": "Native flow BF16 rank-8 LoRA, 16 steps, exact resume, native weight/frozen-asset parity and four complete-EOS waveforms; not quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "cosyvoice3-flow-http-v1",
+      "model_key": "cosyvoice3",
+      "file": "cosyvoice3-flow-http-v1.json",
+      "sha256": "e4c7ceb256afa087f7519728ff955b630821e6eb04305ef623a4a10375d305ed",
+      "kind": "http",
+      "historical": false,
+      "scope": "Four real speech HTTP requests against the sealed flow export; finite nonzero 24 kHz WAV, below the generation bound; not quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen-image-edit-v1",
+      "model_key": "qwen_image_edit",
+      "file": "qwen-image-edit-v1.json",
+      "sha256": "46a5b6382f209c7cd4dbdd4005fcb1401b76e37eb7ffe9f47ffea789212fd28a",
+      "kind": "native",
+      "historical": false,
+      "scope": "Original Qwen-Image-Edit BF16 rank-8 DiT LoRA, 16 steps, exact resume, native tensor/frozen-asset parity and two images. Synthetic edit pairs; not quality or a minimum VRAM claim.",
+      "paths_redacted": true
+    },
+    {
+      "id": "qwen-image-edit-http-v1",
+      "model_key": "qwen_image_edit",
+      "file": "qwen-image-edit-http-v1.json",
+      "sha256": "4445688863dc83732407e2cf7b88d11d81bc17498d8847e3b24e71df84e70abf",
+      "kind": "http",
+      "historical": false,
+      "scope": "Two real multipart /v1/images/edits requests on the same sealed export, source images and response bytes retained; 256x256 output. Not editing quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "personaplex-v1",
+      "model_key": "personaplex",
+      "file": "personaplex-v1.json",
+      "sha256": "8482841ced334b245d54a1e92ad85c8297faa7599e395f540e670ec07f1974fa",
+      "kind": "native",
+      "historical": false,
+      "scope": "7B-v1 BF16 rank-8 LoRA, 16 steps, exact resume, 475 native tensors and frozen assets parity, two bounded native duplex sessions. Synthetic tone recordings; not conversation quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "personaplex-realtime-v2",
+      "model_key": "personaplex",
+      "file": "personaplex-realtime-v2.json",
+      "sha256": "dd5e309290594659dbabbea6e54a00a5811126a4546d57850732a59eba4e0f26",
+      "kind": "http",
+      "historical": false,
+      "scope": "Two real WebSocket duplex sessions on the same sealed export. Each 24 input frames + one explicit drain tick yields 24 output frames, with output during original input and scheduler/KV evidence; not quality or a latency benchmark.",
+      "paths_redacted": true
+    }
+  ],
+  "rows": [
+    {
+      "model_key": "qwen2_5_omni_3b",
+      "en": [
+        "Qwen2.5-Omni **3B · Thinker**",
+        "T / I / A / V",
+        "Text targets; component LoRA/full; NF4 QLoRA",
+        "[BF16 LoRA](examples/train-qwen2.5-omni-3b-bf16.yaml) · [NF4](examples/train-qwen2.5-omni-3b.yaml)",
+        "Understanding QLoRA; [setup](docs/models.md#qwen25-omni)"
+      ],
+      "zh": [
+        "Qwen2.5-Omni **3B · Thinker**",
+        "T / I / A / V",
+        "文本目标；组件 LoRA/全量；NF4 QLoRA",
+        "[BF16 LoRA](examples/train-qwen2.5-omni-3b-bf16.yaml) · [NF4](examples/train-qwen2.5-omni-3b.yaml)",
+        "理解任务支持 QLoRA；[前置条件](docs/models.md#qwen25-omni)"
+      ],
+      "verification_ids": [
+        "qwen3b-understanding-complete",
+        "qwen3b-nf4-v4"
+      ]
+    },
+    {
+      "model_key": "qwen2_5_omni_3b",
+      "en": [
+        "Qwen2.5-Omni **3B · Talker**",
+        "T / I / A / V",
+        "Text + native audio-code CE; Thinker/Talker LoRA/full; frozen Token2Wav",
+        "[Speech SFT](examples/train-qwen-omni.yaml) · [label preparation](examples/prepare-qwen2.5-omni-3b-speech.yaml)",
+        "Matched native labels; frozen decoder; [setup](docs/models.md#qwen-speech-labels)"
+      ],
+      "zh": [
+        "Qwen2.5-Omni **3B · Talker**",
+        "T / I / A / V",
+        "文本＋原生音频码 CE；Thinker/Talker LoRA/full；Token2Wav 冻结",
+        "[语音 SFT](examples/train-qwen-omni.yaml) · [标签准备](examples/prepare-qwen2.5-omni-3b-speech.yaml)",
+        "原生标签须匹配源模型；解码器冻结；[标签准备](docs/models.md#qwen-speech-labels)"
+      ],
+      "verification_ids": [
+        "qwen3b-speech-v2",
+        "vllm-qwen3b-http-v2"
+      ]
+    },
+    {
+      "model_key": "qwen2_5_omni_7b",
+      "en": [
+        "Qwen2.5-Omni **7B · Thinker**",
+        "T / I / A / V (shared adapter)",
+        "Text CE; BF16 LoRA / NF4 QLoRA",
+        "[7B BF16](examples/train-qwen2.5-omni-7b.yaml) · [7B NF4](examples/train-qwen2.5-omni-7b-nf4.yaml)",
+        "Understanding QLoRA; [setup](docs/models.md#qwen25-omni)"
+      ],
+      "zh": [
+        "Qwen2.5-Omni **7B · Thinker**",
+        "T / I / A / V（共享适配器）",
+        "文本 CE；BF16 LoRA / NF4 QLoRA",
+        "[7B BF16](examples/train-qwen2.5-omni-7b.yaml) · [7B NF4](examples/train-qwen2.5-omni-7b-nf4.yaml)",
+        "理解任务支持 QLoRA；[前置条件](docs/models.md#qwen25-omni)"
+      ],
+      "verification_ids": [
+        "qwen7b-understanding",
+        "qwen7b-nf4"
+      ]
+    },
+    {
+      "model_key": "qwen2_5_omni_7b",
+      "en": [
+        "Qwen2.5-Omni **7B · Talker**",
+        "T / I / A / V (shared adapter)",
+        "Text + native audio-code CE; labels must match the exact 7B teacher",
+        "[7B speech](examples/train-qwen2.5-omni-7b-speech.yaml) · [label preparation](examples/prepare-qwen2.5-omni-7b-speech.yaml)",
+        "7B-native labels required; [setup](docs/models.md#qwen-speech-labels)"
+      ],
+      "zh": [
+        "Qwen2.5-Omni **7B · Talker**",
+        "T / I / A / V（共享适配器）",
+        "文本＋原生音频码 CE；标签必须匹配精确的 7B 教师",
+        "[7B 语音训练](examples/train-qwen2.5-omni-7b-speech.yaml) · [标签准备](examples/prepare-qwen2.5-omni-7b-speech.yaml)",
+        "需使用 7B 原生标签；[标签准备](docs/models.md#qwen-speech-labels)"
+      ],
+      "verification_ids": [
+        "qwen7b-speech",
+        "vllm-qwen7b-http"
+      ]
+    },
+    {
+      "model_key": "minicpm_o_4_5",
+      "en": [
+        "MiniCPM-o **4.5 · LLM**",
+        "T / I / A / V",
+        "Text CE; component LoRA/full, including audio projector",
+        "[Understanding](examples/train-minicpm-o-4.5.yaml)",
+        "No NF4 or packing; [setup](docs/models.md#minicpm-o-45)"
+      ],
+      "zh": [
+        "MiniCPM-o **4.5 · LLM**",
+        "T / I / A / V",
+        "文本 CE；组件 LoRA/full，含音频投影层",
+        "[理解训练](examples/train-minicpm-o-4.5.yaml)",
+        "暂不支持 NF4 与 Packing；[前置条件](docs/models.md#minicpm-o-45)"
+      ],
+      "verification_ids": []
+    },
+    {
+      "model_key": "minicpm_o_4_5",
+      "en": [
+        "MiniCPM-o **4.5 · TTS**",
+        "T / I / A / V",
+        "Text + S3 audio-code CE; LLM/TTS LoRA/full",
+        "[Speech SFT](examples/train-minicpm-omni.yaml)",
+        "Native S3/Token2Wav assets; [setup](docs/models.md#minicpm-o-45)"
+      ],
+      "zh": [
+        "MiniCPM-o **4.5 · TTS**",
+        "T / I / A / V",
+        "文本＋S3 音频码 CE；LLM/TTS LoRA/full",
+        "[语音 SFT](examples/train-minicpm-omni.yaml)",
+        "需原生 S3/Token2Wav 资产；[前置条件](docs/models.md#minicpm-o-45)"
+      ],
+      "verification_ids": [
+        "p3-minicpm",
+        "p3-minicpm-http-v4"
+      ]
+    },
+    {
+      "model_key": "minicpm_o_4_5",
+      "en": [
+        "MiniCPM-o **4.5 · Token2Wav**",
+        "Native S3 codes + reference audio",
+        "Continuous mel conditional flow matching; DiT LoRA/full",
+        "[Flow SFT](examples/train-minicpm-flow.yaml)",
+        "Stage-only export; [setup](docs/models.md#minicpm-token2wav-stage)"
+      ],
+      "zh": [
+        "MiniCPM-o **4.5 · Token2Wav**",
+        "原生 S3 码＋参考音频",
+        "连续 mel 条件 flow matching；DiT LoRA/full",
+        "[Flow SFT](examples/train-minicpm-flow.yaml)",
+        "仅导出解码器阶段；[前置条件](docs/models.md#minicpm-token2wav-stage)"
+      ],
+      "verification_ids": [
+        "flow-duplex-a7"
+      ]
+    },
+    {
+      "model_key": "minicpm_o_4_5",
+      "en": [
+        "MiniCPM-o **4.5 · timed attention**",
+        "T / A + explicit token-event schedule",
+        "Text CE with native causal time mask; offline training",
+        "[Timed SFT](examples/train-minicpm-duplex.yaml) · [schedule contract](docs/training.md#timed-attention)",
+        "Offline explicit schedule; no live duplex; [setup](docs/training.md#timed-attention)"
+      ],
+      "zh": [
+        "MiniCPM-o **4.5 · 时序注意力**",
+        "T / A＋明确 token 事件时间表",
+        "带原生时间因果掩码的文本 CE；离线训练",
+        "[时序 SFT](examples/train-minicpm-duplex.yaml) · [时间表契约](docs/training.md#timed-attention)",
+        "离线显式时间表，非实时双工；[前置条件](docs/training.md#timed-attention)"
+      ],
+      "verification_ids": []
+    },
+    {
+      "model_key": "mimo_audio_7b",
+      "en": [
+        "**MiMo-Audio-7B-Instruct**",
+        "T / A",
+        "Text + multi-codebook audio CE; component LoRA/full, frozen codec",
+        "[Speech SFT](examples/train-mimo-audio.yaml) · [setup](docs/models.md#mimo-audio)",
+        "Matching frozen codec; no image/video; [setup](docs/models.md#mimo-audio)"
+      ],
+      "zh": [
+        "**MiMo-Audio-7B-Instruct**",
+        "T / A",
+        "文本＋多码本音频 CE；组件 LoRA/full；codec 冻结",
+        "[语音 SFT](examples/train-mimo-audio.yaml) · [准备步骤](docs/models.md#mimo-audio)",
+        "需匹配的冻结 codec，不支持图像/视频；[前置条件](docs/models.md#mimo-audio)"
+      ],
+      "verification_ids": [
+        "p3-mimo-v2",
+        "p3-mimo-http-v2"
+      ]
+    },
+    {
+      "model_key": "qwen3_omni",
+      "en": [
+        "**Qwen3-Omni-30B-A3B-Instruct · Thinker**",
+        "T / I / A / V",
+        "Text CE; attention/expert LoRA and projector tuning; frozen router",
+        "[Understanding](examples/train-qwen3-omni.yaml) · [ASR](examples/train-qwen3-asr-pilot.yaml)",
+        "Frozen routers; no NF4; [setup](docs/models.md#qwen3-omni)"
+      ],
+      "zh": [
+        "**Qwen3-Omni-30B-A3B-Instruct · Thinker**",
+        "T / I / A / V",
+        "文本 CE；attention/expert LoRA、投影层微调；冻结 router",
+        "[理解训练](examples/train-qwen3-omni.yaml) · [ASR 基线](examples/train-qwen3-asr-pilot.yaml)",
+        "Router 冻结，暂不支持 NF4；[前置条件](docs/models.md#qwen3-omni)"
+      ],
+      "verification_ids": [
+        "qwen3-understanding-v1",
+        "qwen3-http-v1"
+      ]
+    },
+    {
+      "model_key": "qwen3_omni",
+      "en": [
+        "**Qwen3-Omni · Talker + predictor**",
+        "T / I / A / V",
+        "Text + 16-codebook CE; primary EOS mask; frozen Code2Wav",
+        "[Speech SFT](examples/train-qwen3-omni-speech.yaml) · [teacher data](examples/prepare-qwen3-speech.yaml)",
+        "Native 16-codebook labels; [setup](docs/models.md#qwen-speech-labels)"
+      ],
+      "zh": [
+        "**Qwen3-Omni · Talker＋预测器**",
+        "T / I / A / V",
+        "文本＋16码本 CE；主码 EOS 掩码；Code2Wav 冻结",
+        "[语音训练](examples/train-qwen3-omni-speech.yaml) · [教师数据](examples/prepare-qwen3-speech.yaml)",
+        "需原生 16 码本标签；[前置条件](docs/models.md#qwen-speech-labels)"
+      ],
+      "verification_ids": [
+        "qwen3-speech-v1",
+        "qwen3-speech-http-v1"
+      ]
+    },
+    {
+      "model_key": "voxcpm2",
+      "en": [
+        "**VoxCPM2**",
+        "Exact utterance text + optional reference audio",
+        "Continuous AudioVAE CFM + binary stop CE; component LoRA/full, frozen VAE",
+        "[Speech training](examples/train-voxcpm2.yaml) · [TTS data/setup](docs/models.md#voxcpm2) · [Validation + schedule](examples/train-voxcpm2-pilot.yaml)",
+        "Literal TTS; no conversational speech; [setup](docs/models.md#voxcpm2)"
+      ],
+      "zh": [
+        "**VoxCPM2**",
+        "待合成原文＋可选参考录音",
+        "连续 AudioVAE flow matching＋二分类停止预测；组件 LoRA/full，VAE 冻结",
+        "[语音训练](examples/train-voxcpm2.yaml) · [数据与步骤](docs/models.md#voxcpm2) · [验证与调度](examples/train-voxcpm2-pilot.yaml)",
+        "逐字语音合成，不支持语音对话；[前置条件](docs/models.md#voxcpm2)"
+      ],
+      "verification_ids": [
+        "voxcpm2-speech-v2",
+        "voxcpm2-speech-http-v1",
+        "infra-voxcpm2-v2",
+        "infra-voxcpm2-quality-v2"
+      ]
+    },
+    {
+      "model_key": "bagel",
+      "en": [
+        "**BAGEL-7B-MoT DiT**",
+        "Text → image",
+        "Continuous VAE flow matching; generation-branch LoRA/full, frozen understanding/VAE",
+        "[Image training](examples/train-bagel.yaml) · [Data/setup](docs/models.md#bagel-dit)",
+        "Text-to-image only; no editing; [setup](docs/models.md#bagel-dit)"
+      ],
+      "zh": [
+        "**BAGEL-7B-MoT DiT**",
+        "文本→图像",
+        "连续 VAE flow matching；生成分支 LoRA/full，理解分支/VAE 冻结",
+        "[图像训练](examples/train-bagel.yaml) · [数据与步骤](docs/models.md#bagel-dit)",
+        "仅文生图，不支持图像编辑训练；[前置条件](docs/models.md#bagel-dit)"
+      ],
+      "verification_ids": [
+        "bagel-dit-v3",
+        "bagel-dit-http-v1"
+      ]
+    },
+    {
+      "model_key": "qwen3_tts",
+      "en": [
+        "**Qwen3-TTS · 1.7B Base**",
+        "Literal utterance text + fixed speaker reference",
+        "16-codebook CE; component LoRA/full; codec and speaker encoder frozen",
+        "[Speech training](examples/train-qwen3-tts.yaml) · [Deployment](examples/deploy-qwen3-tts.yaml)",
+        "Single-speaker CustomVoice export; [setup](docs/models.md#qwen3-tts)"
+      ],
+      "zh": [
+        "**Qwen3-TTS · 1.7B Base**",
+        "待合成原文＋固定音色参考录音",
+        "16 码本 CE；组件 LoRA/full；codec 与说话人编码器冻结",
+        "[语音训练](examples/train-qwen3-tts.yaml) · [部署](examples/deploy-qwen3-tts.yaml)",
+        "单说话人 CustomVoice 导出；[前置条件](docs/models.md#qwen3-tts)"
+      ],
+      "verification_ids": [
+        "qwen3-tts-v3",
+        "qwen3-tts-http-v1"
+      ]
+    },
+    {
+      "model_key": "cosyvoice3",
+      "en": [
+        "**CosyVoice3 · 0.5B-2512**",
+        "Literal text and recordings; reference-conditioned inference",
+        "Discrete speech CE / continuous mel flow; stage LoRA/full",
+        "[Speech](examples/train-cosyvoice3.yaml) · [Flow](examples/train-cosyvoice3-flow.yaml) · [Deployment](examples/deploy-cosyvoice3.yaml)",
+        "Native two-stage pipeline; [setup](docs/models.md#cosyvoice3)"
+      ],
+      "zh": [
+        "**CosyVoice3 · 0.5B-2512**",
+        "待合成原文与录音；推理使用参考录音",
+        "离散语音 CE / 连续 mel flow；分阶段 LoRA/全量",
+        "[语音](examples/train-cosyvoice3.yaml) · [Flow](examples/train-cosyvoice3-flow.yaml) · [部署](examples/deploy-cosyvoice3.yaml)",
+        "原生双阶段流水线；[前置条件](docs/models.md#cosyvoice3)"
+      ],
+      "verification_ids": [
+        "cosyvoice3-speech-v2",
+        "cosyvoice3-speech-http-v1",
+        "cosyvoice3-flow-v2",
+        "cosyvoice3-flow-http-v1"
+      ]
+    },
+    {
+      "model_key": "qwen_image_edit",
+      "en": [
+        "**Qwen-Image-Edit · original**",
+        "One source image and editing instruction",
+        "Target-image flow matching; DiT LoRA / selected full tuning",
+        "[Training](examples/train-qwen-image-edit.yaml) · [Deployment](examples/deploy-qwen-image-edit.yaml)",
+        "Native Diffusers pipeline; [setup](docs/models.md#qwen-image-edit)"
+      ],
+      "zh": [
+        "**Qwen-Image-Edit · 原始版**",
+        "单张源图和编辑指令",
+        "目标图像 flow matching；DiT LoRA / 指定组件全量",
+        "[训练](examples/train-qwen-image-edit.yaml) · [部署](examples/deploy-qwen-image-edit.yaml)",
+        "原生 Diffusers 流水线；[前置条件](docs/models.md#qwen-image-edit)"
+      ],
+      "verification_ids": [
+        "qwen-image-edit-v1",
+        "qwen-image-edit-http-v1"
+      ]
+    },
+    {
+      "model_key": "personaplex",
+      "en": [
+        "**PersonaPlex · 7B-v1**",
+        "User audio and system persona; synchronized agent track and timed transcript targets",
+        "Native 17-stream speech/text CE; component LoRA/full",
+        "[Training](examples/train-personaplex.yaml) · [Deployment](examples/deploy-personaplex.yaml)",
+        "Native streaming / WebSocket duplex; [setup](docs/models.md#personaplex)"
+      ],
+      "zh": [
+        "**PersonaPlex · 7B-v1**",
+        "用户音频与系统角色；同步助手录音与带时间标注的转写目标",
+        "原生17路语音/文本CE；组件LoRA/全量",
+        "[训练](examples/train-personaplex.yaml) · [部署](examples/deploy-personaplex.yaml)",
+        "原生流式 / WebSocket双工；[使用条件](docs/models.md#personaplex)"
+      ],
+      "verification_ids": [
+        "personaplex-v1",
+        "personaplex-realtime-v2"
+      ]
+    }
+  ],
+  "readme_rows": [
+    {
+      "en": [
+        "Qwen2.5-Omni · 3B / 7B",
+        "Text, image, audio, video",
+        "Text / speech",
+        "LoRA / full; NF4 for understanding",
+        "[Understanding](examples/train-qwen2.5-omni-3b-bf16.yaml) · [Speech](examples/train-qwen-omni.yaml) · [All recipes](docs/models.md#qwen25-omni)"
+      ],
+      "zh": [
+        "Qwen2.5-Omni · 3B / 7B",
+        "文本、图像、音频、视频",
+        "文本 / 语音",
+        "LoRA / 全量；理解任务支持 NF4",
+        "[理解](examples/train-qwen2.5-omni-3b-bf16.yaml) · [语音](examples/train-qwen-omni.yaml) · [完整配置](docs/models.md#qwen25-omni)"
+      ]
+    },
+    {
+      "en": [
+        "Qwen3-Omni · 30B-A3B-Instruct",
+        "Text, image, audio, video",
+        "Text / speech",
+        "LoRA / selected full tuning",
+        "[Understanding](examples/train-qwen3-omni.yaml) · [Speech](examples/train-qwen3-omni-speech.yaml)"
+      ],
+      "zh": [
+        "Qwen3-Omni · 30B-A3B-Instruct",
+        "文本、图像、音频、视频",
+        "文本 / 语音",
+        "LoRA / 指定组件全量",
+        "[理解](examples/train-qwen3-omni.yaml) · [语音](examples/train-qwen3-omni-speech.yaml)"
+      ]
+    },
+    {
+      "en": [
+        "MiniCPM-o · 4.5",
+        "Text, image, audio, video",
+        "Text / speech",
+        "LoRA / full",
+        "[Understanding](examples/train-minicpm-o-4.5.yaml) · [Speech](examples/train-minicpm-omni.yaml)"
+      ],
+      "zh": [
+        "MiniCPM-o · 4.5",
+        "文本、图像、音频、视频",
+        "文本 / 语音",
+        "LoRA / 全量",
+        "[理解](examples/train-minicpm-o-4.5.yaml) · [语音](examples/train-minicpm-omni.yaml)"
+      ]
+    },
+    {
+      "en": [
+        "MiMo-Audio · 7B-Instruct",
+        "Text, audio",
+        "Text / speech",
+        "LoRA / full",
+        "[Speech](examples/train-mimo-audio.yaml) · [Setup](docs/models.md#mimo-audio)"
+      ],
+      "zh": [
+        "MiMo-Audio · 7B-Instruct",
+        "文本、音频",
+        "文本 / 语音",
+        "LoRA / 全量",
+        "[语音](examples/train-mimo-audio.yaml) · [使用条件](docs/models.md#mimo-audio)"
+      ]
+    },
+    {
+      "en": [
+        "VoxCPM2",
+        "Utterance text; optional reference audio",
+        "Speech",
+        "LoRA / full",
+        "[TTS](examples/train-voxcpm2.yaml) · [Setup](docs/models.md#voxcpm2)"
+      ],
+      "zh": [
+        "VoxCPM2",
+        "待合成原文；可选参考音频",
+        "语音",
+        "LoRA / 全量",
+        "[语音合成](examples/train-voxcpm2.yaml) · [使用条件](docs/models.md#voxcpm2)"
+      ]
+    },
+    {
+      "en": [
+        "BAGEL · 7B-MoT",
+        "Text",
+        "Image",
+        "Generation-branch LoRA / full",
+        "[Text-to-image](examples/train-bagel.yaml) · [Setup](docs/models.md#bagel-dit)"
+      ],
+      "zh": [
+        "BAGEL · 7B-MoT",
+        "文本",
+        "图像",
+        "生成分支 LoRA / 全量",
+        "[文生图](examples/train-bagel.yaml) · [使用条件](docs/models.md#bagel-dit)"
+      ]
+    },
+    {
+      "en": [
+        "Qwen3-TTS · 1.7B Base",
+        "Utterance text; fixed speaker reference",
+        "Speech",
+        "LoRA / selected full tuning",
+        "[Single-speaker TTS](examples/train-qwen3-tts.yaml) · [Setup](docs/models.md#qwen3-tts)"
+      ],
+      "zh": [
+        "Qwen3-TTS · 1.7B Base",
+        "待合成原文；固定音色参考录音",
+        "语音",
+        "LoRA / 指定组件全量",
+        "[单说话人微调](examples/train-qwen3-tts.yaml) · [使用条件](docs/models.md#qwen3-tts)"
+      ]
+    },
+    {
+      "en": [
+        "CosyVoice3 · 0.5B-2512",
+        "Utterance text",
+        "Speech",
+        "LLM / flow LoRA or selected full tuning",
+        "[Speech LLM](examples/train-cosyvoice3.yaml) · [Flow](examples/train-cosyvoice3-flow.yaml) · [Setup](docs/models.md#cosyvoice3)"
+      ],
+      "zh": [
+        "CosyVoice3 · 0.5B-2512",
+        "待合成原文",
+        "语音",
+        "LLM / flow LoRA 或指定组件全量",
+        "[语音 LLM](examples/train-cosyvoice3.yaml) · [Flow](examples/train-cosyvoice3-flow.yaml) · [使用条件](docs/models.md#cosyvoice3)"
+      ]
+    },
+    {
+      "en": [
+        "Qwen-Image-Edit · original",
+        "Source image and editing instruction",
+        "Edited image",
+        "DiT LoRA / selected full tuning",
+        "[Image editing](examples/train-qwen-image-edit.yaml) · [Setup](docs/models.md#qwen-image-edit)"
+      ],
+      "zh": [
+        "Qwen-Image-Edit · 原始版",
+        "源图和编辑指令",
+        "编辑后图像",
+        "DiT LoRA / 指定组件全量",
+        "[图像编辑](examples/train-qwen-image-edit.yaml) · [使用条件](docs/models.md#qwen-image-edit)"
+      ]
+    },
+    {
+      "en": [
+        "PersonaPlex · 7B-v1",
+        "User audio; system persona",
+        "Time-aligned text / speech",
+        "Component LoRA / selected full tuning",
+        "[Duplex speech](examples/train-personaplex.yaml) · [Setup](docs/models.md#personaplex)"
+      ],
+      "zh": [
+        "PersonaPlex · 7B-v1",
+        "用户音频；系统角色文本",
+        "时间对齐文本 / 语音",
+        "组件 LoRA / 指定组件全量",
+        "[双工语音](examples/train-personaplex.yaml) · [使用条件](docs/models.md#personaplex)"
+      ]
+    }
+  ]
+}

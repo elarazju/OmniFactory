@@ -1,0 +1,148 @@
+{
+  "adapter": "mimo_audio",
+  "environment": {
+    "python": "3.13.13",
+    "packages": {
+      "torch": "2.10.0",
+      "transformers": "4.57.6",
+      "peft": "0.18.1",
+      "bitsandbytes": "0.48.2",
+      "flash-attn": "2.8.3",
+      "numpy": "2.5.4"
+    },
+    "device": "cuda",
+    "cuda_runtime": "13.2",
+    "matmul_precision": "highest",
+    "tf32_matmul": false,
+    "tf32_cudnn": false,
+    "deterministic_algorithms": false,
+    "cublas_workspace_config": null,
+    "bf16_reduced_precision_reduction": true,
+    "sdpa_backends": {
+      "flash": true,
+      "mem_efficient": true,
+      "math": true,
+      "cudnn": true
+    },
+    "driver_versions": [
+      "535.247.01"
+    ],
+    "gpu": "NVIDIA H20-3e",
+    "gpu_total_bytes": 150035169280,
+    "compute_capability": [
+      9,
+      0
+    ]
+  },
+  "model": "<workdir>/assets/MiMo-Audio-7B-Instruct-verified",
+  "training": {
+    "checkpoint": "<workdir>/results/p3-mimo-v2/run/checkpoint-00000002",
+    "steps": 2,
+    "last_loss": 3.0704119514535977,
+    "trainable_parameters": 2179072,
+    "device": "cuda",
+    "base_model": "<workdir>/assets/MiMo-Audio-7B-Instruct-verified",
+    "vllm_deployment_verified": false,
+    "feature_cache": {}
+  },
+  "resume_max_abs": 0.0,
+  "native_export": {
+    "timed_attention_required": false,
+    "format": "vllm-omni",
+    "adapter": "mimo_audio",
+    "inference_config": {
+      "model": "<workdir>/assets/MiMo-Audio-7B-Instruct-verified",
+      "revision": null,
+      "dataset": "<workdir>/results/p3-mimo-v2/data/train.jsonl",
+      "dataset_root": null,
+      "output_dir": "<workdir>/results/p3-mimo-v2/run",
+      "adapter": "mimo_audio",
+      "task": "speech_sft",
+      "duplex_schedule": null,
+      "max_attention_pairs": 1000000,
+      "flow_sigma_min": 1e-06,
+      "flow_cfg_dropout": 0.2,
+      "speech_tokenizer": "<workdir>/assets/MiMo-Audio-Tokenizer-verified",
+      "speech_assets": null,
+      "speech_tokenizer_sha256": "6a6ad4966863f63461cba7c626696e1b9faf5943777191786f33103254c22806",
+      "speech_codes": null,
+      "speech_speaker": "Chelsie",
+      "text_loss_weight": 1.0,
+      "speech_loss_weight": 1.0,
+      "max_codec_tokens": 256,
+      "video_fps": 1.0,
+      "max_video_frames": 4,
+      "max_video_seconds": 2.0,
+      "device": "cpu",
+      "dtype": "float32",
+      "quantization": "none",
+      "attention": "sdpa",
+      "feature_cache": null,
+      "feature_cache_components": [
+        "vision_encoder",
+        "audio_encoder"
+      ],
+      "packing": "none",
+      "gradient_checkpointing": false,
+      "max_steps": 2,
+      "save_steps": 1,
+      "gradient_accumulation_steps": 3,
+      "max_length": 2048,
+      "max_audio_seconds": 3.0,
+      "max_image_pixels": 1048576,
+      "seed": 42,
+      "max_grad_norm": 1.0,
+      "components": {
+        "language_model": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "speech_generator": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        }
+      },
+      "budget": {
+        "max_examples": 1,
+        "max_llm_tokens": 2048,
+        "max_vision_patches": 16384,
+        "max_audio_frames": 1000,
+        "max_codec_frames": 512,
+        "max_decoded_media_bytes": 67108864,
+        "max_gpu_bytes": null,
+        "max_latent_elements": null,
+        "max_stream_events": null
+      },
+      "window_size": 64,
+      "resume_from": null,
+      "memory_profile": null
+    },
+    "source_checkpoint": "<workdir>/results/p3-mimo-v2/run/checkpoint-00000002",
+    "source_fingerprint": "3e9c7d0ac20f7508d3087d24349fe9ff54888249d1c742b5a160bf2a2707b800",
+    "output": "<workdir>/results/p3-mimo-v2/export",
+    "lora_merged": true,
+    "vllm_deployment_verified": false
+  },
+  "reload_max_abs": 1.52587890625e-05,
+  "generated_predictions": 3,
+  "predictions_with_codes": 3,
+  "native_eos_verified": true,
+  "max_training_peak_bytes": 16177637888,
+  "native_waveform_frames": 19200,
+  "native_waveform_sample_rate": 24000,
+  "speech_training_verified": true,
+  "vllm_serving_verified": false,
+  "quality_verified": false
+}

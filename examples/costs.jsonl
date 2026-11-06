@@ -1,0 +1,6 @@
+{"sample_id":"demo-text-1","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text"],"llm_tokens":300}
+{"sample_id":"demo-text-2","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text"],"llm_tokens":600}
+{"sample_id":"demo-audio-1","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text","audio"],"llm_tokens":800,"audio_frames":2000,"decoded_media_bytes":640000}
+{"sample_id":"demo-audio-2","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text","audio"],"llm_tokens":1000,"audio_frames":2600,"decoded_media_bytes":832000}
+{"sample_id":"demo-video-1","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text","video"],"llm_tokens":3000,"vision_patches":1200,"decoded_media_bytes":33554432}
+{"sample_id":"demo-video-2","prediction_id":"p0","contract_id":"synthetic-qwen25-understanding-v1","modalities":["text","video"],"llm_tokens":2000,"vision_patches":800,"decoded_media_bytes":16777216}

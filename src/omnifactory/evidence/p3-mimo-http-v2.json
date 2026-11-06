@@ -1,0 +1,75 @@
+{
+  "family": "mimo",
+  "model": "omnifactory-mimo",
+  "requests_passed": 6,
+  "results": [
+    {
+      "id": "validation-0-text",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I help you today?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-1-text",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I assist you today? (chuckles) It seems we've encountered a minor hiccup\u2014your initial request for a concise response has been, ahem, 'eaten' by the digital ether. Never fear! I'll craft a reply that's both brief and delightful. Here\u2019s one: 'Hi there! What\u2019s on your mind?' (grins) But since you asked for brevity, here\u2019s the ultra-condensed version: 'Hey! How can I help?' (winks) If you\u2019d prefer something even shorter\u2014say, two words\u2014I\u2019m all yours: 'Hello! What's up?' (laughs) And if we\u2019re feeling adventurous, how about this playful twist: 'Yo! Ready to chat?' (grinning) So, what\u2019s the verdict? Should I stick with short and sweet, or do you... (leans in conspiratorially)... want me to keep the charm flowing? (winks) P.S. Just so we're clear, my default setting is 'friendly but efficient,' though I can dial it up or down like a volume knob. Your call! (smiles warmly)"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-2-text",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I help? (chuckles) I'm here to assist you with any questions or tasks you might have. Whether it's information, advice, or just a friendly chat, feel free to ask. Let's make this conversation useful and enjoyable for both of us. What would you like to talk about?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-0-audio",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I help you today? (smiling)"
+      ],
+      "audio_frames": 288000,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-1-audio",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I help? Here's a fun fact about the word 'hello': It\u2019s one of the most common greetings in English and dates back to the 19th century, when it was first used as an interjection in literature. The earliest known written example appears in Charles Dickens' \"The Pickwick Papers\" from 1836. Over time, it became a standard way to start conversations\u2014especially over the telephone, where \"Aloha\" and other alternatives were also used. Fun fact: In some cultures, like Japan, people might say \"Konnichiwa\" (hello) instead, while in France, \"Bonjour\" is more common. But worldwide, \"hello\" remains a universal greeting!"
+      ],
+      "audio_frames": 1152000,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-2-audio",
+      "http_status": 200,
+      "text": [
+        "Hello! How can I help? (chuckles) You know, it's funny you ask that. I get this question all the time: 'He must be so proud of you.' And honestly? I don't know. Not really. See, my dad... he's one of those guys who shows love through actions, not words. He'll fix your bike tire at 2 AM if you're stranded, or show up unannounced with your favorite snack after a bad day. But asking him directly how he feels about my accomplishments? That\u2019s like trying to get a cat to do its taxes\u2014impossible. So yeah, I guess I\u2019ll never know for sure. But hey, knowing him, he probably is. It just won\u2019t come out that way. (laughs softly) Anyway, what\u2019s on your mind today?"
+      ],
+      "audio_frames": 1612800,
+      "finish_reasons": [
+        "stop"
+      ]
+    }
+  ],
+  "quality_verified": false,
+  "live_http_verified": true
+}

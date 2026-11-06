@@ -1,0 +1,614 @@
+{
+  "format": "omnifactory-run-provenance-v1",
+  "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+  "files": {
+    "acceptance/tested-code.json": {
+      "sha256": "086247f9d7cca9e9a2c78ec905502a5c7c81b7a6a33e2817e88cc2db42854370",
+      "content": {
+        "__init__.py": "dc65005b2abdd28b77d263f931c9177446057b24d12e5e2c84c2540da31fc520",
+        "__main__.py": "dccaec4193a50175d86ce44d529053e414d4bc15fe50f50ebd099a21d5e5da9e",
+        "_vendor/__init__.py": "9a3278f26f06ab218136f3d5276978df526c442909974cb86afb56d7f7821a6b",
+        "_vendor/bagel/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "_vendor/bagel/compat.py": "34b0950eefcfab6bb315e8ec0b10afc5c316425e58acd69977e18acf5693748f",
+        "_vendor/bagel/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "_vendor/bagel/data/data_utils.py": "38979dffa64dc32b5c1ddd65b592ee2b084af6c9fec1133c547b762e4394615b",
+        "_vendor/bagel/modeling/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "_vendor/bagel/modeling/autoencoder.py": "57941c0c14b9487e9a95f4d048755ab5ad4b75d144874009e3ba8a0302e68efa",
+        "_vendor/bagel/modeling/bagel/__init__.py": "59d4106be415927bbc41c325b7a5df52e3a02ec1c701aa9655dd5e2f1aeaf90e",
+        "_vendor/bagel/modeling/bagel/bagel.py": "200c09a728bf78abab7cec00a14d9964e5790aa4e666abc36612c83a9f996e55",
+        "_vendor/bagel/modeling/bagel/modeling_utils.py": "6fe5eed0513a462c28cccd8ec86d5496b774667fa6f04be8f70e6595baf3f323",
+        "_vendor/bagel/modeling/bagel/qwen2_navit.py": "a4223c4ff92885b12c3a822c5dd5d1b0bc87747891d9adaf77774ea780c33192",
+        "_vendor/bagel/modeling/bagel/siglip_navit.py": "1893e58817295b6eaed8b605a123fd569c7c7d7bac7334c1f87c3bb389ba6c66",
+        "_vendor/bagel/modeling/cache_utils/taylorseer.py": "353a560c7b3164766f797020322a8e40d329ee3c3cc09c656dbe8d5522068dae",
+        "_vendor/bagel/modeling/qwen2/__init__.py": "c98f7445ec6af14d32d650436b754f74c281e91d22e82a6115264c355bd75ecf",
+        "_vendor/bagel/modeling/qwen2/configuration_qwen2.py": "541074d10078a144914b6104dbab6af0c6030ad2695526896c1e6231603136a1",
+        "_vendor/bagel/modeling/qwen2/modeling_qwen2.py": "c8935e385d15836a7ece216ae9a3414035e085db50f6bc906aeef791119a56ee",
+        "_vendor/bagel/modeling/qwen2/tokenization_qwen2.py": "5add04cc0ef8e8549151cc7babe733d93ed8739aa265acb49073c0ad129abd48",
+        "_vendor/bagel/modeling/qwen2/tokenization_qwen2_fast.py": "7f4177e86f80e3feabc67d32ff6135896c280f37cceaec2f43703e50aef82b9c",
+        "_vendor/bagel/modeling/siglip/__init__.py": "1a0470f5ee0139f8387626302107efedb2349d5caef8ea23ed3416cbc5229c60",
+        "_vendor/bagel/modeling/siglip/configuration_siglip.py": "3064249ae6b6f330a69fa9f1d79dd48b4e12f2ba9aae11d805625275299913ef",
+        "_vendor/bagel/modeling/siglip/convert_siglip_to_hf.py": "91acbaf1745609c72d26ca9c95b626b3fe84da193b7c6b9f3ecfc2747b2738dc",
+        "_vendor/bagel/modeling/siglip/image_processing_siglip.py": "2455839b8360701f440824af3af2417ed21f10283d649d6929b66932260428c7",
+        "_vendor/bagel/modeling/siglip/modeling_siglip.py": "d601ad9987922ba8b0fa59ef35654c1b8da2b300d69bc3dde5f10d1356d879fd",
+        "_vendor/bagel/modeling/siglip/processing_siglip.py": "c70d6be66a05b42d7dbf568a9fd309d7c90fbe02d56db32daa83af2882d696b4",
+        "_vendor/bagel/modeling/siglip/tokenization_siglip.py": "04631ab91c49b47d3d9be8032ca4488f9280ffc8fc2eb1701bc2297b535536e0",
+        "_vendor/mimo_audio/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "_vendor/mimo_audio/codec/__init__.py": "5d831c53cc21364f583407c96ea98f7f3ca87206eb3610ebb8eab3fea4f6e789",
+        "_vendor/mimo_audio/codec/configuration_audio_tokenizer.py": "d9e586d8b01dab552b365b8ab3a224c4561b3937cc26a5e686ec6294babc349b",
+        "_vendor/mimo_audio/codec/modeling_audio_tokenizer.py": "cc9f56198a7319707fd33e45e4cc344fc410c277eb21b78bacc7c415cc22b34c",
+        "_vendor/mimo_audio/codec/modeling_rope_utils.py": "29d62d9fa8acee7a969ea35defe5581fb4977563c56701e1659ecc0e6345ccf4",
+        "_vendor/mimo_audio/codec/quantization.py": "f0e856da2ad7dc52b8aad99d52f217eab44f1ab3620d386a8e706f30725a95c5",
+        "_vendor/mimo_audio/modeling_mimo_audio.py": "cf2a66fa65f74df496a7a6f580643fc8cb567b893c6821614bc1d62281bb8e45",
+        "_vendor/mimo_audio/process_speechdata.py": "97a04498b20b1635897c50d737fca6fd4a854b4de60eeda3c41d9e2967f3961c",
+        "_vendor/minicpm_o45/__init__.py": "0ec9c444faad9f7c1ece24bc50529e20329c21c3f087f0cc84fdad7266efa551",
+        "_vendor/minicpm_o45/configuration_minicpmo.py": "b0c56c192d4aa57d3dc358338a4a93413b8b68e7c7a7c5b82a5af35afab1d86a",
+        "_vendor/minicpm_o45/modeling_minicpmo.py": "25359f891d1aa81de16b51a24a97b8c8262b83ce3920c36b92be441fde8e4282",
+        "_vendor/minicpm_o45/modeling_navit_siglip.py": "1a40a58cb7dfa93f723685f860d1cf3caf3a0ecf52b7904db0c4007aacd1536f",
+        "_vendor/minicpm_o45/processing_minicpmo.py": "3a1f017339b92c2fa768d7737db76cc4689d2280b68a71866b06f7dedc8ac1c2",
+        "_vendor/minicpm_o45/tokenization_minicpmo_fast.py": "c9c71d0d7ef0c113829e2d810619c9e0a69cffe04c732c4d80599b40a33bc7bf",
+        "_vendor/minicpm_o45/utils.py": "0372698343830d4a96524f56a91a8cabf628fd7c57dde8b25db43eed1f6042c1",
+        "_vendor/voxcpm2/__init__.py": "87d2fdf8fdc6fc416c7f56b5c7a0ef252cba71e0ea6af9baf4b88e39f24f38f4",
+        "_vendor/voxcpm2/model/__init__.py": "87d2fdf8fdc6fc416c7f56b5c7a0ef252cba71e0ea6af9baf4b88e39f24f38f4",
+        "_vendor/voxcpm2/model/utils.py": "0fb8db0a194e5f7900208174b4aa505bfabeee1f8582dd485c625e7ddff8413f",
+        "_vendor/voxcpm2/model/voxcpm2.py": "31ad554bc15a4da18cf820c6fda97a5b2c56ac8e9a5e66031a264d363661575c",
+        "_vendor/voxcpm2/modules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "_vendor/voxcpm2/modules/audiovae/__init__.py": "bf72e27063eac02f332ae0489696ecca8c0ceb7a0a41f0af54ca8f1c6f145abf",
+        "_vendor/voxcpm2/modules/audiovae/audio_vae.py": "cabe57717c94437ace644b8da7fa4db811a5bdacb437e341a875f890bf8308f9",
+        "_vendor/voxcpm2/modules/audiovae/audio_vae_v2.py": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+        "_vendor/voxcpm2/modules/layers/__init__.py": "4578ed00894dce44a30e2cb153f9ade69382391a0530d718a52634a1beb43c1a",
+        "_vendor/voxcpm2/modules/layers/lora.py": "8071035d19057bee86f61c3261c63193b234e49312b122eb635074984375b534",
+        "_vendor/voxcpm2/modules/layers/scalar_quantization_layer.py": "3e8c661a0eae8ecbf5abbebbea8971a962e95ebef8ea887b5ca4796d9436ca9d",
+        "_vendor/voxcpm2/modules/locdit/__init__.py": "a22d80973102835a5edcca027e59cefc611a6d2afec1af98690727bcfc4b3685",
+        "_vendor/voxcpm2/modules/locdit/local_dit.py": "d6e82cee3f5157724b1c998325163c96fe1fff5f11a733c89faacafe9987223b",
+        "_vendor/voxcpm2/modules/locdit/local_dit_v2.py": "7ea51eb5acc8475ffa41649852ee8d5d3f2a601b962f313f9e1c7eb109542b2f",
+        "_vendor/voxcpm2/modules/locdit/unified_cfm.py": "e4535337024cf44b6888eccfd39ccbe98684e302dd1836e05f940b4d626dcfdf",
+        "_vendor/voxcpm2/modules/locenc/__init__.py": "257ee6d2ee516f7065573180c7c2b175b06e7c59b8b89998b34b6ffafd7bb332",
+        "_vendor/voxcpm2/modules/locenc/local_encoder.py": "ab1d3c5b4028573495e2bc57d548af0310a577cee04c57055aaafcf94a1e1729",
+        "_vendor/voxcpm2/modules/minicpm4/__init__.py": "c2d6c1a428844a709d88e0312f07a79f337b4cfd58334756013786510e399f11",
+        "_vendor/voxcpm2/modules/minicpm4/cache.py": "644acd3bf7cf8313f2ba285f68c41967fcedb57e5f5d8f38a883acc385ee030d",
+        "_vendor/voxcpm2/modules/minicpm4/config.py": "5bed3ea87242f0ad5d0e8d80d602eea4373c9d175e26f5bb324b3c93ad7db36d",
+        "_vendor/voxcpm2/modules/minicpm4/model.py": "0733349295d13b2ec57e979058fa64becec821b9bd475e188eb4033fc016d2d2",
+        "_vendor/voxcpm2/training/__init__.py": "87d2fdf8fdc6fc416c7f56b5c7a0ef252cba71e0ea6af9baf4b88e39f24f38f4",
+        "_vendor/voxcpm2/training/packers.py": "0457d84f59c2a32c339015f57a5139a6c06dddd7ae11b80a6b4a7e1031e7d0e3",
+        "acceptance.py": "fbbd9867c1a696c806f5d6999089eb403322f4ddfa77d9a8456deaf16572a493",
+        "adapters/__init__.py": "7e93c55189bd668341e90b20fde034bb16be8e4e47396dbf27101838416a10bb",
+        "adapters/bagel.py": "fa6cb559d1cdee8d7c0c5cb65ff950849fcb23c7dd596c65c8ed6225f70f8eef",
+        "adapters/bagel_model.py": "6bc52afc2fbd22be5678e400f4b2ba0bac96317ce658a0a6ca8f0c6e8d0cd318",
+        "adapters/base.py": "8155d19b80fe5b81c25c8607c02af20075655ee9b5b8560d027049befa9122c9",
+        "adapters/configuration.py": "f3220a1bcb8460d3a8202217c642f875880185996d8605bdea1f77aebb061160",
+        "adapters/duplex.py": "10583cd9ce4ca4823a112f2e763bb529e45a504d38296a7772e8b3b59bfd876d",
+        "adapters/media.py": "1f1666a9c761e9e01cf04aeb22f9494613299919404b9ae380ae147918f3cf0c",
+        "adapters/mimo.py": "e4cec91ff28a36b0e66f9c544615ce19b439dae8e3efef19fa9c91fbbe6eb374",
+        "adapters/mimo_codec.py": "ee747dd9fa48e833819ba3c31753374cf7901000e94e38e660d48e5acd75bfe1",
+        "adapters/mimo_model.py": "96b596f3b10279310e109443dd3984710d0823c964e168d048ae629fe4d52b8b",
+        "adapters/minicpm.py": "32813d3efb2da349e47ef0827d78c4ebf51cf559eb5949027cf8c79040889350",
+        "adapters/minicpm_flow.py": "60b213d3890f6cc83a07acad201efa21306247fa80e7a4e1f77a8938b4d950cb",
+        "adapters/packing.py": "7014948a8c7200c06822e661b8bdd7f27a65fe423576fe8ac8cd7840bb8e9386",
+        "adapters/qwen2_5.py": "0474a361ac06a922bda30a704cfdf70fd60e865773059e1ca4ef25b87efabcd2",
+        "adapters/qwen3.py": "f8fe786037c5a7665858eff9bc270ed79cad8ee8699e6604de56d9b19d62bcde",
+        "adapters/qwen3_speech.py": "07b209e015ebe26667bfdc43a42c0cdb99d9282b077656ab478ef6cfc4377509",
+        "adapters/qwen_speech.py": "7b9e25336b857e9b66d168fb65e8fc4cd50a66a2bee71e7347287749d7a82c70",
+        "adapters/runtime.py": "f0c067411c07d5f82d6c063c3c4e079fc29481715ff6109372ea46c02c53d888",
+        "adapters/speech.py": "06e5721edd012594d08a1151a8342e9c776046f040ce5334731031e5a8dd1c6d",
+        "adapters/supervision.py": "e099392a88eae327f548c6132b260146548ab877e5e7bf28515deb143e0f938b",
+        "adapters/token2wav.py": "bf6d71d565493b2261db1117cb703dbcbfa2afd4f634fdce69e9594a27741c7a",
+        "adapters/video.py": "4d57841544706a9c7d941d9372f0266e1748d87582e32f47fab133889dc69c03",
+        "adapters/voxcpm2.py": "e67168e77f45c7a63e60660c021209ba326b74dd387ead1dc8652975a2d33e16",
+        "adapters/voxcpm2_model.py": "0c91c1fb712db66693e028ebe127f75eaee663a220560763701f9fde8a4d1ddd",
+        "artifacts.py": "1541aa2772409ed8c4a2a817570b6ec9474421193a34c9b79e9aa0d611e0284f",
+        "capabilities.py": "5cb90fad9e24060c833059fd70e69602638cbc12578ea599dccbdd3663a1d210",
+        "cli.py": "343cc563d9d0d8190fdc30ded0cdacbbb2f599a0d4781e8dab9425a9d8bf87ee",
+        "data/__init__.py": "5c997ed3f4c6d30fd318765a725103a03dd0bc0eef41b7a24671441f1795032b",
+        "data/io.py": "c411a62d135c05c62748c380e885baa23bfaa74bf6568e33c1eb1c7e71284ab8",
+        "data/media.py": "7c022ce85770ad258d9388bb5cfddf9d364d4b379fb3df1190ac9ff65c20e109",
+        "data/processor.py": "4e53a1668c46141fc4882e7bdd34c72eb3e3e11327abee6b538f19cf816e6586",
+        "data/schema.py": "2df3562c4ed08a1ec6f6aab3f05ac3829bbd8412526b3f735bfa167cf361ac84",
+        "data/supervision.py": "16e3d77c3f889fd80a3109751526823e07c2f3f5d527a02e12f7ca302daf7d54",
+        "datasets/__init__.py": "823d687882b79fbfb11c64e00f9c474167e2cb6422c0416da45336b01400bfa5",
+        "datasets/demo.py": "65efcd45c6e048712ccc4939b7e0481ec3d966061d70560f8eb84925b77d9e23",
+        "datasets/flow_demo.py": "f3a11dd76bd8dfc6af5af5aa68e84a908b5b38166c3dfcb1ce866db7db0c857a",
+        "datasets/image_demo.py": "01e455d059efdaf29ebf4198f3247b93cba3e7a9030b5d858811b71653736db3",
+        "datasets/importers.py": "41627efd857d06fdd570cc9781a19eb95926a03cf601f59240dbfdf96ab8982e",
+        "datasets/mimo_demo.py": "0688e3728be4ab86907aba20a9d18627ffe152d9b90c2a2a22482d5b402e87e4",
+        "datasets/omni_demo.py": "a363da4e0dd22776f56dd627ada2eafc885a743e7e1c619fc784726785726969",
+        "datasets/qwen_speech.py": "d1266bb638bfdddc27174b3b837976a743530476e46b498e844748574894c472",
+        "deployment.py": "e3c8adb99b19cf39b463ce1b11dfd348964611af8cdcc8506b80b766965c4677",
+        "environment.py": "54a1e944d62efd06c817b1c4f49affb2afcafa5c58ba4b1f360c9427b91fb5bf",
+        "errors.py": "f7bd9d3c0c3beacd6eb4b304daf58335f391a4c40a30bc871fad360b8ec17471",
+        "models/__init__.py": "802516a84fbee95a9fb2430418a662f8d10242de6b6a5cecebee881d87bd4e50",
+        "models/registry.py": "fa780a38ad1a35bd06f697ba2d84ca9aa09439cc9e99c63276abca828040da8f",
+        "planning/__init__.py": "dca4b48d72ab36cb5ebd5868266f8e15e5d62e88c50d30f53ff5f8097e5954d8",
+        "planning/adaptation.py": "bac04665a5cdd9b9f38a1638c31ce2bead27086ada9a35dfa241b7139cbdfc7d",
+        "planning/batching.py": "b4a98cf909061a3ae77e8bc0ec61b33e7cf92e4f8f97b2e26a6342b2e0e934b8",
+        "quality.py": "0bfb66ec9a7cb549ec2ea5b30773e2b9c8c514b40a1b1bd6dd7a66c435fecfed",
+        "serving.py": "c04c26b464aafb69f4992a93000e3a55eee00bcf48b3ac2dfdd69f0929f53b59",
+        "training/__init__.py": "5548997045c2b4639497ce16c81d62294cb034b712653e6c2490e2d1202be2e9",
+        "training/artifacts.py": "876bf48593b88eb470de940cfe6b93fe90369a691df46b51895f014b9c152aaa",
+        "training/asr_metrics.py": "f9f1627bcc87a3a2f7433b68d239f0c58b29bcbfaf88b9a55583018afe0e52c8",
+        "training/benchmark.py": "abd9e8d2ad8b2dbf30317423131668f2fcbb6adf056e3e7a3e5bf1ea9d7901b9",
+        "training/calibration.py": "8b34293b89504238da2a825fa864aaa33daa3b19c9392d77f21ef2bccd671ce2",
+        "training/config.py": "f9e930291eabe66ac95ace273c2de14e621e4fb009e6610aa3f9078c42dbfd91",
+        "training/control.py": "432f45d27f19e0af10f1c2c1caceafd82fbb2232c9543f960771d23e32ffbabc",
+        "training/efficiency.py": "540d4bffaf2bd02b8916147db1dc21483042e13acd73b55bd546afc4c190da2f",
+        "training/engine.py": "7d4f21c5384e67252e18c8da5a6c9471db6736c36cf4f5b9cd229ad629f48e2e",
+        "training/evaluation.py": "c874e43000498997f958ff2216a5990704c10279b757d9c34e91112bd9a7209f",
+        "training/export.py": "5c7ca4172842ad909973b8f4d0e0aa1b7a84c7d719c63ee11fd4395307effff5",
+        "training/feature_cache.py": "a17b14f7764ad570d93998c5d0f0580de57598d9ea84873d50a477576eee204d",
+        "training/fingerprints.py": "ec9144134d34199404eb9c29b3c689e40b501f9a70a87348ee070559821b33aa",
+        "training/losses.py": "8b00a6791639e922bcf6055f631d2228b0e840e03668233d50ebc538dd65913d",
+        "training/policy.py": "718bd3fc071ad2d26d67485791c8aeaa919567e993227d7639e4a57669a55578",
+        "training/prepare.py": "b1cf62a440fbe1fbd3a6e99f880a0e14d525e2e0aa918a1c902ef5bad4833252",
+        "training/smoke.py": "340a21f877be111d5b0f813721488a26bbb0da16d128f0a278fb211db11a29b2",
+        "training/tiny.py": "47e3ed96039796fe8190619276abdccf1c7bd70a90c68a33fe22f689899c394a",
+        "training/tiny_bagel.py": "80bd3dab5499c9e7c48f6adf47c48f37e537a89e7abaedb06d71cd6b49cf3bd4",
+        "training/tiny_mimo.py": "d7bbc36afc72b9539c36cbd6c905a002ffca67a9b71ef67491eedace092a2506",
+        "training/tiny_minicpm.py": "c636c9dac179f5ae4d3be6a99c64f8480f77e4910b2068dbe6cb4803e67d9804",
+        "training/tiny_qwen3.py": "0a131c23d5a4e9c7b6a5eb7e48290d8d59d1270badbd396047c697c14e91b9e1",
+        "training/tiny_voxcpm2.py": "05311dacf98cf9faf81503388c9d7286b5eded6c7f6454b9ba8134498b468b3b"
+      }
+    },
+    "post-run-environment-fix.json": {
+      "sha256": "26ce912d1b82883ec5db05fc98ca1c5d1a45d5892955f534f497089233b10f18",
+      "content": {
+        "scope": "Only active-distribution inventory capture fixed after pilot; training/encoding/export/inference implementation unchanged",
+        "files": {
+          "environment.py": {
+            "tested": "54a1e944d62efd06c817b1c4f49affb2afcafa5c58ba4b1f360c9427b91fb5bf",
+            "current": "eede8f4327ebec0ad8c3ac5b680c7d6bb85718c77174ffd8344fb6f87666ec94"
+          }
+        },
+        "active_environment_sha256": "60cff5bb99433e7bc021c04767690fa0c57d276ac18da57a9dcc5ef26aa5967e"
+      }
+    },
+    "environment-active/environment.json": {
+      "sha256": "60cff5bb99433e7bc021c04767690fa0c57d276ac18da57a9dcc5ef26aa5967e",
+      "content": {
+        "omnifactory_version": "0.1.0a8",
+        "python": "3.13.13",
+        "platform": "Linux-5.4.241-1-tlinux4-0017.7-x86_64-with-glibc2.28",
+        "packages": {
+          "packaging": "26.3",
+          "ninja": "1.13.0",
+          "identify": "2.6.20",
+          "cuda-python": "13.3.1",
+          "deep_ep": "1.2.1",
+          "matplotlib-inline": "0.2.2",
+          "cuda-bindings": "13.3.1",
+          "protobuf": "6.33.6",
+          "scipy": "1.17.1",
+          "lxml": "6.1.1",
+          "anyio": "4.14.1",
+          "llvmlite": "0.50.0",
+          "fast_op": "1.2.1",
+          "hf-xet": "1.5.1",
+          "typing-inspection": "0.4.2",
+          "pure_eval": "0.2.3",
+          "numpy": "2.5.4",
+          "soxr": "1.1.0",
+          "frozenlist": "1.8.0",
+          "concurrent-log-handler": "0.9.25",
+          "tomli_w": "1.2.0",
+          "ipython_pygments_lexers": "1.1.1",
+          "ml_dtypes": "0.5.4",
+          "MarkupSafe": "3.0.3",
+          "wcwidth": "0.7.0",
+          "tokenizers": "0.22.2",
+          "yarl": "1.24.2",
+          "pyproject_hooks": "1.2.0",
+          "httpx": "0.28.1",
+          "nvidia-cudnn-frontend": "1.25.0",
+          "click": "8.4.2",
+          "magi_attention": "1.0.5",
+          "PyYAML": "6.0.3",
+          "remote-pdb": "2.1.0",
+          "sortedcontainers": "2.4.0",
+          "stepaudio2-minicpmo": "0.1.1",
+          "httpcore": "1.0.9",
+          "spin": "0.18",
+          "torch_c_dlpack_ext": "0.1.5",
+          "grpcio": "1.80.0",
+          "virtualenv": "21.14.13",
+          "vcs-versioning": "2.2.0",
+          "py-spy": "0.4.2",
+          "debugpy": "1.8.21",
+          "Pygments": "2.20.0",
+          "stack-data": "0.6.3",
+          "tensorboard-data-server": "0.7.2",
+          "asttokens": "3.0.1",
+          "portalocker": "3.1.1",
+          "pillow": "12.2.0",
+          "python-dateutil": "2.9.0.post0",
+          "pystack": "1.6.0",
+          "setuptools-scm": "10.2.0",
+          "blobfile": "3.2.0",
+          "propcache": "0.5.2",
+          "tqdm": "4.68.3",
+          "fsspec": "2026.4.0",
+          "standard-aifc": "3.13.0",
+          "transformer_engine": "2.10.0+769ed778",
+          "torch": "2.10.0",
+          "s3tokenizer": "0.3.0",
+          "pre_commit": "4.7.0",
+          "aiohttp": "3.14.1",
+          "parso": "0.8.7",
+          "torchaudio": "2.10.0+27b7ebd",
+          "numba": "0.68.0",
+          "soundfile": "0.13.1",
+          "tyro": "1.0.15",
+          "datasets": "5.0.0",
+          "Werkzeug": "3.1.8",
+          "idna": "3.15",
+          "omegaconf": "2.3.1",
+          "flash-linear-attention": "0.5.1",
+          "pycparser": "3.12",
+          "requests": "2.34.0",
+          "torchtitan": "0.1.0",
+          "pooch": "1.9.0",
+          "urllib3": "2.7.0",
+          "multiprocess": "0.70.19",
+          "aiohappyeyeballs": "2.6.2",
+          "onnx-ir": "0.2.1",
+          "megatron-core": "0.13.1",
+          "setuptools": "82.0.1",
+          "nvidia-cutlass-dsl-libs-cu13": "4.5.2",
+          "fla-core": "0.5.1",
+          "diffusers": "0.39.0",
+          "GitPython": "3.1.50",
+          "pexpect": "4.9.0",
+          "pssh": "2.3.6",
+          "attrs": "26.1.0",
+          "tomli": "2.4.1",
+          "quack-kernels": "0.5.0",
+          "torchdata": "0.11.0",
+          "threadpoolctl": "3.7.0",
+          "onnxruntime": "1.31.0",
+          "pyarrow": "21.0.0",
+          "decorator": "5.2.1",
+          "pluggy": "1.6.0",
+          "cmake": "3.28.3",
+          "deep_gemm": "2.4.2+7f2a703",
+          "cfgv": "3.5.0",
+          "bitsandbytes": "0.48.2",
+          "ruamel.yaml.clib": "0.2.15",
+          "wheel": "0.46.3",
+          "annotated-doc": "0.0.4",
+          "tensorboard": "2.20.0",
+          "aiosignal": "1.4.0",
+          "charset-normalizer": "3.4.7",
+          "standard-sunau": "3.13.0",
+          "torchvision": "0.25.0+8ac84ee",
+          "joblib": "1.6.0",
+          "mbridge": "0.15.1",
+          "iniconfig": "2.3.0",
+          "hypothesis": "6.152.7",
+          "pip": "26.0.1",
+          "msgpack": "1.2.3",
+          "accelerate": "1.15.0",
+          "platformdirs": "4.10.0",
+          "markdown-it-py": "4.2.0",
+          "cffi": "2.1.1",
+          "pandas": "3.0.3",
+          "filelock": "3.29.0",
+          "lintrunner": "0.13.1",
+          "typer": "0.25.1",
+          "sentry-sdk": "2.63.0",
+          "audioop-lts": "0.2.2",
+          "ruamel.yaml": "0.18.17",
+          "smmap": "5.0.3",
+          "shellingham": "1.5.4",
+          "onnxscript": "0.7.0",
+          "regex": "2026.5.9",
+          "traitlets": "5.15.0",
+          "xxhash": "3.7.1",
+          "tiktoken": "0.13.0",
+          "pynvml": "13.0.1",
+          "pycryptodomex": "3.23.0",
+          "apache-tvm-ffi": "0.1.11",
+          "pydantic_core": "2.46.4",
+          "transformers": "4.57.6",
+          "lazy-loader": "0.6",
+          "six": "1.17.0",
+          "apex": "0.1",
+          "fa4-internal": "0.4.5",
+          "typeguard": "4.5.2",
+          "mdurl": "0.1.2",
+          "annotated-types": "0.7.0",
+          "optree": "0.19.1",
+          "python-discovery": "1.6.4",
+          "pybind11-global": "3.0.4",
+          "certifi": "2026.4.22",
+          "nvidia-ml-py": "13.610.43",
+          "cuda-core": "1.0.1",
+          "nvidia-cutlass-dsl-libs-base": "4.5.2",
+          "tilelang": "0.1.9+cuda.git441c3b06",
+          "absl-py": "2.4.0",
+          "z3-solver": "4.15.4.0",
+          "networkx": "3.6.1",
+          "jedi": "0.20.0",
+          "wandb": "0.28.0",
+          "scikit-learn": "1.9.1",
+          "flatbuffers": "25.12.19",
+          "Markdown": "3.10.2",
+          "pybind11": "3.0.4",
+          "sympy": "1.14.0",
+          "librosa": "0.11.0",
+          "expecttest": "0.3.0",
+          "standard-chunk": "3.13.0",
+          "importlib_metadata": "9.0.0",
+          "cloudpickle": "3.1.2",
+          "liger_kernel": "0.8.0",
+          "audioread": "3.1.0",
+          "antlr4-python3-runtime": "4.9.3",
+          "ptyprocess": "0.7.0",
+          "triton": "3.6.0",
+          "huggingface_hub": "0.36.2",
+          "psutil": "7.2.2",
+          "executing": "2.2.1",
+          "nvidia-mathdx": "25.6.0",
+          "distlib": "0.4.4",
+          "build": "1.5.0",
+          "uv": "0.11.14",
+          "nodeenv": "1.11.0",
+          "typing_extensions": "4.15.0",
+          "docstring_parser": "0.18.0",
+          "rich": "15.0.0",
+          "safetensors": "0.8.0",
+          "einops": "0.8.2",
+          "peft": "0.18.1",
+          "flash_attn": "2.8.3",
+          "zipp": "3.23.1",
+          "HyperPyYAML": "1.2.3",
+          "dill": "0.4.1",
+          "sentencepiece": "0.2.1",
+          "nvidia-cutlass-dsl": "4.5.2",
+          "pytest": "9.1.1",
+          "h11": "0.16.0",
+          "onnx": "1.22.0",
+          "cuda-pathfinder": "1.5.5",
+          "mpmath": "1.3.0",
+          "ipython": "9.13.0",
+          "multidict": "6.7.1",
+          "Jinja2": "3.1.6",
+          "narwhals": "2.27.1",
+          "prompt_toolkit": "3.0.52",
+          "pydantic": "2.13.4",
+          "gitdb": "4.0.12"
+        },
+        "scope": "Observed environment; CUDA wheels/index and native build provenance require the accompanying recipe"
+      }
+    },
+    "export-manifest.json": {
+      "sha256": "c01486c29090d3943369647f26328ff8f1cfb3ca8f71aba44678a2ec1b853752",
+      "content": {
+        "format": "omnifactory-export-v1",
+        "artifact_id": "b006ff948718672eb55a0dfc0482040e6fdadaab8db4b18dc9776de1a6e18b35",
+        "adapter": "voxcpm2",
+        "source_fingerprint": "2272f83d49b161617a8f7963213f7013d6b1afebd8600128b651fddee221c6ee",
+        "files": {
+          "audiovae.pth": {
+            "bytes": 376951122,
+            "sha256": "94b5d51e107e0507d4acc976cfdadb64edd6fd06d1f751dadbf2fd1594274bf1"
+          },
+          "config.json": {
+            "bytes": 4336,
+            "sha256": "405f0dcd92f7feba6011ed4eac5c8d4f74cba9712f07fd5cfa3063bbdd95402c"
+          },
+          "model.safetensors": {
+            "bytes": 9160089192,
+            "sha256": "178dcb67920483cbf9bc4f75a7f10dbd34b0c376c12a120f95e7af665158397d"
+          },
+          "omnifactory_export.json": {
+            "bytes": 3758,
+            "sha256": "ca057dcb7c46d7217f07d14dcfdd0683dd525bd5593ba1054d9633e7075ab381"
+          },
+          "special_tokens_map.json": {
+            "bytes": 1632,
+            "sha256": "068594063e37662c02b21acf42ebb334ef6a74fb810e68a2368f88f08351de76"
+          },
+          "tokenization_voxcpm2.py": {
+            "bytes": 2895,
+            "sha256": "84489ea32b6ee0cae22ed5480cacb6df85c46624c3119be9a2021c3649a12729"
+          },
+          "tokenizer.json": {
+            "bytes": 3676772,
+            "sha256": "f8984687e4a92a3503d521396d454b7d68e9fdaab2a0288eb3536c7c1aa4bc20"
+          },
+          "tokenizer_config.json": {
+            "bytes": 5059,
+            "sha256": "e78a3ebb48a0b9437efd1823b6b726c823da89e49dd8bcc90c02419d9baa772b"
+          }
+        },
+        "structural_validation": true,
+        "deployment_verified": false
+      }
+    },
+    "termination.json": {
+      "sha256": "97d905b92cadb19de73c522dc4f60dcf562454687293e000983d110c08fa6a83",
+      "content": {
+        "base": [
+          {
+            "sample_id": "6241-61943-0019",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "777-126732-0044",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2803-154328-0014",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149874-0015",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149896-0028",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149897-0028",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149897-0007",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "6241-61943-0017",
+            "speech_finished": true
+          }
+        ],
+        "tuned": [
+          {
+            "sample_id": "6241-61943-0019",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "777-126732-0044",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2803-154328-0014",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149874-0015",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149896-0028",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149897-0028",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "2277-149897-0007",
+            "speech_finished": true
+          },
+          {
+            "sample_id": "6241-61943-0017",
+            "speech_finished": true
+          }
+        ]
+      }
+    }
+  },
+  "validation": [
+    {
+      "step": 16,
+      "loss": 1.0202111910766278,
+      "normalization_counts": {
+        "latent_frames": 2840.0,
+        "stop_symbols": 710.0
+      },
+      "normalization_units": {
+        "latent_frames": "frames",
+        "stop_symbols": "symbols"
+      },
+      "loss_terms": {
+        "flow": {
+          "numerator": 2470.4744415283203,
+          "normalizer": "latent_frames",
+          "kind": "flow_matching",
+          "weight": 1.0
+        },
+        "stop": {
+          "numerator": 106.73133528232574,
+          "normalizer": "stop_symbols",
+          "kind": "cross_entropy",
+          "weight": 1.0
+        }
+      },
+      "scope": "held-out native objectives; not perceptual quality"
+    },
+    {
+      "step": 32,
+      "loss": 1.0133626221770973,
+      "normalization_counts": {
+        "latent_frames": 2840.0,
+        "stop_symbols": 710.0
+      },
+      "normalization_units": {
+        "latent_frames": "frames",
+        "stop_symbols": "symbols"
+      },
+      "loss_terms": {
+        "flow": {
+          "numerator": 2469.5958557128906,
+          "normalizer": "latent_frames",
+          "kind": "flow_matching",
+          "weight": 1.0
+        },
+        "stop": {
+          "numerator": 102.08849781751633,
+          "normalizer": "stop_symbols",
+          "kind": "cross_entropy",
+          "weight": 1.0
+        }
+      },
+      "scope": "held-out native objectives; not perceptual quality"
+    },
+    {
+      "step": 48,
+      "loss": 1.0104285099150114,
+      "normalization_counts": {
+        "latent_frames": 2840.0,
+        "stop_symbols": 710.0
+      },
+      "normalization_units": {
+        "latent_frames": "frames",
+        "stop_symbols": "symbols"
+      },
+      "loss_terms": {
+        "flow": {
+          "numerator": 2469.422519683838,
+          "normalizer": "latent_frames",
+          "kind": "flow_matching",
+          "weight": 1.0
+        },
+        "stop": {
+          "numerator": 100.04861211869866,
+          "normalizer": "stop_symbols",
+          "kind": "cross_entropy",
+          "weight": 1.0
+        }
+      },
+      "scope": "held-out native objectives; not perceptual quality"
+    },
+    {
+      "step": 64,
+      "loss": 1.0099326213480722,
+      "normalization_counts": {
+        "latent_frames": 2840.0,
+        "stop_symbols": 710.0
+      },
+      "normalization_units": {
+        "latent_frames": "frames",
+        "stop_symbols": "symbols"
+      },
+      "loss_terms": {
+        "flow": {
+          "numerator": 2469.118362426758,
+          "normalizer": "latent_frames",
+          "kind": "flow_matching",
+          "weight": 1.0
+        },
+        "stop": {
+          "numerator": 99.77257055044174,
+          "normalizer": "stop_symbols",
+          "kind": "cross_entropy",
+          "weight": 1.0
+        }
+      },
+      "scope": "held-out native objectives; not perceptual quality"
+    }
+  ],
+  "training": {
+    "steps": 64,
+    "peak_allocated_bytes": 5273842176,
+    "metrics_sha256": "66d0b8c1ac7a6e5f18c612148515ac9a06bff3a582a0ad10e05924aaa19d289c"
+  }
+}

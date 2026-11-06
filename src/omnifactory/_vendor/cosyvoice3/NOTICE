@@ -1,0 +1,12 @@
+CosyVoice3 native runtime subset from FunAudioLLM/CosyVoice.
+Revision: 074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc (Apache-2.0).
+Matcha-TTS BASECFM and audio helpers from its pinned submodule
+Revision: dd9105b34bf2be2230f4aa1e4769fb586a3c824e (MIT).
+
+Changes: internal import namespace; standard-library logging; disable implicit
+ONNX feature extraction triggered by the global onnx_path environment variable.
+OmniFactory supplies explicitly prepared speech tokens and speaker features.
+Only the native PreLookaheadLayer and Qwen tokenizers are retained from their
+larger modules. BASECFM is retained without the unrelated Matcha Decoder import.
+Native computational class/function bodies are otherwise preserved.
+Source/file selections and hashes are recorded in provenance.json.

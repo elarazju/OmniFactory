@@ -1,0 +1,41 @@
+# Offline timed attention only, not live duplex serving.
+# Supply a TokenSchedule matching exact expanded native input IDs for every prediction.
+# See docs/training.md#timed-attention; the schedule cannot be inferred from waveform duration alone.
+adapter: minicpm_o_4_5
+model: openbmb/MiniCPM-o-4_5
+revision: eb4141de24550a3a1a4082f718be58f46b761728
+dataset: ../outputs/demo/train.jsonl
+dataset_root: ../outputs/demo
+output_dir: ../outputs/minicpm-timed-run
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 8
+max_length: 2048
+max_audio_seconds: 10
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    target_modules:
+    - q_proj
+    - v_proj
+    lr: 0.0001
+  audio_projector:
+    mode: full
+    lr: 2.0e-05
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 16384
+  max_audio_frames: 1000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 16777216
+  max_stream_events: 128
+duplex_schedule: ../outputs/minicpm-timed/token_schedule.json
+max_attention_pairs: 4194304

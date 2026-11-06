@@ -1,0 +1,10 @@
+[
+  {"name":"llm.model.layers.0.self_attn.q_proj.weight","shape":[64,64],"kind":"linear_weight"},
+  {"name":"llm.model.layers.0.self_attn.v_proj.weight","shape":[32,64],"kind":"linear_weight"},
+  {"name":"llm.model.layers.0.mlp.up_proj.weight","shape":[128,64],"kind":"linear_weight"},
+  {"name":"vpm.encoder.layers.0.weight","shape":[32,32]},
+  {"name":"resampler.proj","shape":[32,64]},
+  {"name":"apm.layers.0.weight","shape":[32,32]},
+  {"name":"audio_projection_layer.linear1.weight","shape":[64,32],"kind":"linear_weight"},
+  {"name":"audio_projection_layer.linear1.bias","shape":[64]}
+]

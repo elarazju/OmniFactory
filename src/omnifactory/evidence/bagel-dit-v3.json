@@ -1,0 +1,237 @@
+{
+  "adapter": "bagel_dit",
+  "task": "image_sft",
+  "training": {
+    "checkpoint": "<workdir>/results/bagel-dit-v3/run/checkpoint-00000002",
+    "steps": 2,
+    "last_loss": 1.6224162876605988,
+    "trainable_parameters": 15493696,
+    "device": "cuda",
+    "base_model": "<workdir>/assets/BAGEL-7B-MoT-verified",
+    "vllm_deployment_verified": false,
+    "feature_cache": {}
+  },
+  "exact_resume": true,
+  "native_velocity_max_abs": 0.0,
+  "merge_weight_max_abs": 3.725290298461914e-09,
+  "unchanged_tensors": 1159,
+  "vae_unchanged": true,
+  "evaluation": {
+    "predictions": 2,
+    "loss": 1.4532536268234253,
+    "normalization_counts": {
+      "latent_elements": 32768.0
+    },
+    "normalization_units": {
+      "latent_elements": "elements"
+    },
+    "loss_terms": {
+      "flow": {
+        "numerator": 47620.21484375,
+        "normalizer": "latent_elements",
+        "kind": "flow_matching",
+        "weight": 1.0
+      }
+    },
+    "objective_measures": {
+      "flow": 32768.0
+    },
+    "target_tokens": null,
+    "perplexity": null,
+    "codec_loss": null,
+    "codec_tokens": 0,
+    "exact_match": null,
+    "generation": null,
+    "scope": "held-out declared supervision objectives; not perceptual quality"
+  },
+  "product_inference": {
+    "predictions": 2,
+    "audio_predictions": 0,
+    "image_predictions": 2,
+    "empty_audio_predictions": 0,
+    "output": "<workdir>/results/bagel-dit-v3/predictions.jsonl",
+    "backend": "transformers-cuda"
+  },
+  "native_export": {
+    "format": "vllm-omni",
+    "adapter": "bagel_dit",
+    "inference_config": {
+      "model": "<workdir>/assets/BAGEL-7B-MoT-verified",
+      "revision": null,
+      "dataset": "<workdir>/results/bagel-dit-v3/data/train.jsonl",
+      "dataset_root": null,
+      "output_dir": "<workdir>/results/bagel-dit-v3/run",
+      "adapter": "bagel_dit",
+      "task": "image_sft",
+      "image_height": 256,
+      "image_width": 256,
+      "duplex_schedule": null,
+      "max_attention_pairs": 1000000,
+      "flow_sigma_min": 1e-06,
+      "flow_cfg_dropout": 0.2,
+      "speech_tokenizer": null,
+      "speech_assets": null,
+      "speech_tokenizer_sha256": null,
+      "speech_codes": null,
+      "speech_speaker": "Chelsie",
+      "text_loss_weight": 1.0,
+      "speech_loss_weight": 1.0,
+      "max_codec_tokens": 750,
+      "video_fps": 1.0,
+      "max_video_frames": 32,
+      "max_video_seconds": 30.0,
+      "device": "cpu",
+      "dtype": "float32",
+      "quantization": "none",
+      "attention": "sdpa",
+      "feature_cache": null,
+      "feature_cache_components": [
+        "vision_encoder",
+        "audio_encoder"
+      ],
+      "packing": "none",
+      "gradient_checkpointing": false,
+      "max_steps": 2,
+      "save_steps": 1,
+      "gradient_accumulation_steps": 4,
+      "max_length": 512,
+      "max_audio_seconds": 30.0,
+      "max_image_pixels": 65536,
+      "seed": 42,
+      "max_grad_norm": 1.0,
+      "components": {
+        "image_generator": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj_moe_gen",
+            "v_proj_moe_gen"
+          ]
+        },
+        "latent_projector": {
+          "mode": "full",
+          "lr": 1e-05,
+          "rank": null,
+          "alpha": null,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "image_head": {
+          "mode": "full",
+          "lr": 1e-05,
+          "rank": null,
+          "alpha": null,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "timestep_embedder": {
+          "mode": "full",
+          "lr": 1e-05,
+          "rank": null,
+          "alpha": null,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        }
+      },
+      "budget": {
+        "max_examples": 1,
+        "max_llm_tokens": 512,
+        "max_vision_patches": 1,
+        "max_audio_frames": 1,
+        "max_codec_frames": 1,
+        "max_decoded_media_bytes": 16777216,
+        "max_gpu_bytes": null,
+        "max_latent_elements": 131072,
+        "max_stream_events": null
+      },
+      "window_size": 64,
+      "resume_from": null,
+      "memory_profile": null
+    },
+    "source_checkpoint": "<workdir>/results/bagel-dit-v3/run/checkpoint-00000002",
+    "source_fingerprint": "84cd02f333c5f74eb85ee3762c8a72ce2de9cf470fd3175737809fb8b3ae438f",
+    "output": "<workdir>/results/bagel-dit-v3/export",
+    "lora_merged": true,
+    "vllm_deployment_verified": false,
+    "native_architecture": "bagel",
+    "generation_only": true,
+    "updated_parameters": [
+      "language_model.model.layers.0.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.0.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.1.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.1.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.10.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.10.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.11.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.11.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.12.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.12.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.13.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.13.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.14.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.14.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.15.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.15.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.16.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.16.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.17.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.17.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.18.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.18.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.19.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.19.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.2.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.2.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.20.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.20.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.21.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.21.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.22.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.22.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.23.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.23.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.24.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.24.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.25.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.25.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.26.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.26.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.27.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.27.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.3.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.3.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.4.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.4.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.5.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.5.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.6.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.6.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.7.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.7.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.8.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.8.self_attn.v_proj_moe_gen.weight",
+      "language_model.model.layers.9.self_attn.q_proj_moe_gen.weight",
+      "language_model.model.layers.9.self_attn.v_proj_moe_gen.weight",
+      "llm2vae.bias",
+      "llm2vae.weight",
+      "time_embedder.mlp.0.bias",
+      "time_embedder.mlp.0.weight",
+      "time_embedder.mlp.2.bias",
+      "time_embedder.mlp.2.weight",
+      "vae2llm.bias",
+      "vae2llm.weight"
+    ]
+  },
+  "pretrained_training_verified": true,
+  "vllm_serving_verified": false,
+  "quality_verified": false,
+  "synthetic_images": true
+}

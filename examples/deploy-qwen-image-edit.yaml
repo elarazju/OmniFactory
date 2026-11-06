@@ -1,0 +1,10 @@
+# Original QwenImageEditPipeline: single diffusion stage.
+# Submit a source image to /v1/images/edits with its editing instruction.
+async_chunk: false
+stages:
+  - stage_id: 0
+    devices: "0"
+    dtype: bfloat16
+    enforce_eager: true
+    max_num_seqs: 1
+    trust_remote_code: true

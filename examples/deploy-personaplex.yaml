@@ -1,0 +1,59 @@
+# Standalone deploy configuration for the native vLLM-Omni PersonaPlex pipeline.
+pipeline: personaplex
+async_chunk: true
+connectors:
+  connector_of_shared_memory:
+    name: SharedMemoryConnector
+    extra:
+      codec_streaming: true
+      codec_chunk_frames: 1
+      initial_codec_chunk_frames: 1
+session_mode: duplex
+duplex_session:
+  max_sessions: 2
+stages:
+  - stage_id: 0
+    devices: '0'
+    dtype: bfloat16
+    trust_remote_code: true
+    skip_tokenizer_init: true
+    enable_prefix_caching: false
+    async_scheduling: false
+    max_num_batched_tokens: 512
+    max_model_len: 3000
+    output_connectors:
+      to_stage_1: connector_of_shared_memory
+    default_sampling_params:
+      temperature: 0.0
+      top_k: 1
+      max_tokens: 3000
+      seed: 42
+      repetition_penalty: 1.0
+    max_num_seqs: 4
+    gpu_memory_utilization: 0.4
+    enforce_eager: true
+    hf_overrides:
+      mimi_cuda_graphs: false
+      depformer_cuda_graphs: false
+  - stage_id: 1
+    max_num_seqs: 4
+    trust_remote_code: true
+    skip_tokenizer_init: true
+    enable_prefix_caching: false
+    async_scheduling: true
+    max_num_batched_tokens: 65536
+    max_model_len: 65536
+    input_connectors:
+      from_stage_0: connector_of_shared_memory
+    default_sampling_params:
+      temperature: 0.0
+      top_p: 1.0
+      top_k: -1
+      max_tokens: 65536
+      seed: 42
+      repetition_penalty: 1.0
+    devices: '0'
+    enforce_eager: true
+    gpu_memory_utilization: 0.15
+    hf_overrides:
+      mimi_cuda_graphs: false

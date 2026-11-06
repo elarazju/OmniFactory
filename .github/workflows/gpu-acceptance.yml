@@ -1,0 +1,60 @@
+name: trusted-gpu-acceptance
+# Deliberately manual: PR code must never run on a persistent model/GPU host.
+on:
+  workflow_dispatch:
+    inputs:
+      config:
+        description: 'Runner-local reviewed training YAML (pinned model, >=2 steps)'
+        required: true
+        type: string
+      generate:
+        description: 'Generate held-out predictions after export'
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: omnifactory-shared-gpu
+  cancel-in-progress: false
+jobs:
+  native:
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, linux, x64, omnifactory-gpu]
+    timeout-minutes: 180
+    env:
+      TRAIN_CONFIG: ${{ inputs.config }}
+      GENERATE: ${{ inputs.generate }}
+      # Configure a dedicated prebuilt training environment on the runner.
+      TRAIN_PYTHON: ${{ vars.OMNIFACTORY_TRAIN_PYTHON }}
+      PYTHONPATH: src
+      CUBLAS_WORKSPACE_CONFIG: ':4096:8'
+      RUN_OUTPUT: outputs/gpu-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check environment and capture versions
+        shell: bash
+        run: |
+          test -x "$TRAIN_PYTHON"
+          mkdir -p "$RUN_OUTPUT"
+          {
+            "$TRAIN_PYTHON" -m omnifactory doctor --config "$TRAIN_CONFIG" --strict &&
+            "$TRAIN_PYTHON" -m omnifactory capture-environment --output "$RUN_OUTPUT/environment"
+          } > "$RUN_OUTPUT/preflight.log" 2>&1
+      - name: Train, resume, export and generate
+        shell: bash
+        run: |
+          args=()
+          if [ "$GENERATE" != true ]; then args+=(--no-generate); fi
+          "$TRAIN_PYTHON" -m omnifactory acceptance run --config "$TRAIN_CONFIG" \
+            --output "$RUN_OUTPUT/acceptance" "${args[@]}" > "$RUN_OUTPUT/acceptance.log" 2>&1
+      - uses: actions/upload-artifact@v4
+        # Raw evidence can contain runner paths and private dataset metadata.
+        if: always() && vars.OMNIFACTORY_UPLOAD_GPU_EVIDENCE == 'true'
+        with:
+          name: gpu-acceptance-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.RUN_OUTPUT }}/environment/
+            ${{ env.RUN_OUTPUT }}/acceptance/acceptance.json
+            ${{ env.RUN_OUTPUT }}/acceptance/tested-code.json
+            ${{ env.RUN_OUTPUT }}/acceptance/export/artifact-manifest.json
+          if-no-files-found: warn

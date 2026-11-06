@@ -1,0 +1,186 @@
+{
+  "model": "<workdir>/assets/Qwen2.5-Omni-3B-verified",
+  "gpu": "NVIDIA H20-3e",
+  "environment": {
+    "torch": "2.10.0",
+    "cuda": "13.2",
+    "transformers": "4.57.6",
+    "peft": "0.18.1"
+  },
+  "teacher": {
+    "examples": 8,
+    "codec": "qwen2_5_omni_v1",
+    "origin": "native_teacher",
+    "source_fingerprint": "d84e0c9dc2b8aa1183936d7b856e4afde715e2795906dd1f37fc14729a30cf96",
+    "allow_truncated": false,
+    "waveform_encoder": false,
+    "quality_verified": false,
+    "sampling": {
+      "temperature": 0.9,
+      "top_k": 40,
+      "top_p": 0.8,
+      "repetition_penalty": 1.05
+    },
+    "output": "<workdir>/results/qwen3b-speech-v2/data"
+  },
+  "teacher_codec_lengths": [
+    58,
+    56,
+    57,
+    52,
+    51,
+    52,
+    135,
+    50
+  ],
+  "training": {
+    "checkpoint": "<workdir>/results/qwen3b-speech-v2/run/checkpoint-00000002",
+    "steps": 2,
+    "last_loss": 2.303566851596601,
+    "trainable_parameters": 1191936,
+    "device": "cuda",
+    "base_model": "<workdir>/assets/Qwen2.5-Omni-3B-verified",
+    "vllm_deployment_verified": false
+  },
+  "cuda_resume_max_abs": 0.0,
+  "max_training_peak_bytes": 10596505088,
+  "evaluation_loss": 2.2107229966383715,
+  "native_export": {
+    "timed_attention_required": false,
+    "format": "vllm-omni",
+    "adapter": "qwen2_5_omni",
+    "inference_config": {
+      "model": "<workdir>/assets/Qwen2.5-Omni-3B-verified",
+      "revision": null,
+      "dataset": "<workdir>/results/qwen3b-speech-v2/data/train.jsonl",
+      "dataset_root": null,
+      "output_dir": "<workdir>/results/qwen3b-speech-v2/run",
+      "adapter": "qwen2_5_omni",
+      "task": "speech_sft",
+      "duplex_schedule": null,
+      "max_attention_pairs": 1000000,
+      "flow_sigma_min": 1e-06,
+      "flow_cfg_dropout": 0.2,
+      "speech_tokenizer": null,
+      "speech_assets": null,
+      "speech_tokenizer_sha256": null,
+      "speech_codes": "<workdir>/results/qwen3b-speech-v2/data/speech_codes.jsonl",
+      "speech_speaker": "Chelsie",
+      "text_loss_weight": 1.0,
+      "speech_loss_weight": 1.0,
+      "max_codec_tokens": 256,
+      "video_fps": 1.0,
+      "max_video_frames": 4,
+      "max_video_seconds": 2.0,
+      "device": "cpu",
+      "dtype": "float32",
+      "quantization": "none",
+      "attention": "sdpa",
+      "gradient_checkpointing": false,
+      "max_steps": 2,
+      "save_steps": 1,
+      "gradient_accumulation_steps": 4,
+      "max_length": 1024,
+      "max_audio_seconds": 12.0,
+      "max_image_pixels": 1048576,
+      "seed": 42,
+      "max_grad_norm": 1.0,
+      "components": {
+        "language_model": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        },
+        "speech_generator": {
+          "mode": "lora",
+          "lr": 0.0001,
+          "rank": 4,
+          "alpha": 8.0,
+          "target_modules": [
+            "q_proj",
+            "v_proj"
+          ]
+        }
+      },
+      "budget": {
+        "max_examples": 1,
+        "max_llm_tokens": 1024,
+        "max_vision_patches": 4096,
+        "max_audio_frames": 1200,
+        "max_codec_frames": 256,
+        "max_decoded_media_bytes": 67108864,
+        "max_gpu_bytes": null,
+        "max_latent_elements": null,
+        "max_stream_events": null
+      },
+      "window_size": 64,
+      "resume_from": null
+    },
+    "source_checkpoint": "<workdir>/results/qwen3b-speech-v2/run/checkpoint-00000002",
+    "source_fingerprint": "d84e0c9dc2b8aa1183936d7b856e4afde715e2795906dd1f37fc14729a30cf96",
+    "output": "<workdir>/results/qwen3b-speech-v2/export",
+    "lora_merged": true,
+    "vllm_deployment_verified": false,
+    "tensors": 2544,
+    "shards": 12,
+    "weight_bytes": 11972343936
+  },
+  "native_export_reload_max_logit_difference": 0.0,
+  "native_export_reload_max_codec_loss_difference": 0.0,
+  "inference": {
+    "predictions": 4,
+    "audio_predictions": 4,
+    "empty_audio_predictions": 0,
+    "output": "<workdir>/results/qwen3b-speech-v2/predictions.jsonl",
+    "backend": "transformers-cuda"
+  },
+  "audio": [
+    {
+      "id": "validation-omni-0",
+      "frames": 21120,
+      "sample_rate": 24000,
+      "speech_finished": true,
+      "text_finished": true
+    },
+    {
+      "id": "validation-omni-1",
+      "frames": 122880,
+      "sample_rate": 24000,
+      "speech_finished": false,
+      "text_finished": true
+    },
+    {
+      "id": "validation-omni-2",
+      "frames": 122880,
+      "sample_rate": 24000,
+      "speech_finished": false,
+      "text_finished": false
+    },
+    {
+      "id": "validation-omni-3",
+      "frames": 122880,
+      "sample_rate": 24000,
+      "speech_finished": false,
+      "text_finished": false
+    }
+  ],
+  "input_modalities": [
+    "text",
+    "image",
+    "audio",
+    "video_with_audio"
+  ],
+  "supervision": [
+    "text",
+    "native_audio_codes"
+  ],
+  "speech_training_verified": true,
+  "vllm_serving_verified": false,
+  "speech_quality_verified": false,
+  "data": "short synthetic prompts and explicit native teacher targets; not a quality benchmark"
+}

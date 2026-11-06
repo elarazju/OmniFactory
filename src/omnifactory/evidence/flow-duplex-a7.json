@@ -1,0 +1,35 @@
+{
+  "model": "MiniCPM-o 4.5 pretrained Token2Wav",
+  "gpu": "NVIDIA H20-3e",
+  "training": {
+    "checkpoint": "<workdir>/results/flow-duplex-v2/run/checkpoint-00000004",
+    "steps": 4,
+    "last_loss": 0.6748251506260463,
+    "trainable_parameters": 262144,
+    "device": "cuda",
+    "base_model": "<workdir>/assets/token2wav",
+    "vllm_deployment_verified": false
+  },
+  "evaluation_loss": 1.7993710109165737,
+  "max_training_peak_bytes": 813005824,
+  "fp32_training": true,
+  "cuda_resume_parity": true,
+  "tf32_for_parity": false,
+  "bf16_backward": true,
+  "checkpointing": true,
+  "lora_merge_parity": true,
+  "cpu_vs_cuda_merged_weight_max_abs": 7.450580596923828e-09,
+  "native_export_reload_parity": true,
+  "export": {
+    "format": "token2wav-assets",
+    "adapter": "minicpm_token2wav",
+    "source_checkpoint": "<workdir>/results/flow-duplex-v2/run/checkpoint-00000004",
+    "source_fingerprint": "0a831038dd42f86cf237bc31194d54e0d21e31a5f94876f6637198dafc862454",
+    "output": "<workdir>/results/flow-duplex-v2/export",
+    "vllm_deployment_verified": false
+  },
+  "waveform_frames": 19200,
+  "sample_rate": 24000,
+  "data": "synthetic tones; no speech quality claim",
+  "vllm_serving_verified": false
+}

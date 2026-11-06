@@ -1,0 +1,43 @@
+# Set up using docs/models.md#minicpm-o-45; requires FFmpeg and --extra speech.
+adapter: minicpm_o_4_5
+task: speech_sft
+model: ../outputs/omni-model
+speech_assets: ../outputs/speech-assets
+speech_tokenizer: ../outputs/speech-assets/speech_tokenizer_v2_25hz.onnx
+speech_tokenizer_sha256: d43342aa12163a80bf07bffb94c9de2e120a8df2f9917cd2f642e7f4219c6f71
+dataset: ../outputs/omni-data/train.jsonl
+dataset_root: ../outputs/omni-data
+output_dir: ../outputs/omni-run
+device: cpu
+dtype: float32
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 4
+save_steps: 2
+gradient_accumulation_steps: 2
+max_length: 512
+max_audio_seconds: 1
+max_codec_tokens: 25
+video_fps: 1
+max_video_frames: 4
+max_video_seconds: 4
+text_loss_weight: 1
+speech_loss_weight: 1
+components:
+  language_model:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.01
+  speech_generator:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.01
+budget:
+  max_examples: 2
+  max_llm_tokens: 1024
+  max_vision_patches: 128
+  max_audio_frames: 400
+  max_codec_frames: 128
+  max_decoded_media_bytes: 1000000

@@ -1,0 +1,32 @@
+# Speaker-disjoint LibriSpeech dev-clean pilot, not the official test benchmark.
+# Prepare with scripts/prepare_librispeech.py; paired scoring: scripts/run_asr_baseline.py.
+model: Qwen/Qwen3-Omni-30B-A3B-Instruct
+revision: 26291f793822fb6be9555850f06dfe95f2d7e695
+adapter: qwen3_omni
+task: understanding_sft
+dataset: ../outputs/librispeech-asr-pilot/train.jsonl
+dataset_root: ../outputs/librispeech-asr-pilot
+output_dir: ../outputs/qwen3-asr-run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 32
+save_steps: 16
+gradient_accumulation_steps: 4
+max_length: 2048
+max_audio_seconds: 8
+components:
+  language_model:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.00002
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 4096
+  max_audio_frames: 1000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 67108864

@@ -1,0 +1,105 @@
+{
+  "model": "omnifactory-voxcpm2",
+  "requests_passed": 4,
+  "results": [
+    {
+      "id": "6241-61943-0019",
+      "input": "IN THE MEANTIME THERE IS NOT AN HOUR TO LOSE",
+      "reference_audio": false,
+      "http_status": 200,
+      "audio_frames": 168960,
+      "sample_rate": 48000,
+      "response_sha256": "a36fde406a17efb89278cf1a16e65c102b7571feb0a4c125f1ba42897c2e86ad",
+      "headers": {
+        "date": "Mon, 26 Oct 2026 06:38:09 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "16",
+        "x-vllm-omni-output-tokens": "22",
+        "x-vllm-omni-total-tokens": "38",
+        "x-vllm-omni-input-text-tokens": "16",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "48000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "337964",
+        "content-type": "audio/wav",
+        "vary": "Origin"
+      }
+    },
+    {
+      "id": "777-126732-0044",
+      "input": "WITH THE INSIGHT OF A KINDRED TEMPERAMENT HE PRONOUNCED HIS VERDICT",
+      "reference_audio": true,
+      "http_status": 200,
+      "audio_frames": 168960,
+      "sample_rate": 48000,
+      "response_sha256": "4453005c4d99550cbff52d9ace0897cdace51b6a7f8d9cd99b2278a2840b6e72",
+      "headers": {
+        "date": "Mon, 26 Oct 2026 06:38:20 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "28",
+        "x-vllm-omni-output-tokens": "22",
+        "x-vllm-omni-total-tokens": "50",
+        "x-vllm-omni-input-text-tokens": "28",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "48000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "337964",
+        "content-type": "audio/wav",
+        "vary": "Origin"
+      }
+    },
+    {
+      "id": "2803-154328-0014",
+      "input": "ANIMAL OR MAN ANSWERED THE MAJOR I WILL SOON FIND OUT",
+      "reference_audio": false,
+      "http_status": 200,
+      "audio_frames": 176640,
+      "sample_rate": 48000,
+      "response_sha256": "33eb54d7b6e9a8f3840d9943c3120f6f5f30ff310ca33f98c8285e40e6795037",
+      "headers": {
+        "date": "Mon, 26 Oct 2026 06:38:20 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "21",
+        "x-vllm-omni-output-tokens": "23",
+        "x-vllm-omni-total-tokens": "44",
+        "x-vllm-omni-input-text-tokens": "21",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "48000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "353324",
+        "content-type": "audio/wav",
+        "vary": "Origin"
+      }
+    },
+    {
+      "id": "2277-149874-0015",
+      "input": "SHE WANTED TO MAKE SOME REFERENCE TO THEIR RELATIONS UPON THE TRAIN BUT WAS TOO TIMID",
+      "reference_audio": true,
+      "http_status": 200,
+      "audio_frames": 222720,
+      "sample_rate": 48000,
+      "response_sha256": "54355348796f80d70349adad72430b50749b86c49d9f4e75fa0993fe62ce03a2",
+      "headers": {
+        "date": "Mon, 26 Oct 2026 06:38:21 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "30",
+        "x-vllm-omni-output-tokens": "29",
+        "x-vllm-omni-total-tokens": "59",
+        "x-vllm-omni-input-text-tokens": "30",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "48000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "445484",
+        "content-type": "audio/wav",
+        "vary": "Origin"
+      }
+    }
+  ],
+  "live_http_verified": true,
+  "quality_verified": false,
+  "termination_observable": false
+}

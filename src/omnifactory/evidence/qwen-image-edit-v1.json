@@ -1,0 +1,277 @@
+{
+  "format": "omnifactory-acceptance-v1",
+  "adapter": "qwen_image_edit",
+  "task": "image_sft",
+  "model": "<workdir>/assets/Qwen-Image-Edit",
+  "revision": null,
+  "created_at": "2026-10-26T12:21:37.051483+00:00",
+  "source_fingerprint": "f13b67902f6417e77397f9fc8bc219b1b5ffa7157ac76194c9d52464806ecf43",
+  "artifact_id": "364c5b68470d85366a9382b012349a698a724bf6ffb736118a4c25a6d780e4a6",
+  "gates": {
+    "prepare": {
+      "status": "passed",
+      "details": {
+        "records": 4,
+        "data_fingerprint": "bafb8e9b77cd3cbb7e0d779a1bae2e81394cd0fe59f76ca3d1fc398927460678"
+      },
+      "evidence": {}
+    },
+    "train": {
+      "status": "passed",
+      "details": {
+        "checkpoint": "<workdir>/results/qwen-image-edit-v1/acceptance/run/checkpoint-00000016",
+        "steps": 16,
+        "last_loss": 0.010732339695096016,
+        "best_checkpoint": "<workdir>/results/qwen-image-edit-v1/acceptance/run/checkpoint-00000016",
+        "best_metric": 0.018076217733323574,
+        "prepared_dataset": "<workdir>/results/qwen-image-edit-v1/acceptance/prepared",
+        "trainable_parameters": 11796480,
+        "device": "cuda",
+        "base_model": "<workdir>/assets/Qwen-Image-Edit",
+        "vllm_deployment_verified": false,
+        "feature_cache": {}
+      },
+      "evidence": {}
+    },
+    "resume": {
+      "status": "passed",
+      "details": {
+        "max_abs": 0,
+        "checkpoint": "<workdir>/results/qwen-image-edit-v1/acceptance/run/checkpoint-00000008"
+      },
+      "evidence": {}
+    },
+    "export": {
+      "status": "passed",
+      "details": {
+        "format": "merged",
+        "adapter": "qwen_image_edit",
+        "inference_config": {
+          "model": "<workdir>/assets/Qwen-Image-Edit",
+          "revision": null,
+          "dataset": "<workdir>/results/qwen-image-edit-v1/data/train.jsonl",
+          "dataset_root": "<workdir>/results/qwen-image-edit-v1/data",
+          "output_dir": "<workdir>/results/qwen-image-edit-v1/acceptance/run",
+          "adapter": "qwen_image_edit",
+          "task": "image_sft",
+          "image_height": 256,
+          "image_width": 256,
+          "duplex_schedule": null,
+          "max_attention_pairs": 67108864,
+          "flow_sigma_min": 1e-06,
+          "flow_cfg_dropout": 0.2,
+          "speech_tokenizer": null,
+          "speech_assets": null,
+          "speech_tokenizer_sha256": null,
+          "speech_reference": null,
+          "speech_reference_sha256": null,
+          "speech_reference_text": null,
+          "speech_codes": null,
+          "speech_speaker": "Chelsie",
+          "cosyvoice_sequence_mode": "mixed",
+          "text_loss_weight": 1.0,
+          "speech_loss_weight": 1.0,
+          "max_codec_tokens": 750,
+          "video_fps": 1.0,
+          "max_video_frames": 32,
+          "max_video_seconds": 30.0,
+          "device": "cpu",
+          "dtype": "float32",
+          "quantization": "none",
+          "attention": "sdpa",
+          "feature_cache": null,
+          "feature_cache_components": [
+            "vision_encoder",
+            "audio_encoder"
+          ],
+          "packing": "none",
+          "gradient_checkpointing": false,
+          "deterministic": true,
+          "max_steps": 16,
+          "save_steps": 8,
+          "gradient_accumulation_steps": 1,
+          "max_length": 8192,
+          "max_audio_seconds": 30.0,
+          "max_image_pixels": 2097152,
+          "seed": 42,
+          "max_grad_norm": 1.0,
+          "components": {
+            "image_generator": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 8,
+              "alpha": 16.0,
+              "target_modules": [
+                "to_q",
+                "to_v",
+                "add_q_proj",
+                "add_v_proj"
+              ]
+            }
+          },
+          "budget": {
+            "max_examples": 1,
+            "max_llm_tokens": 8192,
+            "max_vision_patches": 16384,
+            "max_audio_frames": 1,
+            "max_codec_frames": 1,
+            "max_decoded_media_bytes": 134217728,
+            "max_gpu_bytes": null,
+            "max_latent_elements": 524288,
+            "max_stream_events": null
+          },
+          "window_size": 64,
+          "resume_from": null,
+          "memory_profile": null,
+          "prepared_dataset": "<workdir>/results/qwen-image-edit-v1/acceptance/prepared",
+          "validation_dataset": "<workdir>/results/qwen-image-edit-v1/data/validation.jsonl",
+          "validation_root": "<workdir>/results/qwen-image-edit-v1/data",
+          "eval_steps": 8,
+          "save_total_limit": null,
+          "weight_decay": 0.0,
+          "lr_scheduler": "constant",
+          "warmup_steps": 0,
+          "scheduler_steps": null
+        },
+        "source_checkpoint": "<workdir>/results/qwen-image-edit-v1/acceptance/run/checkpoint-00000016",
+        "source_fingerprint": "f13b67902f6417e77397f9fc8bc219b1b5ffa7157ac76194c9d52464806ecf43",
+        "output": "<workdir>/results/qwen-image-edit-v1/acceptance/export",
+        "lora_merged": true,
+        "vllm_deployment_verified": false,
+        "native_architecture": "QwenImageEditPipeline"
+      },
+      "evidence": {
+        "export/artifact-manifest.json": "d0af5f074fc10ca0e72bfda38376a161ec0d6fa647726b374c4ad8da53161cee"
+      }
+    },
+    "inference": {
+      "status": "passed",
+      "details": {
+        "predictions": 2,
+        "audio_predictions": 0,
+        "image_predictions": 2,
+        "empty_audio_predictions": 0,
+        "output": "<workdir>/results/qwen-image-edit-v1/acceptance/predictions.jsonl",
+        "backend": "native-cuda",
+        "audio_limit_unit": null
+      },
+      "evidence": {
+        "predictions.jsonl": "26ea914d5287cf67507d34acc6e88822c1fc72a78b96b40143bca19c33809757"
+      }
+    },
+    "native_reference": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "364c5b68470d85366a9382b012349a698a724bf6ffb736118a4c25a6d780e4a6",
+        "tensor_count": 1933,
+        "merged_tensor_max_abs": 0,
+        "frozen_files": {
+          "vae/config.json": "4bcfd1c616b09ff99fbb2d759646d904d47e596ace2a0fa3bb9d258b321485e5",
+          "vae/diffusion_pytorch_model.safetensors": "0c8bc8b758c649abef9ea407b95408389a3b2f610d0d10fcb054fe171d0a8344",
+          "text_encoder/config.json": "f807e3d717d5455f8f4a1f66bcf05f32fa7d0511fef2e7e7c63e7ed4163bf147",
+          "text_encoder/generation_config.json": "ab516dcf219b00258020a368515f66e04c5f512af93c0d8077f3c6b1021d1c71",
+          "text_encoder/model-00001-of-00004.safetensors": "d725335e4ea2399be706469e4b8807716a8fa64bd03468252e9f7acf2415fee4",
+          "text_encoder/model-00002-of-00004.safetensors": "b1830db6908dcc76df3a71492acbcf2b8cac130114cf1f3c2d9edae8de8c6de3",
+          "text_encoder/model-00003-of-00004.safetensors": "09c1807c6d00d7cab94f7db39d4c02ebb8537225ccde383861ac48db97945aa6",
+          "text_encoder/model-00004-of-00004.safetensors": "5dd068336d14d45ffb43cef374d286cc6ba9d8741b028f90a7d040d847961f4a",
+          "text_encoder/model.safetensors.index.json": "4be35310ddc165e46e88de4c3fec8c1210014b0b8717f4544d82cc740814ae0c",
+          "processor/added_tokens.json": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b",
+          "processor/chat_template.jinja": "a0bc6f6fc7a29a80017a433e8f03a1cc1236e838a944a2d034295a60c4f2fddb",
+          "processor/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "processor/preprocessor_config.json": "9ff8a240516e4ef986717597bb2c5fff3e4d4c0951d02b7dee949ceb369b5b03",
+          "processor/special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+          "processor/tokenizer.json": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+          "processor/tokenizer_config.json": "1b20115c83f30580a8c0fc330f47fad9222dccd4f739fe2d48e62ee93d28ac19",
+          "processor/video_preprocessor_config.json": "d4397fb8765d3fb56db022e5a14ce58dbcc144093c49ea1ab96787fb7951facb",
+          "processor/vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+          "tokenizer/added_tokens.json": "58b54bbe36fc752f79a24a271ef66a0a0830054b4dfad94bde757d851968060b",
+          "tokenizer/chat_template.jinja": "44d5f08f3f72b837eaad09f13a54c1f9f4eb58d75240334548b7fd52a5437fa5",
+          "tokenizer/merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+          "tokenizer/special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+          "tokenizer/tokenizer_config.json": "0a04a9d7d4a62b28482bdfe726c122756de85714fb64166ace92ae75b8f57614",
+          "tokenizer/vocab.json": "87a257b04b17642a0688c98cd1df89c398bda4fee532d6f88b38a659ecb4ac8d",
+          "scheduler/scheduler_config.json": "42e69429b12cb418527feba57b8d8458aeeb35098f55d247d4c44dc4e4e7bf39"
+        },
+        "scope": "native strict DiT reload and BF16 merge parity; frozen pipeline byte parity; not quality"
+      },
+      "evidence": {
+        "<workdir>/results/qwen-image-edit-v1/native-reference.json": "3fc074f93ade6e6d80a2124884ea3bdded3317fc255d22624ed286ad92d23fe2"
+      }
+    },
+    "http": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "364c5b68470d85366a9382b012349a698a724bf6ffb736118a4c25a6d780e4a6",
+        "adapter": "qwen_image_edit",
+        "requests": 2,
+        "results": [
+          {
+            "sample_id": "image-4",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 12:34:08 GMT",
+              "server": "uvicorn",
+              "content-length": "262926",
+              "content-type": "application/json",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "2751ec7a6fa9363b94a6ab983c04fcaade18fd067c9163bd123fe5808d5a5e43",
+            "endpoint": "/v1/images/edits",
+            "request_body_sha256": "a6c0c6f7868fc02bede696841e46b9505ca00ca2e4bd2f320dba2565b932795f",
+            "width": 256,
+            "height": 256
+          },
+          {
+            "sample_id": "image-5",
+            "prediction_id": "p0",
+            "status": 200,
+            "headers": {
+              "date": "Mon, 26 Oct 2026 12:34:35 GMT",
+              "server": "uvicorn",
+              "content-length": "262926",
+              "content-type": "application/json",
+              "vary": "Origin",
+              "connection": "close"
+            },
+            "response_sha256": "35bb595cc75bad9d4980c520cfa23643b14d1d12cb712a4da9ada393deb4b92b",
+            "endpoint": "/v1/images/edits",
+            "request_body_sha256": "21cf14af3414a5defc01be1357d3c68f04b994dbfbea287398ebd2be4c166796",
+            "width": 256,
+            "height": 256
+          }
+        ],
+        "modality": "image",
+        "quality_verified": false,
+        "launch_command": [
+          "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+          "serve",
+          "<workdir>/results/qwen-image-edit-v1/acceptance/export",
+          "--omni",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "47858",
+          "--served-model-name",
+          "omnifactory-acceptance",
+          "--trust-remote-code",
+          "--deploy-config",
+          "<workdir>/OmniFactory/examples/deploy-qwen-image-edit.yaml",
+          "--disable-log-stats"
+        ],
+        "server_log_sha256": "0b264fc3bead7eb896ee3601f564f2cfba62eef0e76f8a8e10e4019d7904c1ba"
+      },
+      "evidence": {
+        "<workdir>/results/qwen-image-edit-http-v1/acceptance.json": "ad8dab90adf435fc682f3a0d3ca95ba72a67bd47e63809c6895c4607f9a7887a"
+      }
+    },
+    "quality": {
+      "status": "not_run",
+      "details": {},
+      "evidence": {}
+    }
+  }
+}

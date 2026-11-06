@@ -1,0 +1,7 @@
+Qwen3-TTS native 12 Hz runtime. Copyright 2026 Alibaba Qwen team. Apache-2.0.
+Source: https://github.com/QwenLM/Qwen3-TTS
+Revision: 022e286b98fbec7e1e916cb940cdf532cd9f488e
+Model, configuration, processor and 12 Hz tokenizer source files are unchanged.
+Package initializers are minimal. The tokenizer wrapper omits 25 Hz imports and registration
+to avoid unrelated ONNX/SoX dependencies. No 25 Hz support is claimed.
+Training alignment and normalization live in the OmniFactory adapter, not this runtime.

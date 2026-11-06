@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "artifact_id": "04fde1ee63bb1f302d1f3f20996ceb98a9ea5e3b1708ebc6f379836de66af69b",
+  "adapter": "qwen3_tts",
+  "requests": 4,
+  "results": [
+    {
+      "sample_id": "2277-149897-0000",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 10:30:45 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "24",
+        "x-vllm-omni-output-tokens": "87",
+        "x-vllm-omni-total-tokens": "111",
+        "x-vllm-omni-input-text-tokens": "24",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "330284",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "cf7c3bc52fb9f812a5b4b0bc09cf085d73d24666b007c8aca3ad85847aa7a795",
+      "sample_rate": 24000,
+      "audio_frames": 165120
+    },
+    {
+      "sample_id": "2277-149897-0001",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 10:30:50 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "15",
+        "x-vllm-omni-output-tokens": "46",
+        "x-vllm-omni-total-tokens": "61",
+        "x-vllm-omni-input-text-tokens": "15",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "172844",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "227e91a45d97d091b57078bcd5b8a56855fdabb97233981749a47db69816048a",
+      "sample_rate": 24000,
+      "audio_frames": 86400
+    },
+    {
+      "sample_id": "2277-149897-0002",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 10:30:52 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "36",
+        "x-vllm-omni-output-tokens": "116",
+        "x-vllm-omni-total-tokens": "152",
+        "x-vllm-omni-input-text-tokens": "36",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "441644",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "bc1c118e574d264deda74bebb250362f30202836122590ca83826f9486de850c",
+      "sample_rate": 24000,
+      "audio_frames": 220800
+    },
+    {
+      "sample_id": "2277-149897-0003",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 10:30:56 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "27",
+        "x-vllm-omni-output-tokens": "84",
+        "x-vllm-omni-total-tokens": "111",
+        "x-vllm-omni-input-text-tokens": "27",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "318764",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "99cd8cdab747599036e67848d0f041a2129c7f2fd8b274b048f776d2eed641af",
+      "sample_rate": 24000,
+      "audio_frames": 159360
+    }
+  ],
+  "modality": "audio",
+  "quality_verified": false,
+  "launch_command": [
+    "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+    "serve",
+    "<workdir>/results/qwen3-tts-v3/acceptance/export",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "52203",
+    "--served-model-name",
+    "omnifactory-acceptance",
+    "--trust-remote-code",
+    "--deploy-config",
+    "<workdir>/OmniFactory/examples/deploy-qwen3-tts.yaml",
+    "--disable-log-stats"
+  ],
+  "server_log_sha256": "c729037e7e8e568cd44293f5262ea05fd7d110cf11cdc512c0779ef05b2973d7"
+}

@@ -1,0 +1,30 @@
+# Native MiMo speech training; requires matching tokenizer assets. See docs/models.md#mimo-audio.
+# Set speech_tokenizer_sha256 from `omnifactory models fingerprint --path /path/to/codec`.
+model: ../outputs/MiMo-Audio-7B-Instruct
+adapter: mimo_audio
+task: speech_sft
+dataset: ../outputs/mimo-data/train.jsonl
+output_dir: ../outputs/mimo-run
+speech_tokenizer: ../outputs/MiMo-Audio-Tokenizer
+speech_tokenizer_sha256: REPLACE_WITH_MODELS_FINGERPRINT_OUTPUT
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_length: 2048
+max_audio_seconds: 10
+max_codec_tokens: 252
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 4
+components:
+  language_model: {mode: lora, rank: 8, alpha: 16, lr: 0.0001}
+  speech_generator: {mode: lora, rank: 8, alpha: 16, lr: 0.0001}
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 1
+  max_audio_frames: 252
+  max_codec_frames: 252
+  max_decoded_media_bytes: 8388608

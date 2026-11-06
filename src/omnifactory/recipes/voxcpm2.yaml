@@ -1,0 +1,55 @@
+model: openbmb/VoxCPM2
+revision: 32279effe8c19989596f05d353d1447f51d9e915
+adapter: voxcpm2
+task: speech_sft
+dataset: data/train.jsonl
+output_dir: run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 2
+save_steps: 1
+gradient_accumulation_steps: 2
+max_length: 512
+max_audio_seconds: 8
+max_codec_tokens: 64
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+  residual_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+  audio_decoder:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+  speech_projection:
+    mode: full
+    lr: 1.0e-05
+  stop_predictor:
+    mode: full
+    lr: 1.0e-05
+budget:
+  max_examples: 1
+  max_llm_tokens: 512
+  max_vision_patches: 1
+  max_audio_frames: 1024
+  max_codec_frames: 1
+  max_latent_elements: 131072
+  max_decoded_media_bytes: 16777216
+dataset_root: data
+validation_dataset: data/validation.jsonl
+validation_root: data
+deterministic: true
+prepared_shard_records: 256
+prepared_shard_bytes: 268435456
+prepared_prefetch_records: 2
+prepared_prefetch_bytes: 67108864

@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "artifact_id": "ae51b2d407ea243481c5d2e5c56f4fb69f64386e4b3f4785de780dfde687f7dd",
+  "adapter": "personaplex",
+  "modality": "audio",
+  "transport": "websocket",
+  "endpoint": "/v1/realtime?duplex=1",
+  "requests": 2,
+  "results": [
+    {
+      "sample_id": "duplex-4",
+      "prediction_id": "p0",
+      "session_id": "duplex-90f21ade006d4ded945e8d7f2c54b109",
+      "input_frames": 24,
+      "drain_frames": 1,
+      "wire_input_frames": 25,
+      "last_input_seconds": 1.9450391829013824,
+      "output_frames": 24,
+      "sample_rate": 24000,
+      "audio_chunks": 24,
+      "first_audio_seconds": 0.9842788055539131,
+      "output_during_input": true,
+      "request_sha256": "559563396595737305f090d8cc35e6c6c21dc1c8eb83e087669e121cdc8179a3",
+      "response_sha256": "d16764317dd9519db29894091a6a6b863c0c6f803a4062bb52c190724ac6ccf1",
+      "audio_sha256": "c228d030a4d16671be2c6dbcbc44ab9619acb2a1877d2f615a4c50286ff10d57"
+    },
+    {
+      "sample_id": "duplex-5",
+      "prediction_id": "p0",
+      "session_id": "duplex-5eb8fe4fdd06453bbad384b3e19cf2fb",
+      "input_frames": 24,
+      "drain_frames": 1,
+      "wire_input_frames": 25,
+      "last_input_seconds": 1.8669118657708168,
+      "output_frames": 24,
+      "sample_rate": 24000,
+      "audio_chunks": 24,
+      "first_audio_seconds": 0.14590436965227127,
+      "output_during_input": true,
+      "request_sha256": "2e463037e8c4656260d70e0da7f271523f44ef5f02b39af9a7c8490af018aecf",
+      "response_sha256": "38c35a694867a70094584cff0d0398cedcaec2aed9afd0b80ab78543b7836884",
+      "audio_sha256": "c228d030a4d16671be2c6dbcbc44ab9619acb2a1877d2f615a4c50286ff10d57"
+    }
+  ],
+  "quality_verified": false,
+  "launch_command": [
+    "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+    "serve",
+    "<workdir>/results/personaplex-v1/acceptance/export",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "43741",
+    "--served-model-name",
+    "omnifactory-acceptance",
+    "--trust-remote-code",
+    "--deploy-config",
+    "<workdir>/OmniFactory/examples/deploy-personaplex.yaml",
+    "--disable-log-stats"
+  ],
+  "server_log_sha256": "049c55e15b526d922a8bcd742238cf9e354f48a0726c51dba795bd1f74ea144c"
+}

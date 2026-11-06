@@ -1,0 +1,34 @@
+# Pretrained 7B NF4 understanding passed short H20 acceptance; tune budgets for your data.
+# Text targets. Short execution acceptance is not a general memory or quality guarantee.
+model: Qwen/Qwen2.5-Omni-7B
+revision: ae9e1690543ffd5c0221dc27f79834d0294cba00
+dataset: ../outputs/demo/train.jsonl
+dataset_root: ../outputs/demo
+output_dir: ../outputs/qwen2.5-omni-7b-nf4-run
+device: cuda
+dtype: bfloat16
+quantization: nf4
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 8
+max_length: 2048
+max_audio_seconds: 30
+max_image_pixels: 1048576
+seed: 42
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 4096
+  max_audio_frames: 3000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 67108864
+adapter: qwen2_5_omni
+task: understanding_sft

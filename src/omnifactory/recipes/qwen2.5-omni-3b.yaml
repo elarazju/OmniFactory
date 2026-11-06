@@ -1,0 +1,39 @@
+model: Qwen/Qwen2.5-Omni-3B
+revision: f75b40e3da2003cdd6e1829b1f420ca70797c34e
+dataset: data/train.jsonl
+dataset_root: data
+output_dir: run
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 2
+save_steps: 1
+gradient_accumulation_steps: 6
+max_length: 2048
+max_audio_seconds: 30
+max_image_pixels: 1048576
+seed: 42
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 4096
+  max_audio_frames: 3000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 67108864
+adapter: qwen2_5_omni
+task: understanding_sft
+validation_dataset: data/validation.jsonl
+validation_root: data
+deterministic: true
+prepared_shard_records: 256
+prepared_shard_bytes: 268435456
+prepared_prefetch_records: 2
+prepared_prefetch_bytes: 67108864

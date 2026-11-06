@@ -1,0 +1,272 @@
+{
+  "format": "omnifactory-acceptance-v1",
+  "adapter": "personaplex",
+  "task": "speech_sft",
+  "model": "<workdir>/assets/personaplex-7b-v1",
+  "revision": null,
+  "created_at": "2026-10-26T14:32:56.837694+00:00",
+  "source_fingerprint": "3223f508255b064db3e7c651c91dc93ab9006678baebadbb68dbd5e9d81c567f",
+  "artifact_id": "ae51b2d407ea243481c5d2e5c56f4fb69f64386e4b3f4785de780dfde687f7dd",
+  "gates": {
+    "prepare": {
+      "status": "passed",
+      "details": {
+        "records": 4,
+        "data_fingerprint": "43ba9ef86999328128d69d5934515cf6c9b713de592771166411b53508e176e7"
+      },
+      "evidence": {}
+    },
+    "train": {
+      "status": "passed",
+      "details": {
+        "checkpoint": "<workdir>/results/personaplex-v1/acceptance/run/checkpoint-00000016",
+        "steps": 16,
+        "last_loss": 1.5183706746445045,
+        "best_checkpoint": "<workdir>/results/personaplex-v1/acceptance/run/checkpoint-00000016",
+        "best_metric": 1.9295898740893012,
+        "prepared_dataset": "<workdir>/results/personaplex-v1/acceptance/prepared",
+        "trainable_parameters": 2424832,
+        "device": "cuda",
+        "base_model": "<workdir>/assets/personaplex-7b-v1",
+        "vllm_deployment_verified": false,
+        "feature_cache": {}
+      },
+      "evidence": {}
+    },
+    "resume": {
+      "status": "passed",
+      "details": {
+        "max_abs": 0,
+        "checkpoint": "<workdir>/results/personaplex-v1/acceptance/run/checkpoint-00000008"
+      },
+      "evidence": {}
+    },
+    "export": {
+      "status": "passed",
+      "details": {
+        "format": "merged",
+        "adapter": "personaplex",
+        "inference_config": {
+          "model": "<workdir>/assets/personaplex-7b-v1",
+          "revision": null,
+          "dataset": "<workdir>/results/personaplex-v1/data/train.jsonl",
+          "dataset_root": "<workdir>/results/personaplex-v1/data",
+          "output_dir": "<workdir>/results/personaplex-v1/acceptance/run",
+          "adapter": "personaplex",
+          "task": "speech_sft",
+          "image_height": 256,
+          "image_width": 256,
+          "duplex_schedule": null,
+          "duplex_text_alignment": null,
+          "personaplex_voice": "NATF2.pt",
+          "personaplex_user_loss_weight": 0.0,
+          "max_attention_pairs": 1048576,
+          "flow_sigma_min": 1e-06,
+          "flow_cfg_dropout": 0.2,
+          "speech_tokenizer": null,
+          "speech_assets": null,
+          "speech_tokenizer_sha256": null,
+          "speech_reference": null,
+          "speech_reference_sha256": null,
+          "speech_reference_text": null,
+          "speech_codes": null,
+          "speech_speaker": "Chelsie",
+          "cosyvoice_sequence_mode": "mixed",
+          "text_loss_weight": 1.0,
+          "speech_loss_weight": 1.0,
+          "max_codec_tokens": 375,
+          "video_fps": 1.0,
+          "max_video_frames": 32,
+          "max_video_seconds": 30.0,
+          "device": "cpu",
+          "dtype": "float32",
+          "quantization": "none",
+          "attention": "sdpa",
+          "feature_cache": null,
+          "feature_cache_components": [
+            "vision_encoder",
+            "audio_encoder"
+          ],
+          "packing": "none",
+          "gradient_checkpointing": false,
+          "deterministic": true,
+          "max_steps": 16,
+          "save_steps": 8,
+          "gradient_accumulation_steps": 1,
+          "max_length": 1024,
+          "max_audio_seconds": 30.0,
+          "max_image_pixels": 1048576,
+          "seed": 42,
+          "max_grad_norm": 1.0,
+          "components": {
+            "temporal_model": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 8,
+              "alpha": 16.0,
+              "target_modules": [
+                "out_proj"
+              ]
+            },
+            "audio_projector": {
+              "mode": "lora",
+              "lr": 0.0001,
+              "rank": 8,
+              "alpha": 16.0,
+              "target_modules": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7"
+              ]
+            }
+          },
+          "budget": {
+            "max_examples": 1,
+            "max_llm_tokens": 1024,
+            "max_vision_patches": 1,
+            "max_audio_frames": 750,
+            "max_codec_frames": 750,
+            "max_decoded_media_bytes": 16777216,
+            "max_gpu_bytes": null,
+            "max_latent_elements": null,
+            "max_stream_events": 3072
+          },
+          "window_size": 64,
+          "resume_from": null,
+          "memory_profile": null,
+          "prepared_dataset": "<workdir>/results/personaplex-v1/acceptance/prepared",
+          "validation_dataset": "<workdir>/results/personaplex-v1/data/validation.jsonl",
+          "validation_root": "<workdir>/results/personaplex-v1/data",
+          "eval_steps": 8,
+          "save_total_limit": null,
+          "weight_decay": 0.0,
+          "lr_scheduler": "constant",
+          "warmup_steps": 0,
+          "scheduler_steps": null
+        },
+        "source_checkpoint": "<workdir>/results/personaplex-v1/acceptance/run/checkpoint-00000016",
+        "source_fingerprint": "3223f508255b064db3e7c651c91dc93ab9006678baebadbb68dbd5e9d81c567f",
+        "output": "<workdir>/results/personaplex-v1/acceptance/export",
+        "lora_merged": true,
+        "vllm_deployment_verified": false,
+        "native_architecture": "PersonaPlexTalkerForConditionalGeneration"
+      },
+      "evidence": {
+        "export/artifact-manifest.json": "ae95ab90f5037e899537c81f09abb6bd953af80eb8669e379bc46478a1067a43"
+      }
+    },
+    "inference": {
+      "status": "passed",
+      "details": {
+        "predictions": 2,
+        "audio_predictions": 2,
+        "image_predictions": 0,
+        "empty_audio_predictions": 0,
+        "output": "<workdir>/results/personaplex-v1/acceptance/predictions.jsonl",
+        "backend": "native-cuda",
+        "audio_limit_unit": "session_frames"
+      },
+      "evidence": {
+        "predictions.jsonl": "4ff01865ad4308281a89615b7da10b024c57104256594f84ecb28e69ddfcdec4"
+      }
+    },
+    "native_reference": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "ae51b2d407ea243481c5d2e5c56f4fb69f64386e4b3f4785de780dfde687f7dd",
+        "tensor_count": 475,
+        "merged_tensor_max_abs": 0,
+        "frozen_files": {
+          "config.json": "2d1cfef43c2cec307f2a3c7f7835b69a87c685261e785549e2c6558f811e1b08",
+          "tokenizer-e351c8d8-checkpoint125.safetensors": "09b782f0629851a271227fb9d36db65c041790365f11bbe5d3d59369cf863f50",
+          "tokenizer_spm_32k_3.model": "78d4336533ddc26f9acf7250d7fb83492152196c6ea4212c841df76933f18d2d",
+          "voices.tgz": "8564e9ca7a06ca723b07c3a77c623f0faa5937d04b2647b3a727b06c5ca0b7bb"
+        },
+        "scope": "native strict tensor inventory and BF16 merge parity; frozen assets byte parity; not quality"
+      },
+      "evidence": {
+        "<workdir>/results/personaplex-v1/native-reference.json": "fcda8ad367c4a82ea4730c051b849dbbd553c23753eef7bfd849f91fdc6e0e6e"
+      }
+    },
+    "http": {
+      "status": "passed",
+      "details": {
+        "status": "passed",
+        "artifact_id": "ae51b2d407ea243481c5d2e5c56f4fb69f64386e4b3f4785de780dfde687f7dd",
+        "adapter": "personaplex",
+        "modality": "audio",
+        "transport": "websocket",
+        "endpoint": "/v1/realtime?duplex=1",
+        "requests": 2,
+        "results": [
+          {
+            "sample_id": "duplex-4",
+            "prediction_id": "p0",
+            "session_id": "duplex-90f21ade006d4ded945e8d7f2c54b109",
+            "input_frames": 24,
+            "drain_frames": 1,
+            "wire_input_frames": 25,
+            "last_input_seconds": 1.9450391829013824,
+            "output_frames": 24,
+            "sample_rate": 24000,
+            "audio_chunks": 24,
+            "first_audio_seconds": 0.9842788055539131,
+            "output_during_input": true,
+            "request_sha256": "559563396595737305f090d8cc35e6c6c21dc1c8eb83e087669e121cdc8179a3",
+            "response_sha256": "d16764317dd9519db29894091a6a6b863c0c6f803a4062bb52c190724ac6ccf1",
+            "audio_sha256": "c228d030a4d16671be2c6dbcbc44ab9619acb2a1877d2f615a4c50286ff10d57"
+          },
+          {
+            "sample_id": "duplex-5",
+            "prediction_id": "p0",
+            "session_id": "duplex-5eb8fe4fdd06453bbad384b3e19cf2fb",
+            "input_frames": 24,
+            "drain_frames": 1,
+            "wire_input_frames": 25,
+            "last_input_seconds": 1.8669118657708168,
+            "output_frames": 24,
+            "sample_rate": 24000,
+            "audio_chunks": 24,
+            "first_audio_seconds": 0.14590436965227127,
+            "output_during_input": true,
+            "request_sha256": "2e463037e8c4656260d70e0da7f271523f44ef5f02b39af9a7c8490af018aecf",
+            "response_sha256": "38c35a694867a70094584cff0d0398cedcaec2aed9afd0b80ab78543b7836884",
+            "audio_sha256": "c228d030a4d16671be2c6dbcbc44ab9619acb2a1877d2f615a4c50286ff10d57"
+          }
+        ],
+        "quality_verified": false,
+        "launch_command": [
+          "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+          "serve",
+          "<workdir>/results/personaplex-v1/acceptance/export",
+          "--omni",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "43741",
+          "--served-model-name",
+          "omnifactory-acceptance",
+          "--trust-remote-code",
+          "--deploy-config",
+          "<workdir>/OmniFactory/examples/deploy-personaplex.yaml",
+          "--disable-log-stats"
+        ],
+        "server_log_sha256": "049c55e15b526d922a8bcd742238cf9e354f48a0726c51dba795bd1f74ea144c"
+      },
+      "evidence": {
+        "<workdir>/results/personaplex-realtime-v2/acceptance.json": "9013e40d04e4873e176490e139ce8a56c72ee1e43cbceea115c0bcea45a090ae"
+      }
+    },
+    "quality": {
+      "status": "not_run",
+      "details": {},
+      "evidence": {}
+    }
+  }
+}

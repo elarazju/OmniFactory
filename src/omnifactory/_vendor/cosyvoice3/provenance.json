@@ -1,0 +1,111 @@
+{
+  "repository": "https://github.com/FunAudioLLM/CosyVoice",
+  "revision": "074ca6dc9e80a2f424f1f74b48bdd7d3fea531cc",
+  "matcha_revision": "dd9105b34bf2be2230f4aa1e4769fb586a3c824e",
+  "files": {
+    "llm/llm.py": {
+      "source": "cosyvoice/llm/llm.py",
+      "selected": null,
+      "upstream_sha256": "c3799f4b2a00baaf1784bda86c5c7f22d4f9199b45e1fb9edd247b996d101ffa",
+      "vendored_sha256": "78166dc046e2ad6b328fa9e1b8930335a2da2d099fa38399a434303559ef0349"
+    },
+    "flow/flow.py": {
+      "source": "cosyvoice/flow/flow.py",
+      "selected": null,
+      "upstream_sha256": "bb61c86b4cef2d000f397e7d99ca9096372046d433efbdbdfc29d5d5321e2111",
+      "vendored_sha256": "b305fd3241d9e1d6e0523801f89906d6932c461116ac10a13d191c7a1eaeccb9"
+    },
+    "flow/flow_matching.py": {
+      "source": "cosyvoice/flow/flow_matching.py",
+      "selected": null,
+      "upstream_sha256": "d871c37176a673bde2a1bcd7c1f1e5083afdde246d05fe5d5203fcc9a23cf98e",
+      "vendored_sha256": "4e36dcc35dc5453678c0f5aeb5559a85ce8506935e988fd261cf8decdf07577e"
+    },
+    "flow/DiT/dit.py": {
+      "source": "cosyvoice/flow/DiT/dit.py",
+      "selected": null,
+      "upstream_sha256": "5d14492e3ed68f5446853b0defd447bc401b12803b027a7b9584a3f3527633bf",
+      "vendored_sha256": "6cf3cc6df948b66f6ad7ba74623b81529325b68b7a432647cf74ede152a69daa"
+    },
+    "flow/DiT/modules.py": {
+      "source": "cosyvoice/flow/DiT/modules.py",
+      "selected": null,
+      "upstream_sha256": "8c97f2af995e9ce06288be35b5119b243bb6a1aec687ef23032f20314f3f18cf",
+      "vendored_sha256": "8c97f2af995e9ce06288be35b5119b243bb6a1aec687ef23032f20314f3f18cf"
+    },
+    "utils/common.py": {
+      "source": "cosyvoice/utils/common.py",
+      "selected": null,
+      "upstream_sha256": "69aab9fe9cc80173f72a608e1b632611174f8c8e5032e4d9ce24fef18c8574bd",
+      "vendored_sha256": "69aab9fe9cc80173f72a608e1b632611174f8c8e5032e4d9ce24fef18c8574bd"
+    },
+    "utils/mask.py": {
+      "source": "cosyvoice/utils/mask.py",
+      "selected": null,
+      "upstream_sha256": "852c6e4b14201a238ab076396db599c157b2ee5a5a2aacf0f277ddce8c648976",
+      "vendored_sha256": "852c6e4b14201a238ab076396db599c157b2ee5a5a2aacf0f277ddce8c648976"
+    },
+    "transformer/label_smoothing_loss.py": {
+      "source": "cosyvoice/transformer/label_smoothing_loss.py",
+      "selected": null,
+      "upstream_sha256": "db8804cf1c20e1afbf6c33de4836589b1947d881797d02d507c2a8a8d4f40fdd",
+      "vendored_sha256": "db8804cf1c20e1afbf6c33de4836589b1947d881797d02d507c2a8a8d4f40fdd"
+    },
+    "transformer/convolution.py": {
+      "source": "cosyvoice/transformer/convolution.py",
+      "selected": null,
+      "upstream_sha256": "bc248837af9458d7fdfa620a072d5f9e5a2851c420e1275fdda34c294e3a75c7",
+      "vendored_sha256": "bc248837af9458d7fdfa620a072d5f9e5a2851c420e1275fdda34c294e3a75c7"
+    },
+    "transformer/activation.py": {
+      "source": "cosyvoice/transformer/activation.py",
+      "selected": null,
+      "upstream_sha256": "a4a96caea9f7b05111286de5ea760bdfdf9c4e53448f53420857dc04a50440c2",
+      "vendored_sha256": "a4a96caea9f7b05111286de5ea760bdfdf9c4e53448f53420857dc04a50440c2"
+    },
+    "hifigan/generator.py": {
+      "source": "cosyvoice/hifigan/generator.py",
+      "selected": null,
+      "upstream_sha256": "dd1c9f1ab5024bbcb4cec089b46e80844dbd00b5faf717a1906e166987200806",
+      "vendored_sha256": "73ee0408553ae7245f2391954bc56ca99ca5a8b0e9c428ba1e0aac4049abf9a0"
+    },
+    "hifigan/f0_predictor.py": {
+      "source": "cosyvoice/hifigan/f0_predictor.py",
+      "selected": null,
+      "upstream_sha256": "494630d73dad5e667c5042dae41acb673c4511b28c17e8ce343bbffa2fa3d512",
+      "vendored_sha256": "4e54882626e051dde9a0357d0deead0c939e96e56c799f7b9107ee8e874ff88e"
+    },
+    "transformer/upsample_encoder.py": {
+      "source": "cosyvoice/transformer/upsample_encoder.py",
+      "selected": [
+        "PreLookaheadLayer"
+      ],
+      "upstream_sha256": "fe1d2c689fac401c0ef38a0639921b1cd2849fe1d10596980e480f88dc06a682",
+      "vendored_sha256": "c56ba84b84879a93eccd52905fad7e1b27887e74a30e05188088147b791d5394"
+    },
+    "tokenizer/tokenizer.py": {
+      "source": "cosyvoice/tokenizer/tokenizer.py",
+      "selected": [
+        "CosyVoice2Tokenizer",
+        "CosyVoice3Tokenizer",
+        "get_qwen_tokenizer"
+      ],
+      "upstream_sha256": "b852d0047f46f77cfec3335cf53214c9b3e1939e61049e9cb53fac403e32d4fe",
+      "vendored_sha256": "e64158d7a72f4525086bfbac40aa67319ee21b111657703aba66d6cac7263e1d"
+    },
+    "matcha_flow.py": {
+      "source": "third_party/Matcha-TTS/matcha/models/components/flow_matching.py",
+      "selected": [
+        "BASECFM"
+      ],
+      "upstream_sha256": "a6f2b2eeca2600749d575dda8624d864d904227e2a9f764a6cb2b89290445e6c",
+      "vendored_sha256": "f80dff6efd08224a66a37932bed11115c89713691802191535dad2bf608344cb"
+    },
+    "audio.py": {
+      "source": "third_party/Matcha-TTS/matcha/utils/audio.py",
+      "selected": null,
+      "upstream_sha256": "2f741064bfcc9485d19a42356496d8ae24dec80c3d6ef5ca7f4e8abfbf9c61ca",
+      "vendored_sha256": "2f741064bfcc9485d19a42356496d8ae24dec80c3d6ef5ca7f4e8abfbf9c61ca"
+    }
+  }
+}

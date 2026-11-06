@@ -1,0 +1,109 @@
+{
+  "repository": "https://github.com/NVIDIA/personaplex",
+  "revision": "3428dfd95309a7f3c84fd93259ded0f810d1ff91",
+  "modifications": [
+    "modules/transformer.py: correct RingKVCache oldest-slot timestamp at wraparound (delta < 0); see NOTICE."
+  ],
+  "files": {
+    "__init__.py": {
+      "source": "moshi/moshi/__init__.py",
+      "upstream_sha256": "66a29f0ffa762e6b14ddef85a683941e65e43e2a8b72a25eccfad4c17db1a9a4",
+      "vendored_sha256": "66a29f0ffa762e6b14ddef85a683941e65e43e2a8b72a25eccfad4c17db1a9a4"
+    },
+    "models/__init__.py": {
+      "source": "moshi/moshi/models/__init__.py",
+      "upstream_sha256": "7dff98806bfd1761d5346a43bd25ce60e71fe834552295e479a3c07cb60102ba",
+      "vendored_sha256": "7dff98806bfd1761d5346a43bd25ce60e71fe834552295e479a3c07cb60102ba"
+    },
+    "models/lm.py": {
+      "source": "moshi/moshi/models/lm.py",
+      "upstream_sha256": "73d6da43ca59bb5162cfb97d8d05e71acaf214b89dd6705effa0c65da04c015b",
+      "vendored_sha256": "73d6da43ca59bb5162cfb97d8d05e71acaf214b89dd6705effa0c65da04c015b"
+    },
+    "models/loaders.py": {
+      "source": "moshi/moshi/models/loaders.py",
+      "upstream_sha256": "24d484efc2198c118f6d2b22877c765cd82e89887c52774c42aac5410b299148",
+      "vendored_sha256": "24d484efc2198c118f6d2b22877c765cd82e89887c52774c42aac5410b299148"
+    },
+    "models/compression.py": {
+      "source": "moshi/moshi/models/compression.py",
+      "upstream_sha256": "7af4b2791d16fd0add4ef4f51d4322fc9fec159cc96604e569bbb53fe756b4ed",
+      "vendored_sha256": "7af4b2791d16fd0add4ef4f51d4322fc9fec159cc96604e569bbb53fe756b4ed"
+    },
+    "utils/__init__.py": {
+      "source": "moshi/moshi/utils/__init__.py",
+      "upstream_sha256": "96cc00b7c48c73fbb8183ea5466081702f272628c044b9d73d71a83fc88b21c1",
+      "vendored_sha256": "96cc00b7c48c73fbb8183ea5466081702f272628c044b9d73d71a83fc88b21c1"
+    },
+    "utils/compile.py": {
+      "source": "moshi/moshi/utils/compile.py",
+      "upstream_sha256": "cdf0bb28eff09caefcf91d0180faac350bc2b6b55e09f1419ad41cdb533db618",
+      "vendored_sha256": "cdf0bb28eff09caefcf91d0180faac350bc2b6b55e09f1419ad41cdb533db618"
+    },
+    "utils/sampling.py": {
+      "source": "moshi/moshi/utils/sampling.py",
+      "upstream_sha256": "d929d020c0edcaa132a3c694d1e84ce4d109cbbe180907491955e766db39b75a",
+      "vendored_sha256": "d929d020c0edcaa132a3c694d1e84ce4d109cbbe180907491955e766db39b75a"
+    },
+    "modules/__init__.py": {
+      "source": "moshi/moshi/modules/__init__.py",
+      "upstream_sha256": "aaecf539c3edaee447006a627975a5193d44e06e056226aec4dd7fd2dcc1faf9",
+      "vendored_sha256": "aaecf539c3edaee447006a627975a5193d44e06e056226aec4dd7fd2dcc1faf9"
+    },
+    "modules/conv.py": {
+      "source": "moshi/moshi/modules/conv.py",
+      "upstream_sha256": "d4f9512cdc1343e959b0222dc2f18632f986ce8862d1cae5293542e0e282c51e",
+      "vendored_sha256": "d4f9512cdc1343e959b0222dc2f18632f986ce8862d1cae5293542e0e282c51e"
+    },
+    "modules/gating.py": {
+      "source": "moshi/moshi/modules/gating.py",
+      "upstream_sha256": "008663b832e66088a087b1df4448e573f0dc94b01a9bbbb6a2206687abeb2f72",
+      "vendored_sha256": "008663b832e66088a087b1df4448e573f0dc94b01a9bbbb6a2206687abeb2f72"
+    },
+    "modules/resample.py": {
+      "source": "moshi/moshi/modules/resample.py",
+      "upstream_sha256": "136931781a9de1e43afd19c4ffc9817e462f20b695853d415695d34f912405d9",
+      "vendored_sha256": "136931781a9de1e43afd19c4ffc9817e462f20b695853d415695d34f912405d9"
+    },
+    "modules/rope.py": {
+      "source": "moshi/moshi/modules/rope.py",
+      "upstream_sha256": "10930a26f7241f53f1d6eb03ed04e8d2b94b49f23d225e206fdbddf8cf95b04f",
+      "vendored_sha256": "10930a26f7241f53f1d6eb03ed04e8d2b94b49f23d225e206fdbddf8cf95b04f"
+    },
+    "modules/seanet.py": {
+      "source": "moshi/moshi/modules/seanet.py",
+      "upstream_sha256": "1611e47987b635bb90b19944fc3deca91c4100270f2117bf9fd9cc70bf0da9cc",
+      "vendored_sha256": "1611e47987b635bb90b19944fc3deca91c4100270f2117bf9fd9cc70bf0da9cc"
+    },
+    "modules/streaming.py": {
+      "source": "moshi/moshi/modules/streaming.py",
+      "upstream_sha256": "9fbdd77237d53ef6d95d1a08bce3b2438d661223ad8b795edfccc1b87eb4b81b",
+      "vendored_sha256": "9fbdd77237d53ef6d95d1a08bce3b2438d661223ad8b795edfccc1b87eb4b81b"
+    },
+    "modules/transformer.py": {
+      "source": "moshi/moshi/modules/transformer.py",
+      "upstream_sha256": "0eccf9b539ba738910d201a66809c68f5dad14f6b020fee862a592fd00e1de55",
+      "vendored_sha256": "c9691b7ba04afd3e3596096c77fd06174784bf2cedc98a59796417f875776419"
+    },
+    "quantization/__init__.py": {
+      "source": "moshi/moshi/quantization/__init__.py",
+      "upstream_sha256": "bc96e5a7686f959e96950e431daaf45841800fb103424d8c80c92ac58a6b1b6f",
+      "vendored_sha256": "bc96e5a7686f959e96950e431daaf45841800fb103424d8c80c92ac58a6b1b6f"
+    },
+    "quantization/base.py": {
+      "source": "moshi/moshi/quantization/base.py",
+      "upstream_sha256": "7f0e6071d56c3bd79a34a292af65e53179deb423e535515e466124e5aaf0e750",
+      "vendored_sha256": "7f0e6071d56c3bd79a34a292af65e53179deb423e535515e466124e5aaf0e750"
+    },
+    "quantization/core_vq.py": {
+      "source": "moshi/moshi/quantization/core_vq.py",
+      "upstream_sha256": "14a32264b0cd414cc045cc614d1f593a9fc39fca44276978bb7450815b8de10d",
+      "vendored_sha256": "14a32264b0cd414cc045cc614d1f593a9fc39fca44276978bb7450815b8de10d"
+    },
+    "quantization/vq.py": {
+      "source": "moshi/moshi/quantization/vq.py",
+      "upstream_sha256": "2c07f475a1cfc939fef0c93805f2a134ef3bf268d7ed5a0f9a461255d1464158",
+      "vendored_sha256": "2c07f475a1cfc939fef0c93805f2a134ef3bf268d7ed5a0f9a461255d1464158"
+    }
+  }
+}

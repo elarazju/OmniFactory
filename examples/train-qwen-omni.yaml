@@ -1,0 +1,40 @@
+# Pretrained 3B speech SFT passed short H20 acceptance; requires native Qwen codec labels.
+adapter: qwen2_5_omni
+task: speech_sft
+model: Qwen/Qwen2.5-Omni-3B
+revision: f75b40e3da2003cdd6e1829b1f420ca70797c34e
+speech_codes: ../outputs/qwen-speech-data/speech_codes.jsonl
+speech_speaker: Chelsie
+dataset: ../outputs/qwen-speech-data/train.jsonl
+output_dir: ../outputs/qwen-omni-run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 2
+max_length: 2048
+max_audio_seconds: 10
+max_codec_tokens: 750
+video_fps: 2
+max_video_frames: 20
+max_video_seconds: 10
+components:
+  language_model:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.0001
+  speech_generator:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.0001
+budget:
+  max_examples: 1
+  max_llm_tokens: 2048
+  max_vision_patches: 4096
+  max_audio_frames: 3000
+  max_codec_frames: 750
+  max_decoded_media_bytes: 67108864

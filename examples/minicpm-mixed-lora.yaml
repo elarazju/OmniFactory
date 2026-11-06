@@ -1,0 +1,12 @@
+model: minicpm_o_4_5
+loss_components: [language_model]
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: [q_proj, v_proj]
+  audio_projector:
+    mode: full
+    lr: 0.00002

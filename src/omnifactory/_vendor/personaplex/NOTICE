@@ -1,0 +1,14 @@
+This directory contains native model/runtime code from NVIDIA PersonaPlex:
+https://github.com/NVIDIA/personaplex
+Commit: 3428dfd95309a7f3c84fd93259ded0f810d1ff91
+
+Copyright NVIDIA CORPORATION & AFFILIATES, Kyutai, and Meta Platforms, Inc.
+The original file headers and LICENSE-MIT, LICENSE.moshi, LICENSE.audiocraft
+are retained. File selection and hashes are recorded in provenance.json.
+Model weights are separate, access-controlled assets and are not bundled here.
+
+Local correction: in modules/transformer.py RingKVCache.complete, use delta < 0
+instead of delta <= 0. Once the cache fills, the slot at end_index holds the
+oldest token, at end_offset - capacity, not a future token at end_offset.
+This preserves full-context causal attention at wraparound and matches native
+non-streaming teacher forcing, including the final depth-codebook step.

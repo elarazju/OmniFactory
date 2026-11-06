@@ -1,0 +1,4 @@
+VoxCPM2 native runtime and audio feature packer. Copyright OpenBMB. Apache-2.0.
+Source: https://github.com/OpenBMB/VoxCPM
+Revision: cce58a5b59303c9bd63d12f23afe6a49a4a80c59
+Selected source files are unmodified. Package initializers omit UI and network imports.

@@ -1,0 +1,105 @@
+{
+  "model": "omnifactory-qwen7b",
+  "requests_passed": 8,
+  "input_modalities": [
+    "text",
+    "image",
+    "audio",
+    "video_with_audio"
+  ],
+  "output_modalities": [
+    "text",
+    "text+audio"
+  ],
+  "results": [
+    {
+      "id": "validation-omni-0-text",
+      "http_status": 200,
+      "text": [
+        "One hundred."
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-1-text",
+      "http_status": 200,
+      "text": [
+        "The image is blue. What else do you want to know?"
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-2-text",
+      "http_status": 200,
+      "text": [
+        "The tone is low."
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-3-text",
+      "http_status": 200,
+      "text": [
+        "Blue, soft beeping."
+      ],
+      "audio_frames": 0,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-0-audio",
+      "http_status": 200,
+      "text": [
+        "One hundred."
+      ],
+      "audio_frames": 40800,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-1-audio",
+      "http_status": 200,
+      "text": [
+        "The image is blue. What else do you want to know?"
+      ],
+      "audio_frames": 91200,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-2-audio",
+      "http_status": 200,
+      "text": [
+        "The tone is low."
+      ],
+      "audio_frames": 52800,
+      "finish_reasons": [
+        "stop"
+      ]
+    },
+    {
+      "id": "validation-omni-3-audio",
+      "http_status": 200,
+      "text": [
+        "Blue, soft beeping."
+      ],
+      "audio_frames": 70560,
+      "finish_reasons": [
+        "stop"
+      ]
+    }
+  ],
+  "quality_verified": false
+}

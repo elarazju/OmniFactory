@@ -1,0 +1,16 @@
+# Set base_config to your pinned vLLM-Omni checkout; see docs/deployment.md.
+base_config: /path/to/vllm-omni/vllm_omni/deploy/mimo_audio.yaml
+stages:
+  - stage_id: 0
+    gpu_memory_utilization: 0.4
+    kv_cache_memory_bytes: 2147483648
+    max_num_seqs: 1
+    enforce_eager: true
+    max_model_len: 4096
+    max_num_batched_tokens: 4096
+  - stage_id: 1
+    gpu_memory_utilization: 0.2
+    max_num_seqs: 1
+    enforce_eager: true
+    max_model_len: 4096
+    max_num_batched_tokens: 4096

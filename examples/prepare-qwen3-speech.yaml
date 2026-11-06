@@ -1,0 +1,17 @@
+# Prepare `outputs/omni-data` with `omnifactory datasets omni-demo` first.
+# Target WAVs are explicitly synthesized from transcripts, not encoded recordings.
+model: Qwen/Qwen3-Omni-30B-A3B-Instruct
+revision: 26291f793822fb6be9555850f06dfe95f2d7e695
+adapter: qwen3_omni
+task: speech_sft
+dataset: ../outputs/omni-data/train.jsonl
+speech_codes: ../outputs/qwen3-speech-data/speech_codes.jsonl
+speech_speaker: Ethan
+output_dir: ../outputs/qwen3-teacher-unused
+device: cuda
+dtype: bfloat16
+max_length: 2048
+max_audio_seconds: 30
+max_codec_tokens: 750
+components:
+  speech_generator: {mode: lora, rank: 4, alpha: 8, lr: 0.0001}

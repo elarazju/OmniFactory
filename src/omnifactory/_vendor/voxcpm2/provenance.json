@@ -1,0 +1,27 @@
+{
+  "repository": "https://github.com/OpenBMB/VoxCPM",
+  "revision": "cce58a5b59303c9bd63d12f23afe6a49a4a80c59",
+  "license": "Apache-2.0",
+  "sha256": {
+    "model/utils.py": "0fb8db0a194e5f7900208174b4aa505bfabeee1f8582dd485c625e7ddff8413f",
+    "model/voxcpm2.py": "31ad554bc15a4da18cf820c6fda97a5b2c56ac8e9a5e66031a264d363661575c",
+    "modules/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "modules/audiovae/__init__.py": "bf72e27063eac02f332ae0489696ecca8c0ceb7a0a41f0af54ca8f1c6f145abf",
+    "modules/audiovae/audio_vae.py": "cabe57717c94437ace644b8da7fa4db811a5bdacb437e341a875f890bf8308f9",
+    "modules/audiovae/audio_vae_v2.py": "2efdff1708d8ec1471624aae6f232d0f933de26b788b6901c434246847e2d3a8",
+    "modules/layers/__init__.py": "4578ed00894dce44a30e2cb153f9ade69382391a0530d718a52634a1beb43c1a",
+    "modules/layers/lora.py": "8071035d19057bee86f61c3261c63193b234e49312b122eb635074984375b534",
+    "modules/layers/scalar_quantization_layer.py": "3e8c661a0eae8ecbf5abbebbea8971a962e95ebef8ea887b5ca4796d9436ca9d",
+    "modules/locdit/__init__.py": "a22d80973102835a5edcca027e59cefc611a6d2afec1af98690727bcfc4b3685",
+    "modules/locdit/local_dit.py": "d6e82cee3f5157724b1c998325163c96fe1fff5f11a733c89faacafe9987223b",
+    "modules/locdit/local_dit_v2.py": "7ea51eb5acc8475ffa41649852ee8d5d3f2a601b962f313f9e1c7eb109542b2f",
+    "modules/locdit/unified_cfm.py": "e4535337024cf44b6888eccfd39ccbe98684e302dd1836e05f940b4d626dcfdf",
+    "modules/locenc/__init__.py": "257ee6d2ee516f7065573180c7c2b175b06e7c59b8b89998b34b6ffafd7bb332",
+    "modules/locenc/local_encoder.py": "ab1d3c5b4028573495e2bc57d548af0310a577cee04c57055aaafcf94a1e1729",
+    "modules/minicpm4/__init__.py": "c2d6c1a428844a709d88e0312f07a79f337b4cfd58334756013786510e399f11",
+    "modules/minicpm4/cache.py": "644acd3bf7cf8313f2ba285f68c41967fcedb57e5f5d8f38a883acc385ee030d",
+    "modules/minicpm4/config.py": "5bed3ea87242f0ad5d0e8d80d602eea4373c9d175e26f5bb324b3c93ad7db36d",
+    "modules/minicpm4/model.py": "0733349295d13b2ec57e979058fa64becec821b9bd475e188eb4033fc016d2d2",
+    "training/packers.py": "0457d84f59c2a32c339015f57a5139a6c06dddd7ae11b80a6b4a7e1031e7d0e3"
+  }
+}

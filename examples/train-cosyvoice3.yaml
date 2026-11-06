@@ -1,0 +1,39 @@
+# Native speech LLM BF16 LoRA.
+# Optional generation settings: see docs/models.md#cosyvoice3 for reference audio.
+model: FunAudioLLM/Fun-CosyVoice3-0.5B-2512
+revision: 29e01c4e8d000f4bcd70751be16fa94bf3d85a18
+adapter: cosyvoice3
+task: speech_sft
+dataset: ../outputs/tts-data/train.jsonl
+output_dir: ../outputs/cosyvoice3-speech_sft-run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 20
+gradient_accumulation_steps: 4
+max_length: 1024
+max_audio_seconds: 8
+max_codec_tokens: 256
+components:
+  speech_generator:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules:
+    - q_proj
+    - v_proj
+budget:
+  max_examples: 1
+  max_llm_tokens: 1024
+  max_vision_patches: 1
+  max_audio_frames: 512
+  max_codec_frames: 256
+  max_decoded_media_bytes: 16777216
+  max_latent_elements: 40960
+cosyvoice_sequence_mode: mixed
+validation_dataset: ../outputs/tts-data/validation.jsonl
+eval_steps: 20

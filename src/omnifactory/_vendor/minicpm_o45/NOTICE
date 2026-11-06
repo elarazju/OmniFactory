@@ -1,0 +1,5 @@
+MiniCPM-o 4.5
+Copyright 2026 The OpenBMB Team.
+Source: https://huggingface.co/openbmb/MiniCPM-o-4_5
+Revision: eb4141de24550a3a1a4082f718be58f46b761728
+Python sources are unmodified. OmniFactory compatibility is implemented in adapters/minicpm.py.

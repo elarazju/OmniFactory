@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "artifact_id": "b63c10f80d10934583d0583370503af2a6384a5fbac05d1b00ca51217badf359",
+  "adapter": "cosyvoice3",
+  "requests": 4,
+  "results": [
+    {
+      "sample_id": "2277-149897-0000",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 11:31:41 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "0",
+        "x-vllm-omni-output-tokens": "112",
+        "x-vllm-omni-total-tokens": "112",
+        "x-vllm-omni-input-text-tokens": "0",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "213164",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "699fdad1969e0825810c261594061f5780d8fadea5c7f4a3eae4997180846322",
+      "sample_rate": 24000,
+      "audio_frames": 106560
+    },
+    {
+      "sample_id": "2277-149897-0001",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 11:31:43 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "0",
+        "x-vllm-omni-output-tokens": "75",
+        "x-vllm-omni-total-tokens": "75",
+        "x-vllm-omni-input-text-tokens": "0",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "142124",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "5492e6211b46a16e1a410ced4593049b55a2da2858cf45fb3408132566e0ed98",
+      "sample_rate": 24000,
+      "audio_frames": 71040
+    },
+    {
+      "sample_id": "2277-149897-0002",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 11:31:45 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "0",
+        "x-vllm-omni-output-tokens": "164",
+        "x-vllm-omni-total-tokens": "164",
+        "x-vllm-omni-input-text-tokens": "0",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "313004",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "ff48bf6fafd2b7614a25eaf8d7b10d1820497e026a6150401508599e5a09b34a",
+      "sample_rate": 24000,
+      "audio_frames": 156480
+    },
+    {
+      "sample_id": "2277-149897-0003",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 11:31:47 GMT",
+        "server": "uvicorn",
+        "x-vllm-omni-input-tokens": "0",
+        "x-vllm-omni-output-tokens": "144",
+        "x-vllm-omni-total-tokens": "144",
+        "x-vllm-omni-input-text-tokens": "0",
+        "x-vllm-omni-input-audio-tokens": "0",
+        "x-audio-sample-rate": "24000",
+        "x-audio-channels": "1",
+        "access-control-expose-headers": "X-Audio-Sample-Rate, X-Audio-Channels",
+        "content-length": "274604",
+        "content-type": "audio/wav",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "bb70d0b5848439a2e29d6f54d20dd67b403da5825e7e76af82dd34aa81379028",
+      "sample_rate": 24000,
+      "audio_frames": 137280
+    }
+  ],
+  "modality": "audio",
+  "quality_verified": false,
+  "launch_command": [
+    "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+    "serve",
+    "<workdir>/results/cosyvoice3-speech-v2/acceptance/export",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "42361",
+    "--served-model-name",
+    "omnifactory-acceptance",
+    "--trust-remote-code",
+    "--deploy-config",
+    "<workdir>/OmniFactory/examples/deploy-cosyvoice3.yaml",
+    "--disable-log-stats"
+  ],
+  "server_log_sha256": "16a7a318a271a29036d8c4e4b5fffb9df010fb226a5b9abc3711e27e540c0f99"
+}

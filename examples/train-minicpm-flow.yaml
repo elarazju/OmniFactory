@@ -1,0 +1,32 @@
+# Edit the native asset path for your machine. Paths are relative to this YAML.
+model: ../outputs/minicpm-speech-assets/assets/token2wav
+adapter: minicpm_token2wav
+task: flow_sft
+dataset: ../outputs/flow-data/train.jsonl
+output_dir: ../outputs/flow-run
+device: cuda
+dtype: float32
+quantization: none
+gradient_checkpointing: true
+max_steps: 4
+save_steps: 2
+gradient_accumulation_steps: 2
+max_codec_tokens: 100
+max_audio_seconds: 2
+flow_sigma_min: 0.000001
+flow_cfg_dropout: 0.2
+components:
+  audio_decoder:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+    target_modules: [to_q, to_v]
+budget:
+  max_examples: 1
+  max_llm_tokens: 1
+  max_vision_patches: 1
+  max_audio_frames: 200
+  max_codec_frames: 100
+  max_decoded_media_bytes: 1000000
+  max_latent_elements: 40000

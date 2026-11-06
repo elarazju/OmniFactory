@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "artifact_id": "364c5b68470d85366a9382b012349a698a724bf6ffb736118a4c25a6d780e4a6",
+  "adapter": "qwen_image_edit",
+  "requests": 2,
+  "results": [
+    {
+      "sample_id": "image-4",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 12:34:08 GMT",
+        "server": "uvicorn",
+        "content-length": "262926",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "2751ec7a6fa9363b94a6ab983c04fcaade18fd067c9163bd123fe5808d5a5e43",
+      "endpoint": "/v1/images/edits",
+      "request_body_sha256": "a6c0c6f7868fc02bede696841e46b9505ca00ca2e4bd2f320dba2565b932795f",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "sample_id": "image-5",
+      "prediction_id": "p0",
+      "status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 12:34:35 GMT",
+        "server": "uvicorn",
+        "content-length": "262926",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "connection": "close"
+      },
+      "response_sha256": "35bb595cc75bad9d4980c520cfa23643b14d1d12cb712a4da9ada393deb4b92b",
+      "endpoint": "/v1/images/edits",
+      "request_body_sha256": "21cf14af3414a5defc01be1357d3c68f04b994dbfbea287398ebd2be4c166796",
+      "width": 256,
+      "height": 256
+    }
+  ],
+  "modality": "image",
+  "quality_verified": false,
+  "launch_command": [
+    "<tmp>/omnifactory-vllm-20261025/bin/vllm",
+    "serve",
+    "<workdir>/results/qwen-image-edit-v1/acceptance/export",
+    "--omni",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "47858",
+    "--served-model-name",
+    "omnifactory-acceptance",
+    "--trust-remote-code",
+    "--deploy-config",
+    "<workdir>/OmniFactory/examples/deploy-qwen-image-edit.yaml",
+    "--disable-log-stats"
+  ],
+  "server_log_sha256": "0b264fc3bead7eb896ee3601f564f2cfba62eef0e76f8a8e10e4019d7904c1ba"
+}

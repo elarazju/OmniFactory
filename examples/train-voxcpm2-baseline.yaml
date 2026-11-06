@@ -1,0 +1,47 @@
+# Real-data baseline: 256 train / 64 held-out speech pairs, up to 12 seconds.
+# Compare all cases with scripts/run_real_data_baseline.py.
+# Prepare the explicit text variant with --text-case sentence; review acronyms.
+# Paths are relative to this file; prepare once before `train`.
+# Launch with CUBLAS_WORKSPACE_CONFIG=:4096:8 for deterministic CUDA execution.
+model: openbmb/VoxCPM2
+revision: 32279effe8c19989596f05d353d1447f51d9e915
+adapter: voxcpm2
+task: speech_sft
+dataset: ../outputs/real-tts/train.jsonl
+validation_dataset: ../outputs/real-tts/validation.jsonl
+prepared_dataset: ../outputs/voxcpm2-baseline-prepared
+output_dir: ../outputs/voxcpm2-baseline-run
+device: cuda
+dtype: bfloat16
+optimizer_master_weights: true
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+deterministic: true
+seed: 42
+max_steps: 128
+save_steps: 64
+eval_steps: 64
+save_total_limit: 3
+lr_scheduler: cosine
+scheduler_steps: 128
+warmup_steps: 8
+weight_decay: 0.01
+gradient_accumulation_steps: 4
+max_length: 4096
+max_audio_seconds: 12
+max_codec_tokens: 256
+components:
+  language_model: {mode: lora, rank: 4, alpha: 8, lr: 0.0001}
+  residual_model: {mode: lora, rank: 4, alpha: 8, lr: 0.0001}
+  audio_decoder: {mode: lora, rank: 4, alpha: 8, lr: 0.0001}
+  speech_projection: {mode: full, lr: 0.00001}
+  stop_predictor: {mode: full, lr: 0.00001}
+budget:
+  max_examples: 1
+  max_llm_tokens: 4096
+  max_vision_patches: 1
+  max_audio_frames: 10000
+  max_codec_frames: 10000
+  max_latent_elements: 1000000
+  max_decoded_media_bytes: 64000000

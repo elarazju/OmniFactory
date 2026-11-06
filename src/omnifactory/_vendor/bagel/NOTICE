@@ -1,0 +1,5 @@
+BAGEL runtime subset from ByteDance-Seed/Bagel, Apache-2.0.
+Original per-file copyright notices are preserved.
+Local changes: package imports rewritten under omnifactory._vendor.bagel.
+CPU reference FlashAttention fallback uses PyTorch SDPA; CUDA retains native FlashAttention. Training list-mask SDPA retains upstream CUDA BF16 efficient backend; CPU uses math SDPA in original tensor dtype. Removed import-time global Dynamo cache-limit mutation.
+Native inference attention keeps its BF16 casts on CUDA and preserves FP32 on CPU reference execution.

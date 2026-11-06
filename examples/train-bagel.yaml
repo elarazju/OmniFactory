@@ -1,0 +1,38 @@
+# Native generation MoT flow matching. Scoped pretrained H20/native/HTTP gates passed.
+model: ByteDance-Seed/BAGEL-7B-MoT
+revision: 5019f57d168e5816e8f3f701b17cc816bb7cf24b
+adapter: bagel_dit
+task: image_sft
+dataset: ../outputs/image-data/train.jsonl
+output_dir: ../outputs/bagel-run
+device: cuda
+dtype: bfloat16
+attention: sdpa
+quantization: none
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 20
+gradient_accumulation_steps: 4
+image_height: 256
+image_width: 256
+max_image_pixels: 1048576
+max_length: 512
+max_attention_pairs: 262144
+components:
+  image_generator:
+    mode: lora
+    rank: 4
+    alpha: 8
+    lr: 0.0001
+    target_modules: [q_proj_moe_gen, v_proj_moe_gen]
+  latent_projector: {mode: full, lr: 0.00001}
+  timestep_embedder: {mode: full, lr: 0.00001}
+  image_head: {mode: full, lr: 0.00001}
+budget:
+  max_examples: 1
+  max_llm_tokens: 512
+  max_vision_patches: 1
+  max_audio_frames: 1
+  max_codec_frames: 1
+  max_latent_elements: 131072
+  max_decoded_media_bytes: 16777216

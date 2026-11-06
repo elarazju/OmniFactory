@@ -1,0 +1,40 @@
+# Frozen encoder features on disk; trainable merger remains in the graph.
+# Requires a compatible FlashAttention 2 build. Video uses sequential fallback.
+# BF16 LoRA: text/image/audio/video inputs, text targets.
+# Fixtures: omnifactory datasets demo --output outputs/demo
+# Setup and supported packing/cache scope: docs/training.md#memory-and-batching.
+model: Qwen/Qwen2.5-Omni-3B
+revision: f75b40e3da2003cdd6e1829b1f420ca70797c34e
+dataset: ../outputs/demo/train.jsonl
+dataset_root: ../outputs/demo
+feature_cache: ../outputs/qwen-frozen-features
+feature_cache_components: [vision_encoder, audio_encoder]
+packing: flash_attention_2
+output_dir: ../outputs/qwen2.5-omni-3b-cached-run
+device: cuda
+dtype: bfloat16
+quantization: none
+attention: sdpa
+gradient_checkpointing: true
+max_steps: 100
+save_steps: 25
+gradient_accumulation_steps: 8
+max_length: 2048
+max_audio_seconds: 30
+max_image_pixels: 1048576
+seed: 42
+components:
+  language_model:
+    mode: lora
+    rank: 8
+    alpha: 16
+    lr: 0.0001
+budget:
+  max_examples: 4
+  max_llm_tokens: 8192
+  max_vision_patches: 4096
+  max_audio_frames: 3000
+  max_codec_frames: 1
+  max_decoded_media_bytes: 67108864
+adapter: qwen2_5_omni
+task: understanding_sft

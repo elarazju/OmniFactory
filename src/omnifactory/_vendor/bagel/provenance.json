@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/ByteDance-Seed/Bagel",
+  "revision": "a2fa77dd8caeefc41e6607ae0ec17408d3f4ee9f",
+  "license": "Apache-2.0",
+  "upstream_sha256": {
+    "modeling/autoencoder.py": "57941c0c14b9487e9a95f4d048755ab5ad4b75d144874009e3ba8a0302e68efa",
+    "data/data_utils.py": "38979dffa64dc32b5c1ddd65b592ee2b084af6c9fec1133c547b762e4394615b",
+    "modeling/bagel/siglip_navit.py": "400df7042566aa1fdbb2a63b72261ebccd0fc9e890f9f883287d84082e9311eb",
+    "modeling/bagel/bagel.py": "bf92fead4471b61deb73667e79ba077dbdf1cb6ca6e706512836703ab1fb08f7",
+    "modeling/bagel/__init__.py": "59d4106be415927bbc41c325b7a5df52e3a02ec1c701aa9655dd5e2f1aeaf90e",
+    "modeling/bagel/qwen2_navit.py": "d85e6d0448aa137f338abab5bda6820c5de0c32b5c08afb529d329fed3348c49",
+    "modeling/bagel/modeling_utils.py": "6fe5eed0513a462c28cccd8ec86d5496b774667fa6f04be8f70e6595baf3f323",
+    "modeling/qwen2/__init__.py": "c98f7445ec6af14d32d650436b754f74c281e91d22e82a6115264c355bd75ecf",
+    "modeling/qwen2/tokenization_qwen2.py": "5add04cc0ef8e8549151cc7babe733d93ed8739aa265acb49073c0ad129abd48",
+    "modeling/qwen2/configuration_qwen2.py": "541074d10078a144914b6104dbab6af0c6030ad2695526896c1e6231603136a1",
+    "modeling/qwen2/modeling_qwen2.py": "c8935e385d15836a7ece216ae9a3414035e085db50f6bc906aeef791119a56ee",
+    "modeling/qwen2/tokenization_qwen2_fast.py": "7f4177e86f80e3feabc67d32ff6135896c280f37cceaec2f43703e50aef82b9c",
+    "modeling/siglip/configuration_siglip.py": "3064249ae6b6f330a69fa9f1d79dd48b4e12f2ba9aae11d805625275299913ef",
+    "modeling/siglip/modeling_siglip.py": "d601ad9987922ba8b0fa59ef35654c1b8da2b300d69bc3dde5f10d1356d879fd",
+    "modeling/siglip/processing_siglip.py": "c70d6be66a05b42d7dbf568a9fd309d7c90fbe02d56db32daa83af2882d696b4",
+    "modeling/siglip/__init__.py": "1a0470f5ee0139f8387626302107efedb2349d5caef8ea23ed3416cbc5229c60",
+    "modeling/siglip/convert_siglip_to_hf.py": "91acbaf1745609c72d26ca9c95b626b3fe84da193b7c6b9f3ecfc2747b2738dc",
+    "modeling/siglip/image_processing_siglip.py": "2455839b8360701f440824af3af2417ed21f10283d649d6929b66932260428c7",
+    "modeling/siglip/tokenization_siglip.py": "04631ab91c49b47d3d9be8032ca4488f9280ffc8fc2eb1701bc2297b535536e0",
+    "modeling/cache_utils/taylorseer.py": "353a560c7b3164766f797020322a8e40d329ee3c3cc09c656dbe8d5522068dae"
+  },
+  "patches": [
+    "Namespaced absolute imports; further runtime compatibility patches tracked in NOTICE."
+  ]
+}
