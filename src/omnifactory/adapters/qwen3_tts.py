@@ -582,7 +582,7 @@ def export_qwen3_tts(checkpoint, output, *, format=None):
     from omnifactory.training.engine import load_checkpoint
     from omnifactory.training.policy import merge_lora
 
-    if format not in (None, "merged", "vllm-omni"):
+    if format not in (None, "merged", "vllm-omni", "sglang-omni"):
         raise OmniFactoryError(
             "E_EXPORT_FORMAT", "Qwen3-TTS requires a native merged speech export"
         )
@@ -616,6 +616,7 @@ def export_qwen3_tts(checkpoint, output, *, format=None):
             output=str(Path(output).resolve()),
             lora_merged=True,
             vllm_deployment_verified=False,
+            sglang_deployment_verified=False,
             native_architecture="Qwen3TTSForConditionalGeneration",
             speaker=config.speech_speaker.lower(),
             speaker_reference_sha256=config.speech_reference_sha256,

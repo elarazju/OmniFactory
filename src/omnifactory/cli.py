@@ -441,7 +441,7 @@ def export_model(
     output: Annotated[Path, typer.Option()],
     format: str = "merged",
 ):
-    """Merge adapters to an understanding model or assemble native vllm-omni weights."""
+    """Merge adapters into native weights for inference or a supported serving backend."""
     require_training()
     from omnifactory.training.export import export_checkpoint
 
@@ -807,13 +807,22 @@ def deployment_validate(
     output: Annotated[Path, typer.Option()],
     executable: Annotated[Path, typer.Option()],
     deploy_config: Annotated[Path, typer.Option()],
+    backend: str = "vllm-omni",
+    startup_timeout: Annotated[int, typer.Option(min=1)] = 300,
     max_audio_units: Annotated[int, typer.Option(min=2)] = 128,
 ):
     from omnifactory.serving import validate_deployment
 
     emit(
         validate_deployment(
-            model, dataset, output, executable, deploy_config, max_audio_units=max_audio_units
+            model,
+            dataset,
+            output,
+            executable,
+            deploy_config,
+            backend=backend,
+            startup_timeout=startup_timeout,
+            max_audio_units=max_audio_units,
         )
     )
 

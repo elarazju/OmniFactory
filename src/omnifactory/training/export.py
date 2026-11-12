@@ -138,9 +138,13 @@ def assemble_native(
 
 
 def export_builtin(checkpoint: Path, output: Path, *, format=None):
-    if format not in (None, "merged", "understanding", "thinker", "vllm-omni"):
+    if format not in (None, "merged", "understanding", "thinker", "vllm-omni", "sglang-omni"):
         raise OmniFactoryError("E_EXPORT_FORMAT", format)
     model, adapter, config, metadata = load_checkpoint(checkpoint, for_export=True)
+    if format == "sglang-omni" and config.adapter not in ("qwen3_omni", "minicpm_o_4_5"):
+        raise OmniFactoryError(
+            "E_EXPORT_FORMAT", "SGLang-Omni native assembly supports Qwen3-Omni and MiniCPM-o 4.5"
+        )
     if config.adapter == "bagel_dit":
         if format not in (None, "merged", "vllm-omni"):
             raise OmniFactoryError("E_EXPORT_FORMAT", "BAGEL requires native merged export")
@@ -211,6 +215,10 @@ def export_builtin(checkpoint: Path, output: Path, *, format=None):
             shutil.copytree(config.speech_assets, root / "assets/token2wav", dirs_exist_ok=True)
         if config.duplex_schedule is not None:
             shutil.copy2(config.duplex_schedule, root / "duplex_schedule.json")
+        if format == "sglang-omni":
+            from omnifactory.adapters.sglang_omni import validate_omni_export
+
+            validate_omni_export(root, config.adapter)
         result = {
             "timed_attention_required": config.duplex_schedule is not None,
             "format": format,
@@ -221,6 +229,7 @@ def export_builtin(checkpoint: Path, output: Path, *, format=None):
             "output": str(output.resolve()),
             "lora_merged": True,
             "vllm_deployment_verified": False,
+            "sglang_deployment_verified": False,
             **details,
         }
         write_json(root / "omnifactory_export.json", result)

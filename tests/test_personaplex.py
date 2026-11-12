@@ -179,6 +179,11 @@ def test_shared_train_resume_export_and_streaming_decode(runtime, agent_only):
         torch.testing.assert_close(a[name], b[name], atol=0, rtol=0)
     exported = root / "export"
     export_checkpoint(Path(result["checkpoint"]), exported)
+    export_checkpoint(Path(result["checkpoint"]), root / "sglang-export", format="sglang-omni")
+    assert sha256(root / "sglang-export/model.safetensors") == sha256(
+        exported / "model.safetensors"
+    )
+    assert sha256(root / "sglang-export/voices/NATF2.pt") == sha256(exported / "voices/NATF2.pt")
     assert sha256(exported / MIMI_NAME) == sha256(root / "model" / MIMI_NAME)
     assert sha256(exported / "voices/NATF2.pt") == sha256(root / "model/voices/NATF2.pt")
     output = root / "predictions.jsonl"
@@ -211,3 +216,65 @@ def test_timing_hash_and_unsafe_lora_fail_early(runtime):
     }
     with pytest.raises(ValueError, match="weight-only"):
         TrainConfig.model_validate(values)
+
+
+def test_sglang_export_requires_selected_unpacked_voice(runtime):
+    import tarfile
+
+    from omnifactory.adapters.personaplex import validate_export
+    from omnifactory.adapters.personaplex_sglang_assets import unpack_voices
+    from omnifactory.errors import OmniFactoryError
+
+    root, cfg = runtime
+    model_root = root / "model"
+    with tarfile.open(model_root / "voices.tgz", "w:gz") as archive:
+        archive.add(model_root / "voices/NATF2.pt", arcname="voices/NATF2.pt")
+    (model_root / "voices/NATF2.pt").unlink()
+    (model_root / "voices/OTHER.pt").write_bytes(b"unrelated preset")
+    metadata = dict(format="sglang-omni", inference_config=cfg.model_dump(mode="json"))
+    with pytest.raises(OmniFactoryError, match="unpacked selected voice"):
+        validate_export(model_root, metadata)
+    unpack_voices(model_root)
+    validate_export(model_root, metadata)
+    torch.save({"unexpected": torch.zeros(1)}, model_root / "voices/NATF2.pt")
+    with pytest.raises(OmniFactoryError, match="native embeddings and cache"):
+        validate_export(model_root, metadata)
+
+
+def test_sglang_probe_excludes_warmup_from_acceptance(runtime, monkeypatch):
+    import omnifactory.adapters.personaplex_sglang_serving as serving
+
+    root, cfg = runtime
+    exported = root / "export"
+    exported.mkdir()
+    (exported / "omnifactory_export.json").write_text(
+        json.dumps(
+            dict(
+                inference_config=cfg.model_dump(mode="json"),
+            )
+        )
+    )
+    monkeypatch.setattr(serving, "verify_export", lambda _: dict(artifact_id="fixture"))
+    calls = []
+
+    async def fake_probe(url, model, voice, persona, wave, output, *, require_overlap=True):
+        calls.append((output.name, require_overlap, wave.copy()))
+        return dict(output_during_input=require_overlap)
+
+    monkeypatch.setattr(serving, "session_probe", fake_probe)
+    result = serving.probe_realtime(
+        exported,
+        root / "data/validation.jsonl",
+        root / "probe",
+        "http://fixture",
+        "model",
+    )
+    assert result["requests"] == len(result["results"]) == 2
+    assert result["warmup"]["counts_as_acceptance"] is False
+    assert result["warmup"]["output_during_input"] is False
+    assert [call[:2] for call in calls] == [
+        ("warmup", False),
+        ("session-00000", True),
+        ("session-00001", True),
+    ]
+    assert (calls[0][2] == calls[1][2]).all()

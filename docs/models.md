@@ -12,6 +12,8 @@ Replace the recipe for your chosen model. See [Training](training.md) for compon
 
 For a two-step check with generated fixtures, use the installed [Qwen2.5-Omni 3B or VoxCPM2 initializer](getting_started.md). The checkout YAMLs below are starting points for configuring your own run. Paths in YAML are relative to the file, and the linked guides describe any required labels or assets. `omnifactory models list` also includes architecture contracts, identified as `contract_only` when they have no training adapter.
 
+For SGLang-Omni, complete native exports are available for Qwen3-Omni, MiniCPM-o 4.5, Qwen3-TTS CustomVoice, CosyVoice3 (speech and flow), and PersonaPlex. Use `--format sglang-omni` and the corresponding [deployment configuration and prerequisites](deployment.md#sglang-omni-serving). Other adapters are not integrated with this backend.
+
 ## Qwen2.5-Omni
 
 - Inputs: text, images, audio, offline video; targets: text or text/native speech.
@@ -50,7 +52,7 @@ uv run --extra train omnifactory train --config examples/train-qwen3-omni-speech
 
 The fixture requires FFmpeg. Replace it with real conversations and selected transcripts for useful training. In both preparation and training YAML, use the same pinned full model and speaker. For Qwen2.5, use the matching [3B](../examples/prepare-qwen2.5-omni-3b-speech.yaml) or [7B](../examples/prepare-qwen2.5-omni-7b-speech.yaml) preparation recipe and update its input/validation paths. Never reuse 3B teacher labels for 7B.
 
-Set `speech_codes` to the resulting manifest. Editing transcripts, target crops, audio, speaker, or source identity requires new matching labels. Teacher synthesis replaces target WAVs and does not encode arbitrary recordings. Speech export requires `merged` or `vllm-omni`, preserving frozen decoder assets.
+Set `speech_codes` to the resulting manifest. Editing transcripts, target crops, audio, speaker, or source identity requires new matching labels. Teacher synthesis replaces target WAVs and does not encode arbitrary recordings. Speech export requires `merged` or a supported serving format, preserving frozen decoder assets. Qwen3-Omni additionally supports `sglang-omni`; Qwen2.5-Omni does not.
 
 ## MiniCPM-o 4.5
 
@@ -186,7 +188,7 @@ single-speaker **CustomVoice** checkpoint. CPU tests cover the native 16-codeboo
 codec, causal supervision, LoRA training/resume, native export/reload and waveform
 inference. The pretrained 1.7B checkpoint has also passed bounded BF16 LoRA
 training, exact resume, native export/reload, complete-EOS waveform generation
-and vLLM-Omni CustomVoice serving. These checks establish the execution path,
+and CustomVoice serving with vLLM-Omni and SGLang-Omni. These checks establish the execution path,
 not speech quality improvement.
 
 Use [the training configuration](../examples/train-qwen3-tts.yaml) with the `train`
@@ -212,11 +214,15 @@ matches the native non-streaming generation layout. Multi-speaker training,
 VoiceDesign training, NF4 and streaming training are not implemented.
 
 Use the shared prepare/train/export commands in [Getting Started](getting_started.md).
-Export with `--format merged` or `--format vllm-omni`; native prediction requires
+Export with `--format merged`, `--format vllm-omni` or `--format sglang-omni`; native prediction requires
 `--generate-audio`. The export bundles the tokenizer/codec and embeds its voice,
 so generation does not require the original fixed-reference file. Its speech API
 request uses `task_type: CustomVoice` and `voice: <speech_speaker>`; do not send a
 Base voice-cloning request to this export.
+
+For SGLang-Omni, use the [CustomVoice deployment guide](deployment.md#sglang-omni-serving)
+and [configuration](../examples/deploy-qwen3-tts-sglang.yaml). The same complete
+native checkpoint can target either serving backend.
 
 Native inference and the deployment recipe use the upstream sampling defaults
 (temperature 0.9, top-k 50 for both Talker and residual codebooks). Forcing greedy

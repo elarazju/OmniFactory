@@ -160,6 +160,15 @@ def test_train_resume_export_and_native_generation(runtime, monkeypatch):
     trained, _, _, _ = load_checkpoint(Path(run["checkpoint"]))
     before = adapter.forward(trained, rows[0].payload)
     export_checkpoint(Path(run["checkpoint"]), root / "export", format="vllm-omni")
+    sgl = export_checkpoint(Path(run["checkpoint"]), root / "sgl-export", format="sglang-omni")
+    assert sgl["format"] == "sglang-omni" and sgl["sglang_deployment_verified"] is False
+    from omnifactory.artifacts import verify_export
+
+    vllm_files = verify_export(root / "export")["files"]
+    sgl_files = verify_export(root / "sgl-export")["files"]
+    assert {k: v for k, v in vllm_files.items() if k != "omnifactory_export.json"} == {
+        k: v for k, v in sgl_files.items() if k != "omnifactory_export.json"
+    }
     loaded = load_qwen3_tts(cfg.model_copy(update={"model": str(root / "export")})).eval()
     after = adapter.forward(loaded, rows[0].payload)
     torch.testing.assert_close(before.logits, after.logits, atol=2e-6, rtol=2e-5)
@@ -205,7 +214,11 @@ def test_train_resume_export_and_native_generation(runtime, monkeypatch):
         assert body["voice"] == "testvoice" and body["task_type"] == "CustomVoice"
         assert "ref_audio" not in body
         # This probes request construction; the random codec is not a speech-quality fixture.
-        return 200, cfg.speech_reference.read_bytes(), {"Content-Type": "audio/wav"}
+        return (
+            200,
+            cfg.speech_reference.read_bytes(),
+            {"Content-Type": "audio/wav", "X-Finish-Reason": "stop"},
+        )
 
     monkeypatch.setattr(serving, "http_request", response)
     report = serving.probe(
@@ -216,6 +229,35 @@ def test_train_resume_export_and_native_generation(runtime, monkeypatch):
         "fixture",
     )
     assert report["requests"] == 1 and report["modality"] == "audio"
+    report = serving.probe(
+        root / "sgl-export",
+        root / "data/validation.jsonl",
+        root / "mock-sgl-http",
+        "http://localhost",
+        "fixture",
+        backend="sglang-omni",
+    )
+    assert report["backend"] == "sglang-omni"
+    assert report["results"][0]["finish_reason"] == "stop"
+    for reason in ("length", "unknown", None):
+        monkeypatch.setattr(
+            serving,
+            "http_request",
+            lambda *args: (
+                200,
+                cfg.speech_reference.read_bytes(),
+                {} if reason is None else {"x-finish-reason": reason},
+            ),
+        )
+        with pytest.raises(OmniFactoryError, match="E_SERVE_INCOMPLETE"):
+            serving.probe(
+                root / "sgl-export",
+                root / "data/validation.jsonl",
+                root / f"mock-sgl-{reason}",
+                "http://localhost",
+                "fixture",
+                backend="sglang-omni",
+            )
 
 
 def test_training_prefix_matches_native_generation(runtime, monkeypatch):

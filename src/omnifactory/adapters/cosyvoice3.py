@@ -411,7 +411,7 @@ def export_cosyvoice3(checkpoint, output, *, format=None):
     from omnifactory.training.engine import load_checkpoint
     from omnifactory.training.policy import merge_lora
 
-    if format not in (None, "merged", "vllm-omni"):
+    if format not in (None, "merged", "vllm-omni", "sglang-omni"):
         raise OmniFactoryError("E_EXPORT_FORMAT", "CosyVoice3 requires native pipeline export")
     model, adapter, config, metadata = load_checkpoint(checkpoint, for_export=True)
     model = merge_lora(model)
@@ -529,8 +529,11 @@ def build_speech_request(payload, *, view, resolver, metadata):
     )
     buffer = io.BytesIO()
     sf.write(buffer, wave, 16000, format="WAV", subtype="FLOAT")
+    sglang = metadata.get("_serving_backend") == "sglang-omni"
     return {
-        **payload,
+        # SGLang rejects separate instructions together with a transcript. Its
+        # zero-shot builder preserves this complete native prompt verbatim.
+        **{k: v for k, v in payload.items() if not (sglang and k == "instructions")},
         "input": text,
         "ref_text": instruction + transcript,
         "ref_audio": "data:audio/wav;base64," + base64.b64encode(buffer.getvalue()).decode(),

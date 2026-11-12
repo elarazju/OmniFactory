@@ -331,6 +331,72 @@
       "historical": false,
       "scope": "Two real WebSocket duplex sessions on the same sealed export. Each 24 input frames + one explicit drain tick yields 24 output frames, with output during original input and scheduler/KV evidence; not quality or a latency benchmark.",
       "paths_redacted": true
+    },
+    {
+      "id": "sglang-qwen3-tts-http-v1",
+      "model_key": "qwen3_tts",
+      "file": "sglang-qwen3-tts-http-v1.json",
+      "sha256": "be9fec6821bebbd0d58bdd9da30a5ed97afc961774a262a854b238f944daecc3",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "Qwen3-TTS 1.7B single-speaker CustomVoice export, SGLang-Omni pinned revision, four HTTP 200 speech requests with stop state and finite nonzero 24 kHz WAV. Not speech quality, concurrency, streaming or duplex.",
+      "paths_redacted": true
+    },
+    {
+      "id": "sglang-cosyvoice3-speech-http-v1",
+      "model_key": "cosyvoice3",
+      "file": "sglang-cosyvoice3-speech-http-v1.json",
+      "sha256": "e423661f24973be8b67534102fbadb86adff11f0ab570528ed7dbef8d24fee01",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "CosyVoice3 speech fine-tuned native export, four reference-conditioned HTTP speech requests with stop state and finite nonzero 24 kHz WAV; sealed export unchanged after serving. Not speech quality or concurrency.",
+      "paths_redacted": true
+    },
+    {
+      "id": "sglang-cosyvoice3-flow-http-v1",
+      "model_key": "cosyvoice3",
+      "file": "sglang-cosyvoice3-flow-http-v1.json",
+      "sha256": "b24ea7871ef07a9b79228912803e7dcf5686ab5c3e618ec3b85fc9a9afeac001",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "CosyVoice3 flow fine-tuned native export, four reference-conditioned HTTP speech requests with stop state and finite nonzero 24 kHz WAV; sealed export unchanged after serving. Not speech quality or concurrency.",
+      "paths_redacted": true
+    },
+    {
+      "id": "sglang-personaplex-realtime-v1",
+      "model_key": "personaplex",
+      "file": "sglang-personaplex-realtime-v1.json",
+      "sha256": "f3fba67abdfecda33bd389d3d737352e2ed8ca71de6cdeebe887c5295dff046b",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "Two real 60/180-second AMI WebSocket duplex sessions; native granted mode, output during original input, all input consumed, 750/2250 input frames and 751/2251 output frames, completed response and normal session close. Independent warmup excluded. Export unchanged after serving; not speech quality or a latency benchmark.",
+      "paths_redacted": true
+    },
+    {
+      "id": "sglang-qwen3-omni-http-v1",
+      "model_key": "qwen3_omni",
+      "file": "sglang-qwen3-omni-http-v1.json",
+      "sha256": "c854329036bd226c613475a8f079a026170213d11251adcd96358533c1be7e95",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "Eight paired text/text+audio HTTP requests on text, image, audio and cropped audiovisual input. Thinker stop; finite nonzero 24 kHz audio below requested codec budget; sealed export unchanged. Upstream does not expose talker EOS: audio_completion_verified=false. Not speech quality.",
+      "paths_redacted": true
+    },
+    {
+      "id": "sglang-minicpm-http-v1",
+      "model_key": "minicpm_o_4_5",
+      "file": "sglang-minicpm-http-v1.json",
+      "sha256": "d108aabe29ef076567d5d4e38ecb775b499f7f117ffb76fd0248417323024a1b",
+      "kind": "http",
+      "backend": "sglang-omni",
+      "historical": false,
+      "scope": "Eight paired text/text+audio HTTP requests on text, image, audio and cropped audiovisual input. Thinker stop; finite nonzero 24 kHz audio below requested codec budget; sealed export unchanged. Upstream does not expose talker EOS: audio_completion_verified=false. Not speech quality.",
+      "paths_redacted": true
     }
   ],
   "rows": [
@@ -454,7 +520,8 @@
       ],
       "verification_ids": [
         "p3-minicpm",
-        "p3-minicpm-http-v4"
+        "p3-minicpm-http-v4",
+        "sglang-minicpm-http-v1"
       ]
     },
     {
@@ -555,7 +622,8 @@
       ],
       "verification_ids": [
         "qwen3-speech-v1",
-        "qwen3-speech-http-v1"
+        "qwen3-speech-http-v1",
+        "sglang-qwen3-omni-http-v1"
       ]
     },
     {
@@ -620,7 +688,8 @@
       ],
       "verification_ids": [
         "qwen3-tts-v3",
-        "qwen3-tts-http-v1"
+        "qwen3-tts-http-v1",
+        "sglang-qwen3-tts-http-v1"
       ]
     },
     {
@@ -643,7 +712,9 @@
         "cosyvoice3-speech-v2",
         "cosyvoice3-speech-http-v1",
         "cosyvoice3-flow-v2",
-        "cosyvoice3-flow-http-v1"
+        "cosyvoice3-flow-http-v1",
+        "sglang-cosyvoice3-speech-http-v1",
+        "sglang-cosyvoice3-flow-http-v1"
       ]
     },
     {
@@ -685,7 +756,8 @@
       ],
       "verification_ids": [
         "personaplex-v1",
-        "personaplex-realtime-v2"
+        "personaplex-realtime-v2",
+        "sglang-personaplex-realtime-v1"
       ]
     }
   ],

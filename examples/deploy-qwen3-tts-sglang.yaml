@@ -1,0 +1,14 @@
+# Use the complete CustomVoice directory produced by omnifactory export.
+# Set this path for direct sgl-omni launches. deploy validate replaces it with --model.
+config_cls: Qwen3TTSPipelineConfig
+model_path: outputs/qwen3-tts-sglang
+stages:
+  tts_engine:
+    engine:
+      max_running_requests: 1
+      mem_fraction_static: 0.3
+      disable_cuda_graph: true
+  vocoder:
+    factory:
+      initial_cuda_graph: false
+      followup_cuda_graph: false

@@ -156,6 +156,13 @@ def test_shared_training_resume_export_and_native_audio(runtime, task, monkeypat
     assert a.keys() == b.keys()
     assert all(torch.equal(a[k], b[k]) for k in a)
     export_checkpoint(Path(run["checkpoint"]), root / "export", format="vllm-omni")
+    export_checkpoint(Path(run["checkpoint"]), root / "sglang-export", format="sglang-omni")
+    for name in ("llm.pt", "flow.pt", "hift.pt", "campplus.onnx", "speech_tokenizer_v3.onnx"):
+        assert sha256(root / "sglang-export" / name) == sha256(root / "export" / name)
+    assert (
+        json.loads((root / "sglang-export/omnifactory_export.json").read_text())["format"]
+        == "sglang-omni"
+    )
     frozen = "flow.pt" if task == "speech_sft" else "llm.pt"
     assert sha256(root / "export" / frozen) == sha256(root / "model" / frozen)
     assert sha256(root / "export/hift.pt") == sha256(root / "model/hift.pt")
@@ -178,7 +185,8 @@ def test_shared_training_resume_export_and_native_audio(runtime, task, monkeypat
     assert row["audio"]
 
 
-def test_native_speech_request_uses_only_reference_and_user_text(runtime):
+@pytest.mark.parametrize("system_instruction", [None, "Speak warmly."])
+def test_native_speech_request_uses_only_reference_and_user_text(runtime, system_instruction):
     from omnifactory.adapters.cosyvoice3 import build_speech_request
     from omnifactory.data.media import LocalMediaResolver
     from omnifactory.data.schema import inference_view
@@ -187,6 +195,24 @@ def test_native_speech_request_uses_only_reference_and_user_text(runtime):
     root, cfg = runtime
     sample = next(iter_samples(cfg.dataset))
     view = inference_view(sample, "p0", ("audio",))
+    if system_instruction is not None:
+        from omnifactory.data.schema import Message, TextBlock
+
+        view = view.model_copy(
+            update={
+                "messages": (
+                    Message(
+                        id="system",
+                        role="system",
+                        content=(
+                            TextBlock(id="instruction", type="text", text=system_instruction),
+                        ),
+                    ),
+                    *view.messages,
+                )
+            }
+        )
+    instruction = system_instruction or "You are a helpful assistant."
     metadata = {
         "inference_config": {**cfg.model_dump(mode="json"), "speech_reference_text": "Reference."},
         "reference_file": "audio-0.wav",
@@ -199,9 +225,18 @@ def test_native_speech_request_uses_only_reference_and_user_text(runtime):
         metadata=metadata,
     )
     assert result["input"] == "Hello world."
-    assert result["ref_text"] == "You are a helpful assistant.<|endofprompt|>Reference."
+    assert result["ref_text"] == instruction + "<|endofprompt|>Reference."
     assert result["ref_audio"].startswith("data:audio/wav;base64,")
     assert result["max_new_tokens"] == 128
+    sglang = build_speech_request(
+        {"instructions": "must be replaced by inference-visible conditioning"},
+        view=view,
+        resolver=LocalMediaResolver(root / "data"),
+        metadata={**metadata, "_serving_backend": "sglang-omni"},
+    )
+    assert sglang["ref_text"] == result["ref_text"]
+    assert "instructions" not in sglang
+    assert sglang["ref_audio"] == result["ref_audio"]
     metadata["inference_config"]["speech_reference_text"] = ""
     with pytest.raises(OmniFactoryError, match="literal transcript"):
         build_speech_request({}, view=view, resolver=None, metadata=metadata)

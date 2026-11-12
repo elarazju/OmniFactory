@@ -1,0 +1,30 @@
+# Requires the complete native checkpoint including assets/token2wav.
+# Both text-only and text+audio requests use this single-GPU speech pipeline.
+config_cls: MiniCPMOSpeechPipelineConfig
+model_path: outputs/minicpm-o-4_5-sglang
+stages:
+  preprocessing:
+    factory:
+      max_concurrency: 1
+  thinker:
+    factory:
+      max_seq_len: 8192
+      enable_async_decode: false
+    engine:
+      max_running_requests: 1
+      mem_fraction_static: 0.35
+      disable_cuda_graph: true
+  talker:
+    factory:
+      max_seq_len: 4096
+    engine:
+      max_running_requests: 1
+      mem_fraction_static: 0.1
+      disable_cuda_graph: true
+  code2wav:
+    factory:
+      max_batch_size: 1
+      enable_flow_cuda_graph: false
+      enable_dit_torch_compile: false
+      enable_hift_torch_compile: false
+      enable_flow_block_compile: false

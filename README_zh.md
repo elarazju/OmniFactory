@@ -125,7 +125,7 @@ uv run --extra train omnifactory export \
   --output outputs/qwen-export --format merged
 ```
 
-请使用自己训练产生的检查点路径。导出格式包括 `merged`、`understanding` 和 `vllm-omni`，具体取决于适配器支持范围。语音流水线需要完整基座权重与解码资产。原生文本/语音/图像推理、服务配置和导出校验见[导出与部署指南](docs/deployment.md)。
+请使用自己训练产生的检查点路径。导出格式包括 `merged`、`understanding` 和 `vllm-omni`，具体取决于适配器支持范围；Qwen3-Omni、MiniCPM-o 4.5、Qwen3-TTS CustomVoice、CosyVoice3 和 PersonaPlex 还支持 `sglang-omni`，前提条件和验收范围见部署指南。语音流水线需要完整基座权重与解码资产。原生文本/语音/图像推理、服务配置和导出校验见[导出与部署指南](docs/deployment.md)。
 
 ## 使用文档
 

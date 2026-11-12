@@ -43,15 +43,32 @@ def test_models_are_not_marked_as_training_verified():
     assert {e["id"] for e in duplex["verification_records"]} == {
         "personaplex-v1",
         "personaplex-realtime-v2",
+        "sglang-personaplex-realtime-v1",
     }
     editing = next(r for r in rows if r["key"] == "qwen_image_edit")
     assert {e["kind"] for e in editing["verification_records"]} == {"native", "http"}
     assert editing["runtime_verification"] == "tiny_random_cpu"
     cosy = next(r for r in rows if r["key"] == "cosyvoice3")
-    assert len(cosy["verification_records"]) == 4
+    assert {e["id"] for e in cosy["verification_records"]} == {
+        "cosyvoice3-speech-v2",
+        "cosyvoice3-speech-http-v1",
+        "cosyvoice3-flow-v2",
+        "cosyvoice3-flow-http-v1",
+        "sglang-cosyvoice3-speech-http-v1",
+        "sglang-cosyvoice3-flow-http-v1",
+    }
     pending = next(r for r in rows if r["key"] == "qwen3_tts")
     assert {e["kind"] for e in pending["verification_records"]} == {"native", "http"}
     assert pending["status"] == "experimental_adapter"
+    assert any(
+        e["id"] == "sglang-qwen3-tts-http-v1" and e["backend"] == "sglang-omni"
+        for e in pending["verification_records"]
+    )
+    assert {
+        r["key"]
+        for r in rows
+        if any(e.get("backend") == "sglang-omni" for e in r["verification_records"])
+    } == {"qwen3_tts", "qwen3_omni", "minicpm_o_4_5", "cosyvoice3", "personaplex"}
     assert all(e["model_key"] == r["key"] for r in rows for e in r["verification_records"])
     assert (
         next(r for r in rows if r["key"] == "qwen2_5_omni_3b")["runtime_verification"]
@@ -230,8 +247,20 @@ def test_environment_capture_resolves_active_distribution(tmp_path, monkeypatch)
 
 
 def test_deploy_validation_accepts_audio_bound(monkeypatch):
-    def validate(model, dataset, output, executable, deploy_config, *, max_audio_units):
-        return {"max_audio_units": max_audio_units}
+    def validate(
+        model,
+        dataset,
+        output,
+        executable,
+        deploy_config,
+        *,
+        max_audio_units,
+        backend,
+        startup_timeout,
+    ):
+        return dict(
+            max_audio_units=max_audio_units, backend=backend, startup_timeout=startup_timeout
+        )
 
     monkeypatch.setattr("omnifactory.serving.validate_deployment", validate)
     result = runner.invoke(
@@ -254,4 +283,31 @@ def test_deploy_validation_accepts_audio_bound(monkeypatch):
         ],
     )
     assert result.exit_code == 0, result.output
-    assert json.loads(result.stdout) == {"max_audio_units": 256}
+    assert json.loads(result.stdout) == dict(
+        max_audio_units=256, backend="vllm-omni", startup_timeout=300
+    )
+    result = runner.invoke(
+        app,
+        [
+            "deploy",
+            "validate",
+            "--model",
+            "export",
+            "--dataset",
+            "data.jsonl",
+            "--output",
+            "probe",
+            "--executable",
+            "sgl-omni",
+            "--deploy-config",
+            "deploy.yaml",
+            "--backend",
+            "sglang-omni",
+            "--startup-timeout",
+            "900",
+        ],
+    )
+    assert result.exit_code == 0, result.output
+    assert json.loads(result.stdout) == dict(
+        max_audio_units=128, backend="sglang-omni", startup_timeout=900
+    )

@@ -28,6 +28,8 @@ def diagnose(config=None):
         "sentencepiece",
         "vllm",
         "vllm-omni",
+        "sglang",
+        "sglang-omni",
     ):
         try:
             packages[name] = version(name)

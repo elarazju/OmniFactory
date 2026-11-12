@@ -1,0 +1,12 @@
+# Native full-duplex WebSocket sessions. Direct sgl-omni launches need --enable-realtime.
+# deploy validate replaces model_path with the verified --model directory.
+config_cls: PersonaPlexSessionPipelineConfig
+model_path: outputs/personaplex-sglang
+max_sessions: 1
+stages:
+  lm:
+    factory:
+      depformer_cuda_graph_batch_sizes: [1, 2]
+    engine:
+      max_running_requests: 2
+      mem_fraction_static: 0.3

@@ -1,0 +1,29 @@
+# Complete native export: understanding and speech share this single-GPU pipeline.
+# Pinned upstream H20 placement budgets; change all budgets together for other GPUs.
+config_cls: Qwen3OmniSpeechColocatedPipelineConfig
+model_path: outputs/qwen3-omni-sglang
+stages:
+  image_encoder:
+    gpu_memory_fraction: 0.025
+  audio_encoder:
+    gpu_memory_fraction: 0.025
+    factory:
+      enable_layer_cuda_graph: false
+  thinker:
+    gpu_memory_fraction: 0.75
+    factory:
+      max_seq_len: 8192
+    engine:
+      max_running_requests: 1
+      disable_cuda_graph: true
+  talker_ar:
+    gpu_memory_fraction: 0.12
+    factory:
+      max_seq_len: 8192
+    engine:
+      max_running_requests: 1
+      disable_cuda_graph: true
+  code2wav:
+    gpu_memory_fraction: 0.02
+    factory:
+      enable_cuda_graph: false

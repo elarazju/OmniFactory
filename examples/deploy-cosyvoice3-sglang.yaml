@@ -1,0 +1,20 @@
+# Complete speech_sft or flow_sft native export; requires the fun-cosyvoice3 extra.
+# deploy validate replaces model_path with the verified --model directory.
+config_cls: FunCosyVoice3PipelineConfig
+model_path: outputs/cosyvoice3-sglang
+stages:
+  tts_engine:
+    engine:
+      max_running_requests: 1
+      mem_fraction_static: 0.3
+      disable_cuda_graph: true
+      cuda_graph_backend_prefill: disabled
+  vocoder:
+    factory:
+      max_batch_size: 1
+      enable_flow_cuda_graph: false
+      enable_flow_prefix_cuda_graph: false
+      enable_flow_whole_history_cuda_graph: false
+      enable_hift_cuda_graph: false
+      enable_dit_torch_compile: false
+      flow_prefix_cache_gb: 0

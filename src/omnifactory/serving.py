@@ -20,6 +20,7 @@ from omnifactory.data.media import LocalMediaResolver
 from omnifactory.data.schema import inference_view
 from omnifactory.deployment import serving_messages
 from omnifactory.errors import OmniFactoryError
+from omnifactory.serving_backends import SGLANG_PROBES, deployment_config, server_command
 
 
 def http_request(url, body=None, timeout=600):
@@ -72,13 +73,28 @@ def multipart_request(url, fields, files, *, output, timeout=600):
         return response.status, response.read(), dict(response.headers)
 
 
-def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256, image_steps=16):
+def probe(
+    export,
+    dataset,
+    output,
+    url,
+    model,
+    *,
+    max_audio_units=128,
+    size=256,
+    image_steps=16,
+    backend="vllm-omni",
+):
     import numpy as np
     import soundfile as sf
     from PIL import Image
 
     artifact = verify_export(export)
     spec = adapter_spec(artifact["adapter"])
+    if backend == "sglang-omni" and artifact["adapter"] in SGLANG_PROBES:
+        return resolve(SGLANG_PROBES[artifact["adapter"]])(
+            export, dataset, output, url, model, max_audio_units=max_audio_units
+        )
     if spec.realtime_probe:
         return resolve(spec.realtime_probe)(
             export, dataset, output, url, model, max_audio_units=max_audio_units
@@ -87,9 +103,12 @@ def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256,
         raise OmniFactoryError("E_SERVE_STAGE", "stage-only export needs a native host pipeline")
     metadata = json.loads((Path(export) / "omnifactory_export.json").read_text())
     config = metadata["inference_config"]
-    modality = {"image_sft": "image", "speech_sft": "audio", "understanding_sft": "text"}.get(
-        config["task"]
-    )
+    modality = {
+        "image_sft": "image",
+        "speech_sft": "audio",
+        "flow_sft": "audio",
+        "understanding_sft": "text",
+    }.get(config["task"])
     if modality is None or modality not in spec.outputs:
         raise OmniFactoryError("E_SERVE_TASK", "unsupported exported task")
     output = Path(output)
@@ -143,7 +162,11 @@ def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256,
                         payload,
                         view=view,
                         resolver=resolver,
-                        metadata={**metadata, "_export_root": str(Path(export).resolve())},
+                        metadata={
+                            **metadata,
+                            "_export_root": str(Path(export).resolve()),
+                            "_serving_backend": backend,
+                        },
                     )
                 elif len(view.conditions) > 1:
                     raise OmniFactoryError("E_SERVE_CONDITION", "one reference recording supported")
@@ -198,6 +221,7 @@ def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256,
                 status=status,
                 headers=headers,
                 response_sha256=sha256(output / f"{name}.response"),
+                request_sha256=sha256(output / f"{name}.request.json"),
                 endpoint=endpoint,
             )
             if files is not None:
@@ -211,6 +235,15 @@ def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256,
                 (output / f"{name}.png").write_bytes(blob)
                 record.update(width=image.width, height=image.height)
             elif modality == "audio":
+                if backend == "sglang-omni" and endpoint == "/v1/audio/speech":
+                    finish_reason = {k.lower(): v for k, v in headers.items()}.get(
+                        "x-finish-reason"
+                    )
+                    if finish_reason != "stop":
+                        raise OmniFactoryError(
+                            "E_SERVE_INCOMPLETE", f"expected speech stop, got {finish_reason!r}"
+                        )
+                    record["finish_reason"] = finish_reason
                 blobs = [raw]
                 if endpoint.endswith("completions"):
                     blobs = []
@@ -247,44 +280,53 @@ def probe(export, dataset, output, url, model, *, max_audio_units=128, size=256,
         results=records,
         modality=modality,
         quality_verified=False,
+        backend=backend,
     )
 
 
 def validate_deployment(
-    export, dataset, output, executable, deploy_config, *, startup_timeout=300, max_audio_units=128
+    export,
+    dataset,
+    output,
+    executable,
+    deploy_config,
+    *,
+    backend="vllm-omni",
+    startup_timeout=300,
+    max_audio_units=128,
 ):
     """The process command binds HTTP evidence to the exact verified artifact."""
     export, output = Path(export).resolve(), Path(output).resolve()
     artifact = verify_export(export)
-    output.mkdir(parents=True, exist_ok=False)
+    dataset_digest = sha256(Path(dataset))
+    if backend == "sglang-omni" and artifact["adapter"] in {"qwen3_omni", "minicpm_o_4_5"}:
+        from omnifactory.adapters.sglang_omni import validate_omni_export
+
+        validate_omni_export(export, artifact["adapter"])
     with socket.socket() as listener:
         listener.bind(("127.0.0.1", 0))
         port = listener.getsockname()[1]
     model = "omnifactory-acceptance"
-    command = [
-        str(executable),
-        "serve",
-        str(export),
-        "--omni",
-        "--host",
-        "127.0.0.1",
-        "--port",
-        str(port),
-        "--served-model-name",
-        model,
-        "--trust-remote-code",
-        "--deploy-config",
-        str(Path(deploy_config).resolve()),
-        "--disable-log-stats",
-    ]
+    command = server_command(
+        backend,
+        executable,
+        export,
+        output / "deploy.yaml" if backend == "sglang-omni" else deploy_config,
+        adapter=artifact["adapter"],
+        port=port,
+        model=model,
+    )
+    config_bytes = deployment_config(backend, deploy_config, export, adapter=artifact["adapter"])
+    output.mkdir(parents=True, exist_ok=False)
     (output / "command.json").write_text(json.dumps(command, indent=2))
-    (output / "deploy.yaml").write_bytes(Path(deploy_config).read_bytes())
-    result = dict(status="failed", artifact_id=artifact["artifact_id"])
+    (output / "deploy.yaml").write_bytes(config_bytes)
+    result = dict(status="failed", artifact_id=artifact["artifact_id"], backend=backend)
+    process = None
     with (output / "server.log").open("w") as log:
-        process = subprocess.Popen(
-            command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True
-        )
         try:
+            process = subprocess.Popen(
+                command, stdout=log, stderr=subprocess.STDOUT, start_new_session=True
+            )
             deadline = time.monotonic() + startup_timeout
             url = f"http://127.0.0.1:{port}"
             while True:
@@ -300,23 +342,48 @@ def validate_deployment(
                     raise OmniFactoryError("E_SERVE_TIMEOUT", "server did not become ready")
                 time.sleep(1)
             result = probe(
-                export, dataset, output / "requests", url, model, max_audio_units=max_audio_units
+                export,
+                dataset,
+                output / "requests",
+                url,
+                model,
+                max_audio_units=max_audio_units,
+                backend=backend,
             )
             result["launch_command"] = command
         except Exception as exc:
+            result["status"] = "failed"
             result["error"] = str(exc)
             raise
         finally:
-            try:
-                os.killpg(process.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-            try:
-                process.wait(timeout=15)
-            except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL)
-                process.wait()
+            result["backend"] = backend
+            result["launch_command"] = command
+            result["deploy_config_sha256"] = sha256(output / "deploy.yaml")
+            if process is not None:
+                try:
+                    os.killpg(process.pid, signal.SIGTERM)
+                except ProcessLookupError:
+                    pass
+                try:
+                    process.wait(timeout=15)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
             result["server_log_sha256"] = sha256(output / "server.log")
+            result["dataset_sha256"] = dataset_digest
+            verification_error = None
+            if result["status"] == "passed":
+                try:
+                    final_artifact = verify_export(export)
+                    if final_artifact["artifact_id"] != artifact["artifact_id"]:
+                        raise OmniFactoryError("E_EXPORT_HASH", "artifact changed during serving")
+                    result["export_unchanged_after_serving"] = True
+                except Exception as exc:
+                    result["status"] = "failed"
+                    result["error"] = str(exc)
+                    verification_error = exc
             with atomic_writer(output / "acceptance.json") as stream:
                 stream.write(json.dumps(result, indent=2))
+            if verification_error is not None:
+                raise verification_error
     return result

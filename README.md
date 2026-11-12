@@ -125,7 +125,7 @@ uv run --extra train omnifactory export \
   --output outputs/qwen-export --format merged
 ```
 
-Use the checkpoint path from your own run. Export formats include `merged`, `understanding`, and `vllm-omni`, subject to the adapter's supported scope. Speech pipelines need complete base weights and decoder assets. See [Export and Deployment](docs/deployment.md) for native text/audio/image inference, server configurations, and export verification.
+Use the checkpoint path from your own run. Export formats include `merged`, `understanding`, and `vllm-omni`, subject to the adapter's supported scope. Qwen3-Omni, MiniCPM-o 4.5, Qwen3-TTS CustomVoice, CosyVoice3, and PersonaPlex also support `sglang-omni`; see the deployment guide for prerequisites and validation scope. Speech pipelines need complete base weights and decoder assets. See [Export and Deployment](docs/deployment.md) for native text/audio/image inference, server configurations, and export verification.
 
 ## Documentation
 

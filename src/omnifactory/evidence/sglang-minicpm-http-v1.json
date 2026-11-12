@@ -1,0 +1,276 @@
+{
+  "status": "passed",
+  "artifact_id": "3633341200edb6485817d0b8428c8ac80a86d33a46346dd4ab08f00cd82a5ad9",
+  "adapter": "minicpm_o_4_5",
+  "requests": 8,
+  "results": [
+    {
+      "sample_id": "validation-omni-0",
+      "request_id": "omnifactory-7e5d4ee969a9423c98d240f94a74be18",
+      "prediction_id": "p0",
+      "modality": "text",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:09 GMT",
+        "server": "uvicorn",
+        "content-length": "306",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "dc268cb092bc244caa8b066405097eed3e5d6530056e19abdc042d778f138f58",
+      "response_sha256": "e83bb3244de4dd4976d0033fe7707ade7503220a013e624c5d370ef82466b4a4",
+      "text": "100",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": []
+    },
+    {
+      "sample_id": "validation-omni-0",
+      "request_id": "omnifactory-0c2f6648beb84bd98c1ebdf7143b8ae9",
+      "prediction_id": "p0",
+      "modality": "audio",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:15 GMT",
+        "server": "uvicorn",
+        "content-length": "148943",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "3e7de0692d657530895d2cc3093cce29b00ced36d27ae30cdef3a50badf9e152",
+      "response_sha256": "392de02355d25249d210ae9fb0a13e7233fb779577690f5f643b24441b4134ca",
+      "text": "100",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": [
+        {
+          "path": "request-00001-0.wav",
+          "sha256": "c34643713ec37e7d867063a6c95a5523d91a7ff6abdc8aa4b15fba3ce404c4e1",
+          "sample_rate": 24000,
+          "audio_frames": 55680,
+          "channels": 1,
+          "codec_frames": 58.0,
+          "requested_codec_budget": 512
+        }
+      ]
+    },
+    {
+      "sample_id": "validation-omni-1",
+      "request_id": "omnifactory-8e66933f0dba497da54437865d982e60",
+      "prediction_id": "p0",
+      "modality": "text",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:23 GMT",
+        "server": "uvicorn",
+        "content-length": "335",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "f8c3cf8942eee5aa81ecf0ec0cd8920a6b6d6364ac44d2dabf4d4a2907dccd2f",
+      "response_sha256": "3c358bd7721b6d3ca0c48e28cd4d6bb91c03cfce9d6aee34fbe1ce8f967686c2",
+      "text": "The image is a solid blue color.",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": []
+    },
+    {
+      "sample_id": "validation-omni-1",
+      "request_id": "omnifactory-6dc80876c2544ce485d2a27e52be8482",
+      "prediction_id": "p0",
+      "modality": "audio",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:24 GMT",
+        "server": "uvicorn",
+        "content-length": "218122",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "d5e4a4753cd46cc1409e0cc18e420174a7fd0a0e92c991cdd52386f883d4b603",
+      "response_sha256": "ed76bbe83ed7e0d05b9c4b6db8927b14c83c1712a13dabf8bd8105c24f5d0834",
+      "text": "The image is a solid blue color.",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": [
+        {
+          "path": "request-00003-0.wav",
+          "sha256": "62aec3fd9b1fe6cd811466cc275d7cd261337a527ecfa25ec2a24bf483c9c0b3",
+          "sample_rate": 24000,
+          "audio_frames": 81600,
+          "channels": 1,
+          "codec_frames": 85.0,
+          "requested_codec_budget": 512
+        }
+      ]
+    },
+    {
+      "sample_id": "validation-omni-2",
+      "request_id": "omnifactory-fd719af62e1e49ffbcf50784154e136a",
+      "prediction_id": "p0",
+      "modality": "text",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:26 GMT",
+        "server": "uvicorn",
+        "content-length": "307",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "cca0cde544a89977567aa01dfd2c3da1de215e3768403b45b0412b236f93dd86",
+      "response_sha256": "ea12435569a7ac7d67ffe5ffbd3fbc11b67c5cf05c5282f9b280119aaf615267",
+      "text": "high",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": []
+    },
+    {
+      "sample_id": "validation-omni-2",
+      "request_id": "omnifactory-fcb0f463b06b4a03be8267cab7e5fdec",
+      "prediction_id": "p0",
+      "modality": "audio",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:26 GMT",
+        "server": "uvicorn",
+        "content-length": "128465",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "9695dae41021f273ad040e1a3bccac6eb18f91a6fb8574dee68e2ffe61f35769",
+      "response_sha256": "ca61848e9960221304e3a4fb747cf962e9b05f4fa6f9994f29a679a87ea21682",
+      "text": "high",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": [
+        {
+          "path": "request-00005-0.wav",
+          "sha256": "e6ca8fd41270ff50162310f6374951d0848a07df20554971fe0949ce59a9942f",
+          "sample_rate": 24000,
+          "audio_frames": 48000,
+          "channels": 1,
+          "codec_frames": 50.0,
+          "requested_codec_budget": 512
+        }
+      ]
+    },
+    {
+      "sample_id": "validation-omni-3",
+      "request_id": "omnifactory-2f612e07c73f4629b30f7197566e1c20",
+      "prediction_id": "p0",
+      "modality": "text",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:27 GMT",
+        "server": "uvicorn",
+        "content-length": "364",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "cec98cb9779a1cc0273f043d497637d322f67ffaa7a590ac99e9653943a8ebd5",
+      "response_sha256": "f3f936cb63c082985985f6a2834137dccbe0c813ef368adc6ebec0218c444db0",
+      "text": "The video shows a blue background and a high-pitched sound.",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": []
+    },
+    {
+      "sample_id": "validation-omni-3",
+      "request_id": "omnifactory-70992b56eebe456b8a53c00700bcb092",
+      "prediction_id": "p0",
+      "modality": "audio",
+      "endpoint": "/v1/chat/completions",
+      "status": 200,
+      "headers": {
+        "date": "Thu, 12 Nov 2026 08:06:28 GMT",
+        "server": "uvicorn",
+        "content-length": "223297",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "Connection": "close"
+      },
+      "request_sha256": "f329a2f695576ebd0d43547be4bb9e857a73779da7e883f6c55741649ca12d44",
+      "response_sha256": "3941b0f4b3cfd751eb37a66f0063e832d5c0a1f293a2f3c9291f8053ad591be5",
+      "text": "The video shows a blue background and a high-pitched sound.",
+      "finish_reasons": [
+        "stop"
+      ],
+      "finish_reason_scope": "thinker",
+      "audio": [
+        {
+          "path": "request-00007-0.wav",
+          "sha256": "804e44c64bf6d71ed7fdfa05fc092956f6888f51156c3d5550016047bbad2096",
+          "sample_rate": 24000,
+          "audio_frames": 83520,
+          "channels": 1,
+          "codec_frames": 87.0,
+          "requested_codec_budget": 512
+        }
+      ]
+    }
+  ],
+  "quality_verified": false,
+  "audio_completion_verified": false,
+  "backend": "sglang-omni",
+  "launch_command": [
+    "<tmp>/omnifactory-sglang-20261112/bin/sgl-omni",
+    "serve",
+    "--model-path",
+    "<workdir>/results/sglang-expansion-20261112/minicpm-export",
+    "--config",
+    "<workdir>/results/sglang-expansion-20261112/minicpm-attempt1/deploy.yaml",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "43437",
+    "--model-name",
+    "omnifactory-acceptance"
+  ],
+  "deploy_config_sha256": "75365350a9ef95118dd3fa4722c6eb8ae219a54a0045d3af853b366d756e13b8",
+  "server_log_sha256": "5769535824cfd66519a61c809320bdb6fd9910ce4f97401291d557b5a146476c",
+  "dataset_sha256": "1e4a5df0bab603d949598042f5f787ebc0ec2b0e04dcb7339aa14bfbea40bcd1",
+  "export_unchanged_after_serving": true,
+  "source_report_sha256": "ddd1c9c2e54e363675e16d2b8bb5c50361b4b35749ff4034dd732d8ef33268a2",
+  "runtime": {
+    "sglang_omni_revision": "eeb418d210bde215ca3905b5aa0519dad43746d9",
+    "python": "3.12.13",
+    "gpu": "NVIDIA H20-3e",
+    "packages": {
+      "sglang-omni": "0.2.0",
+      "sglang": "0.5.23",
+      "torch": "2.14.1",
+      "transformers": "5.19.0",
+      "qwen-tts": "0.1.1",
+      "ffmpeg": "9.0.2",
+      "torchcodec": "0.17.0"
+    }
+  }
+}

@@ -306,7 +306,7 @@ def export_personaplex(checkpoint, output, *, format=None):
     from omnifactory.training.engine import load_checkpoint
     from omnifactory.training.policy import merge_lora
 
-    if format not in (None, "merged", "vllm-omni"):
+    if format not in (None, "merged", "vllm-omni", "sglang-omni"):
         raise OmniFactoryError("E_EXPORT_FORMAT", "PersonaPlex requires native complete export")
     model, adapter, config, metadata = load_checkpoint(checkpoint, for_export=True)
     model = merge_lora(model).to(torch.bfloat16)
@@ -326,6 +326,11 @@ def export_personaplex(checkpoint, output, *, format=None):
                 shutil.copytree(source, root / name)
             elif source.is_file():
                 shutil.copy2(source, root / name)
+        if format == "sglang-omni":
+            # SGLang otherwise unpacks voices on first use, mutating the sealed export.
+            from omnifactory.adapters.personaplex_sglang_assets import unpack_voices
+
+            unpack_voices(root)
         save_file(
             {k: v.detach().cpu().contiguous() for k, v in model.state_dict().items()},
             root / "model.safetensors",
@@ -350,4 +355,7 @@ def validate_export(root, metadata):
     for name in (MIMI_NAME, TEXT_TOKENIZER_NAME):
         if not (root / name).is_file():
             raise OmniFactoryError("E_EXPORT_ASSET", "missing frozen PersonaPlex asset: " + name)
-    read_voice(root, metadata["inference_config"]["personaplex_voice"])
+    voice = metadata["inference_config"]["personaplex_voice"]
+    if metadata.get("format") == "sglang-omni" and not (root / "voices" / voice).is_file():
+        raise OmniFactoryError("E_EXPORT_ASSET", "SGLang-Omni requires an unpacked selected voice")
+    read_voice(root, voice)
